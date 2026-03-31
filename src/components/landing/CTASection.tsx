@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Responsive Modes:
  * - Desktop (>=1024px): Wide banner with gradient bg, centered text, large CTA
@@ -5,7 +7,6 @@
  * - Portrait (320-567px): Full-width, stacked, larger touch targets
  */
 
-'use client';
 
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';

@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * ArtSearch — Multifaceted Search & Discovery System
  *
@@ -23,7 +25,6 @@
  * debounced search. Zero external dependencies.
  */
 
-'use client';
 
 import { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';

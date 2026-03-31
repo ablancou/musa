@@ -77,7 +77,7 @@ export function useAuth(): UseAuthReturn {
   useEffect(() => {
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (event, session) => {
+    } = supabase.auth.onAuthStateChange(async (event: string, session: any) => {
       if (event === 'SIGNED_IN' && session?.user) {
         const { data: profile } = await supabase
           .from('profiles')

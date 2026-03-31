@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Responsive Modes:
  * - Desktop (>=1024px): Modal centered, 2-column login/register form layout
@@ -5,7 +7,6 @@
  * - Portrait (320-567px): Full-height modal, stacked form with large touch targets
  */
 
-'use client';
 
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';

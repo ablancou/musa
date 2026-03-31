@@ -7,6 +7,7 @@
  */
 
 import type { Museum } from './types';
+export type { Museum } from './types';
 
 export const MUSEUMS: Museum[] = [
   // ═══════════════════════════════════════════

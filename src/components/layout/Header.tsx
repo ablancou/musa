@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Responsive Modes:
  * - Desktop (>=1024px): Full nav bar with logo, nav links, language selector, CTA button
@@ -5,7 +7,6 @@
  * - Portrait (320-567px): Logo centered + hamburger, nav in bottom sheet
  */
 
-'use client';
 
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';

@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * GalleryWalk — The Museum Walk Experience
  *
@@ -18,7 +20,6 @@
  * Rijksmuseum, National Gallery of Art. Zero paid resources.
  */
 
-'use client';
 
 import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';

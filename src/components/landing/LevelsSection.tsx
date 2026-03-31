@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Responsive Modes:
  * - Desktop (>=1024px): Horizontal path with connected level cards
@@ -5,7 +7,6 @@
  * - Portrait (320-567px): Vertical stack with connecting line
  */
 
-'use client';
 
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';

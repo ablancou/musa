@@ -1,4 +1,7 @@
-'use client';
+/**
+ * Landing Page — Server Component
+ * Imports client components for interactive sections
+ */
 
 import { Suspense } from 'react';
 import { Header } from '@/components/layout/Header';
@@ -7,6 +10,8 @@ import { HeroSection } from '@/components/landing/HeroSection';
 import { FeaturesSection } from '@/components/landing/FeaturesSection';
 import { LevelsSection } from '@/components/landing/LevelsSection';
 import { CTASection } from '@/components/landing/CTASection';
+
+export const dynamic = 'force-dynamic';
 
 function LoadingFallback() {
   return (
@@ -35,5 +40,3 @@ export default function LandingPage() {
     </Suspense>
   );
 }
-
-export const dynamic = 'force-dynamic';

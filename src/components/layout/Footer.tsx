@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Responsive Modes:
  * - Desktop (>=1024px): 4-column grid with logo, links, languages, social
@@ -5,7 +7,6 @@
  * - Portrait (320-567px): Single stacked column, centered
  */
 
-'use client';
 
 import { useTranslation } from 'react-i18next';
 import { Sparkles } from 'lucide-react';

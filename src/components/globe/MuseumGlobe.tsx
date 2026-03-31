@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * MuseumGlobe — The World's Museums on a 3D Globe
  *
@@ -21,7 +23,6 @@
  * custom shaders for atmosphere glow. Zero paid resources.
  */
 
-'use client';
 
 import { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';

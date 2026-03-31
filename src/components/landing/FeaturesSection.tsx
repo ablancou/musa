@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Responsive Modes:
  * - Desktop (>=1024px): 3-column grid of feature cards
@@ -5,7 +7,6 @@
  * - Portrait (320-567px): Single column, horizontal scroll optional
  */
 
-'use client';
 
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';

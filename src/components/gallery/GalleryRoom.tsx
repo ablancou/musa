@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * GalleryRoom — A CSS 3D Museum Room
  *
@@ -21,7 +23,6 @@
  * All images from public domain sources (Wikimedia Commons, Met Open Access, etc.)
  */
 
-'use client';
 
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';

@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Responsive Modes:
  * - Desktop (>=1024px): Two-column layout — text left, artwork showcase right with floating cards
@@ -5,7 +7,6 @@
  * - Portrait (320-567px): Full-width stacked, large typography, prominent CTA
  */
 
-'use client';
 
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';

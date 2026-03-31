@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * ImmersiveExperience — The Crown Jewel of MŪSA
  *
@@ -28,7 +30,6 @@
  * CSS backdrop-filter. Zero paid resources.
  */
 
-'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';

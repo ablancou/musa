@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Responsive Modes:
  * - Desktop (>=1024px): Dropdown in header, shows flag + language name
@@ -5,7 +7,6 @@
  * - Portrait (320-567px): Full-screen modal selector for easy touch targets
  */
 
-'use client';
 
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';

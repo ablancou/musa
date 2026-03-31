@@ -1,9 +1,14 @@
-'use client';
+/**
+ * Timeline Page — Server Component
+ * Interactive 4,000-year art history timeline
+ */
 
 import { Suspense } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { TimelineView } from '@/components/timeline/TimelineView';
+
+export const dynamic = 'force-dynamic';
 
 function TimelineLoading() {
   return (
@@ -29,5 +34,3 @@ export default function TimelinePage() {
     </div>
   );
 }
-
-export const dynamic = 'force-dynamic';

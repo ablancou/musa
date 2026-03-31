@@ -1,8 +1,13 @@
-'use client';
+/**
+ * Gallery Page — Server Component
+ * The Museum Walk experience
+ */
 
 import { Suspense } from 'react';
 import { Header } from '@/components/layout/Header';
 import { GalleryWalk } from '@/components/gallery/GalleryWalk';
+
+export const dynamic = 'force-dynamic';
 
 function GalleryLoading() {
   return (
@@ -29,5 +34,3 @@ export default function GalleryPage() {
     </div>
   );
 }
-
-export const dynamic = 'force-dynamic';

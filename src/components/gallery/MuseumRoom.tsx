@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * MuseumRoom — Antechamber of a Real-World Museum
  *
@@ -23,7 +25,6 @@
  * All images from public domain sources.
  */
 
-'use client';
 
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -48,7 +49,7 @@ import { cn } from '@/lib/utils/cn';
 
 // ─── Check if artwork has immersive narration ───
 function hasNarration(artwork: Artwork): boolean {
-  const key = artwork.id.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+  const key = artwork.id.replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase());
   // Also check the titleKey approach
   const titleShortKey = artwork.titleKey.split('.').pop() || '';
   return key in ARTWORK_NARRATIONS || titleShortKey in ARTWORK_NARRATIONS;

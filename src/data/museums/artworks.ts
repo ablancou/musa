@@ -22,6 +22,7 @@
  */
 
 import type { Artwork } from './types';
+export type { Artwork } from './types';
 
 export const ARTWORKS: Artwork[] = [
   // ═══════════════════════════════════════════════════════

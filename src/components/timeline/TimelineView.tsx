@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Responsive Modes:
  * - Desktop (>=1024px): Horizontal scroll with full artwork cards, era bands,
@@ -7,7 +9,6 @@
  *   Each era shows its key artworks in a horizontal mini-carousel.
  */
 
-'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';

@@ -1,11 +1,14 @@
 /**
- * Search Page — Multifaceted Art Discovery
+ * Search Page — Server Component
+ * Multifaceted Art Discovery
  * Browse by movement, date, artist, museum, or technique
  */
 
 import { Suspense } from 'react';
 import { Header } from '@/components/layout/Header';
 import { ArtSearch } from '@/components/search/ArtSearch';
+
+export const dynamic = 'force-dynamic';
 
 export default function SearchPage() {
   return (
@@ -23,5 +26,3 @@ export default function SearchPage() {
     </>
   );
 }
-
-export const dynamic = 'force-dynamic';
