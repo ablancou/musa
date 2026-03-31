@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "Home",
+    "lessons": "Lessons",
+    "timeline": "Timeline",
+    "compare": "Compare",
+    "community": "Community",
+    "profile": "Profile",
+    "achievements": "Achievements",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "logout": "Sign Out"
+  },
+  "footer": {
+    "tagline": "Where art comes alive",
+    "about": "About MŪSA",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact Us",
+    "languages": "Languages",
+    "copyright": "© 2026 MŪSA. All rights reserved."
+  },
+  "levels": {
+    "starter": "Starter",
+    "explorer": "Explorer",
+    "enthusiast": "Enthusiast",
+    "connoisseur": "Connoisseur"
+  },
+  "actions": {
+    "start": "Start",
+    "continue": "Continue",
+    "explore": "Explore",
+    "share": "Share",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "seeMore": "See More",
+    "loading": "Loading..."
+  },
+  "language": {
+    "selector": "Language",
+    "current": "English"
+  },
+  "immersive": {
+    "listenStory": "Listen to the Story",
+    "musicConnection": "Musical Connection",
+    "listenAgain": "Listen Again",
+    "backToGallery": "Back to Gallery",
+    "narrating": "Narrating...",
+    "tapToListen": "Tap to listen to the story",
+    "voiceNotAvailable": "Voice narration not available in this browser"
+  },
+  "gallery": {
+    "title": "The Museum of Museums",
+    "subtitle": "Walk through the most impressive rooms in art history",
+    "room": "Room",
+    "enterRoom": "Enter the Room",
+    "exploreEra": "Explore this Era",
+    "viewFull": "View Full Image",
+    "musicConnection": "Musical Connection",
+    "useArrowKeys": "Use arrow keys to navigate",
+    "swipeToNavigate": "Swipe to change rooms",
+    "artworksInRoom": "{{count}} artworks in this room",
+    "tapToExplore": "Tap an artwork to explore",
+    "loading": "Entering the museum..."
+  }
+}

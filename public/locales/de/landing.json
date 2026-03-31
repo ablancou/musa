@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "title": "Kunst wie Sie sie noch nie erlebt haben",
+    "subtitle": "4.000 Jahre Kunstgeschichte in einem immersiven Erlebnis. Filmische Erzählung, die Musik jeder Epoche und interaktive Werkzeuge, die das Lernen transformieren.",
+    "cta": "Kostenlos Starten",
+    "ctaSecondary": "Lektionen Erkunden",
+    "badge": "Die #1 Kunstplattform"
+  },
+  "features": {
+    "title": "Ein Beispielloses Lernerlebnis",
+    "subtitle": "Werkzeuge, die keine andere Plattform bietet",
+    "narrative": {
+      "title": "Filmische Erzählung",
+      "description": "Jede Lektion ist eine Geschichte mit Charakteren, Konflikten und emotionalen Wendungen. Nicht nur Fakten: gelebte Erfahrungen."
+    },
+    "music": {
+      "title": "Kunst + Musik",
+      "description": "Entdecken Sie die tiefe Verbindung zwischen jeder Kunstbewegung und ihrem musikalischen Äquivalent."
+    },
+    "timeline": {
+      "title": "Interaktive Zeitleiste",
+      "description": "4.000 Jahre Kunstgeschichte in einer visuellen Reise. Filtern Sie nach Region, Bewegung oder Künstler."
+    },
+    "compare": {
+      "title": "Vergleichswerkzeug",
+      "description": "Vergleichen Sie zwei Kunstwerke nebeneinander mit Einblicken in Technik, Farbpalette und Kontext."
+    },
+    "ai": {
+      "title": "KI-Assistent",
+      "description": "Ein intelligenter Begleiter, der Ihre Fragen während jeder Lektion beantwortet."
+    },
+    "gamification": {
+      "title": "Lernen durch Spielen",
+      "description": "Tägliche Serien, freilegbare Level, Herausforderungen und Zertifikate für jede meisterte Epoche."
+    }
+  },
+  "levels": {
+    "title": "Vom Anfänger zum Kunstkenner",
+    "subtitle": "Ein klarer Weg von Ihrem ersten Meisterwerk zur Beherrschung der Kunstgeschichte",
+    "starter": {
+      "name": "Anfänger",
+      "description": "Keine Vorkenntnisse erforderlich. Wir beginnen mit den ikonischsten Werken der Welt."
+    },
+    "explorer": {
+      "name": "Entdecker",
+      "description": "Sie kennen die Grundlagen. Vertiefen Sie Bewegungen und Künstlerverbindungen."
+    },
+    "enthusiast": {
+      "name": "Begeisterter",
+      "description": "Sie beherrschen mehrere Epochen. Analysieren Sie Techniken, Einflüsse und historische Kontexte."
+    },
+    "connoisseur": {
+      "name": "Kunstkenner",
+      "description": "Fortgeschrittenes Niveau. Kritische Diskussionen, vergleichende Analyse und Zertifizierung."
+    }
+  },
+  "cta": {
+    "title": "Beginnen Sie Ihre künstlerische Reise Heute",
+    "subtitle": "Kostenlos. Keine Kreditkarte erforderlich. In Ihrer Sprache.",
+    "button": "Kostenloses Konto Erstellen"
+  },
+  "stats": {
+    "artworks": "Kunstwerke",
+    "years": "Jahre Geschichte",
+    "languages": "Sprachen",
+    "free": "100% Kostenlos zum Starten"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "lesson": {
+    "difficulty": {
+      "starter": "初級者",
+      "explorer": "探検者",
+      "enthusiast": "愛好家",
+      "connoisseur": "鑑定家"
+    },
+    "duration": "{{minutes}}分の読書時間",
+    "era": "時代",
+    "artist": "アーティスト",
+    "startLesson": "レッスンを開始",
+    "continueLesson": "続行",
+    "completed": "レッスン完了",
+    "nextLesson": "次のレッスン",
+    "previousLesson": "前のレッスン",
+    "progress": "進捗",
+    "minuteRead": "{{minutes}}分の読書時間"
+  },
+  "quiz": {
+    "question": "質問{{current}}（全{{total}}問）",
+    "correct": "正解！",
+    "incorrect": "もう少しです…",
+    "explanation": "説明",
+    "score": "スコア",
+    "xpEarned": "+{{xp}} XP",
+    "perfect": "満点です！",
+    "complete": "レッスン完了",
+    "tryAgain": "もう一度試す",
+    "seeResults": "結果を表示",
+    "continue": "続行"
+  },
+  "music": {
+    "connection": "音楽的なつながり",
+    "listen": "聴く",
+    "relatedTo": "関連する",
+    "composer": "作曲家",
+    "piece": "作品"
+  },
+  "navigation": {
+    "back": "戻る",
+    "next": "次へ",
+    "relatedArtworks": "関連する作品",
+    "musicConnections": "音楽的なつながり"
+  }
+}

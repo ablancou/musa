@@ -1,0 +1,17 @@
+{
+  "gallery": {
+    "title": "博物馆中的博物馆",
+    "subtitle": "漫步于艺术史上最令人印象深刻的展厅",
+    "room": "展厅",
+    "enterRoom": "进入展厅",
+    "exploreEra": "探索此时代",
+    "viewFull": "查看完整图像",
+    "musicConnection": "音乐联系",
+    "useArrowKeys": "使用箭头键导航",
+    "swipeToNavigate": "滑动切换展厅",
+    "artworksInRoom": "此展厅中有{{count}}件艺术作品",
+    "artistsInRoom": "{{count}}位艺术家",
+    "tapToExplore": "点击作品进行探索",
+    "loading": "正在进入博物馆..."
+  }
+}

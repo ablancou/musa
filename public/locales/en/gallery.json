@@ -1,0 +1,17 @@
+{
+  "gallery": {
+    "title": "The Museum of Museums",
+    "subtitle": "Walk through the most impressive rooms in the history of art",
+    "room": "Room",
+    "enterRoom": "Enter the Room",
+    "exploreEra": "Explore This Era",
+    "viewFull": "View Full Image",
+    "musicConnection": "Musical Connection",
+    "useArrowKeys": "Use arrow keys to navigate",
+    "swipeToNavigate": "Swipe to change rooms",
+    "artworksInRoom": "{{count}} artworks in this room",
+    "artistsInRoom": "{{count}} artists",
+    "tapToExplore": "Tap an artwork to explore it",
+    "loading": "Entering the museum..."
+  }
+}

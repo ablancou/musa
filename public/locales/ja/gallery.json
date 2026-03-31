@@ -1,0 +1,17 @@
+{
+  "gallery": {
+    "title": "美術館の中の美術館",
+    "subtitle": "美術史上最も素晴らしい展示室をご見学ください",
+    "room": "展示室",
+    "enterRoom": "展示室に入る",
+    "exploreEra": "この時代を探索する",
+    "viewFull": "フル画像を表示",
+    "musicConnection": "音楽との関連",
+    "useArrowKeys": "矢印キーで操作してください",
+    "swipeToNavigate": "スワイプして展示室を切り替え",
+    "artworksInRoom": "この展示室には{{count}}点の作品があります",
+    "artistsInRoom": "{{count}}人の美術家",
+    "tapToExplore": "作品をタップして詳しく見る",
+    "loading": "美術館に入館しています..."
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "lesson": {
+    "difficulty": {
+      "starter": "Principiante",
+      "explorer": "Esploratore",
+      "enthusiast": "Appassionato",
+      "connoisseur": "Conoscitore"
+    },
+    "duration": "{{minutes}} min di lettura",
+    "era": "Era",
+    "artist": "Artista",
+    "startLesson": "Inizia Lezione",
+    "continueLesson": "Continua",
+    "completed": "Lezione Completata",
+    "nextLesson": "Prossima Lezione",
+    "previousLesson": "Lezione Precedente",
+    "progress": "Progresso",
+    "minuteRead": "{{minutes}} min di lettura"
+  },
+  "quiz": {
+    "question": "Domanda {{current}} di {{total}}",
+    "correct": "Corretto!",
+    "incorrect": "Non esattamente...",
+    "explanation": "Spiegazione",
+    "score": "Punteggio",
+    "xpEarned": "+{{xp}} XP",
+    "perfect": "Punteggio Perfetto!",
+    "complete": "Lezione Completata",
+    "tryAgain": "Riprova",
+    "seeResults": "Vedi Risultati",
+    "continue": "Continua"
+  },
+  "music": {
+    "connection": "Connessione Musicale",
+    "listen": "Ascolta",
+    "relatedTo": "Correlato a",
+    "composer": "Compositore",
+    "piece": "Opera"
+  },
+  "navigation": {
+    "back": "Precedente",
+    "next": "Successivo",
+    "relatedArtworks": "Opere Correlate",
+    "musicConnections": "Connessioni Musicali"
+  }
+}

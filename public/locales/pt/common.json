@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "Início",
+    "lessons": "Aulas",
+    "timeline": "Linha do Tempo",
+    "compare": "Comparar",
+    "community": "Comunidade",
+    "profile": "Meu Perfil",
+    "achievements": "Conquistas",
+    "login": "Entrar",
+    "register": "Se Cadastrar",
+    "logout": "Sair"
+  },
+  "footer": {
+    "tagline": "Onde a arte ganha vida",
+    "about": "Sobre MŪSA",
+    "privacy": "Privacidade",
+    "terms": "Termos de Uso",
+    "contact": "Fale Conosco",
+    "languages": "Idiomas",
+    "copyright": "© 2026 MŪSA. Todos os direitos reservados."
+  },
+  "levels": {
+    "starter": "Iniciante",
+    "explorer": "Explorador",
+    "enthusiast": "Entusiasta",
+    "connoisseur": "Conhecedor"
+  },
+  "actions": {
+    "start": "Começar",
+    "continue": "Continuar",
+    "explore": "Explorar",
+    "share": "Compartilhar",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "seeMore": "Ver Mais",
+    "loading": "Carregando..."
+  },
+  "language": {
+    "selector": "Idioma",
+    "current": "Português"
+  },
+  "immersive": {
+    "listenStory": "Ouvir a História",
+    "musicConnection": "Conexão Musical",
+    "listenAgain": "Ouvir Novamente",
+    "backToGallery": "Voltar à Galeria",
+    "narrating": "Narrando...",
+    "tapToListen": "Toque para ouvir a história",
+    "voiceNotAvailable": "Narração por voz não disponível neste navegador"
+  },
+  "gallery": {
+    "title": "O Museu dos Museus",
+    "subtitle": "Caminhe pelas salas mais impressionantes da história da arte",
+    "room": "Sala",
+    "enterRoom": "Entrar na Sala",
+    "exploreEra": "Explorar esta Era",
+    "viewFull": "Ver Imagem Completa",
+    "musicConnection": "Conexão Musical",
+    "useArrowKeys": "Use as setas do teclado para navegar",
+    "swipeToNavigate": "Deslize para mudar de sala",
+    "artworksInRoom": "{{count}} obras nesta sala",
+    "tapToExplore": "Toque em uma obra para explorar",
+    "loading": "Entrando no museu..."
+  }
+}

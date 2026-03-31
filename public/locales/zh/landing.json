@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "title": "体验前所未有的艺术之旅",
+    "subtitle": "4000年艺术史浓缩在一次沉浸式体验中。电影般的叙述、各时代的音乐，以及改变学习方式的互动工具。",
+    "cta": "免费开始",
+    "ctaSecondary": "浏览课程",
+    "badge": "第一艺术学习平台"
+  },
+  "features": {
+    "title": "前所未有的学习体验",
+    "subtitle": "其他平台无法提供的工具",
+    "narrative": {
+      "title": "电影般的叙述",
+      "description": "每堂课都是一个完整的故事，有人物、冲突和情感转折。不仅仅是知识，而是活生生的体验。"
+    },
+    "music": {
+      "title": "艺术 + 音乐",
+      "description": "发现每个艺术运动与其音乐等价物之间的深层联系。"
+    },
+    "timeline": {
+      "title": "互动时间线",
+      "description": "4000年的艺术在视觉之旅中展现。按地区、运动或艺术家筛选。"
+    },
+    "compare": {
+      "title": "视觉对比工具",
+      "description": "并排比较两部作品，深入分析技法、色彩和背景。"
+    },
+    "ai": {
+      "title": "AI助手",
+      "description": "一位智能伙伴，在每堂课中回答您的所有问题。"
+    },
+    "gamification": {
+      "title": "游戏化学习",
+      "description": "每日连续登录、可解锁的级别、挑战和各时代的完成证书。"
+    }
+  },
+  "levels": {
+    "title": "从零基础到艺术鉴赏家",
+    "subtitle": "从欣赏第一件艺术作品到精通艺术史的清晰学习路径",
+    "starter": {
+      "name": "初学者",
+      "description": "无需任何先备知识。我们从世界上最具代表性的作品开始。"
+    },
+    "explorer": {
+      "name": "探索者",
+      "description": "您已掌握基础知识。深入探索艺术运动和艺术家之间的联系。"
+    },
+    "enthusiast": {
+      "name": "爱好者",
+      "description": "您已精通多个时期。分析技法、影响和历史背景。"
+    },
+    "connoisseur": {
+      "name": "鉴赏家",
+      "description": "高级水平。批评性讨论、对比分析和证书认证。"
+    }
+  },
+  "cta": {
+    "title": "今天开始您的艺术之旅",
+    "subtitle": "完全免费。无需信用卡。支持您的语言。",
+    "button": "创建免费账户"
+  },
+  "stats": {
+    "artworks": "艺术作品",
+    "years": "年的历史",
+    "languages": "种语言",
+    "free": "完全免费开始"
+  }
+}

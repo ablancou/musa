@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "Inizio",
+    "lessons": "Lezioni",
+    "timeline": "Linea del Tempo",
+    "compare": "Confronta",
+    "community": "Comunità",
+    "profile": "Profilo",
+    "achievements": "Traguardi",
+    "login": "Accedi",
+    "register": "Iscriviti",
+    "logout": "Esci"
+  },
+  "footer": {
+    "tagline": "Dove l'arte prende vita",
+    "about": "Chi Siamo",
+    "privacy": "Politica sulla Privacy",
+    "terms": "Condizioni d'Uso",
+    "contact": "Contattaci",
+    "languages": "Lingue",
+    "copyright": "© 2026 MŪSA. Tutti i diritti riservati."
+  },
+  "levels": {
+    "starter": "Principiante",
+    "explorer": "Esploratore",
+    "enthusiast": "Appassionato",
+    "connoisseur": "Intendente"
+  },
+  "actions": {
+    "start": "Inizia",
+    "continue": "Continua",
+    "explore": "Esplora",
+    "share": "Condividi",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "close": "Chiudi",
+    "next": "Successivo",
+    "previous": "Precedente",
+    "seeMore": "Vedi di Più",
+    "loading": "Caricamento..."
+  },
+  "language": {
+    "selector": "Lingua",
+    "current": "Italiano"
+  },
+  "immersive": {
+    "listenStory": "Ascolta la Storia",
+    "musicConnection": "Connessione Musicale",
+    "listenAgain": "Ascolta di Nuovo",
+    "backToGallery": "Torna alla Galleria",
+    "narrating": "Narrando...",
+    "tapToListen": "Tocca per ascoltare la storia",
+    "voiceNotAvailable": "Narrazione vocale non disponibile in questo browser"
+  },
+  "gallery": {
+    "title": "Il Museo dei Musei",
+    "subtitle": "Cammina attraverso le sale più impressionanti della storia dell'arte",
+    "room": "Sala",
+    "enterRoom": "Entra nella Sala",
+    "exploreEra": "Esplora quest'Era",
+    "viewFull": "Vedi Immagine Completa",
+    "musicConnection": "Connessione Musicale",
+    "useArrowKeys": "Usa le frecce della tastiera per navigare",
+    "swipeToNavigate": "Scorri per cambiare sala",
+    "artworksInRoom": "{{count}} opere in questa sala",
+    "tapToExplore": "Tocca un'opera per esplorarla",
+    "loading": "Entrando nel museo..."
+  }
+}

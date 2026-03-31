@@ -1,0 +1,17 @@
+{
+  "gallery": {
+    "title": "Das Museum der Museen",
+    "subtitle": "Gehen Sie durch die beeindruckendsten Säle der Kunstgeschichte",
+    "room": "Saal",
+    "enterRoom": "Den Saal Betreten",
+    "exploreEra": "Diese Epoche Erkunden",
+    "viewFull": "Vollständiges Bild Anzeigen",
+    "musicConnection": "Musikalische Verbindung",
+    "useArrowKeys": "Verwenden Sie die Pfeiltasten zum Navigieren",
+    "swipeToNavigate": "Streichen Sie, um den Saal zu wechseln",
+    "artworksInRoom": "{{count}} Kunstwerke in diesem Saal",
+    "artistsInRoom": "{{count}} Künstler",
+    "tapToExplore": "Tippen Sie auf ein Kunstwerk, um es zu erkunden",
+    "loading": "Das Museum wird betreten..."
+  }
+}

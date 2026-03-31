@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "lessons": "Lektionen",
+    "timeline": "Zeitleiste",
+    "compare": "Vergleichen",
+    "community": "Gemeinschaft",
+    "profile": "Mein Profil",
+    "achievements": "Auszeichnungen",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "logout": "Abmelden"
+  },
+  "footer": {
+    "tagline": "Wo Kunst zum Leben erwacht",
+    "about": "Über MŪSA",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "contact": "Kontakt",
+    "languages": "Sprachen",
+    "copyright": "© 2026 MŪSA. Alle Rechte vorbehalten."
+  },
+  "levels": {
+    "starter": "Anfänger",
+    "explorer": "Entdecker",
+    "enthusiast": "Begeisterter",
+    "connoisseur": "Kunstkenner"
+  },
+  "actions": {
+    "start": "Starten",
+    "continue": "Fortfahren",
+    "explore": "Erkunden",
+    "share": "Teilen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "seeMore": "Mehr Anzeigen",
+    "loading": "Wird geladen..."
+  },
+  "language": {
+    "selector": "Sprache",
+    "current": "Deutsch"
+  },
+  "immersive": {
+    "listenStory": "Die Geschichte anhören",
+    "musicConnection": "Musikalische Verbindung",
+    "listenAgain": "Erneut anhören",
+    "backToGallery": "Zurück zur Galerie",
+    "narrating": "Erzählung läuft...",
+    "tapToListen": "Tippen Sie, um die Geschichte zu hören",
+    "voiceNotAvailable": "Sprachausgabe in diesem Browser nicht verfügbar"
+  },
+  "gallery": {
+    "title": "Das Museum der Museen",
+    "subtitle": "Wandeln Sie durch die beeindruckendsten Säle der Kunstgeschichte",
+    "room": "Saal",
+    "enterRoom": "Saal betreten",
+    "exploreEra": "Diese Epoche erkunden",
+    "viewFull": "Vollbild ansehen",
+    "musicConnection": "Musikalische Verbindung",
+    "useArrowKeys": "Pfeiltasten zur Navigation verwenden",
+    "swipeToNavigate": "Wischen Sie, um den Saal zu wechseln",
+    "artworksInRoom": "{{count}} Werke in diesem Saal",
+    "tapToExplore": "Tippen Sie auf ein Werk, um es zu erkunden",
+    "loading": "Betreten Sie das Museum..."
+  }
+}

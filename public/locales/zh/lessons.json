@@ -1,0 +1,46 @@
+{
+  "lesson": {
+    "difficulty": {
+      "starter": "初级",
+      "explorer": "探险者",
+      "enthusiast": "爱好者",
+      "connoisseur": "鉴赏家"
+    },
+    "duration": "{{minutes}}分钟阅读",
+    "era": "时代",
+    "artist": "艺术家",
+    "startLesson": "开始课程",
+    "continueLesson": "继续",
+    "completed": "课程完成",
+    "nextLesson": "下一课",
+    "previousLesson": "上一课",
+    "progress": "进度",
+    "minuteRead": "{{minutes}}分钟阅读"
+  },
+  "quiz": {
+    "question": "题目{{current}}/共{{total}}",
+    "correct": "正确！",
+    "incorrect": "不太对…",
+    "explanation": "解释",
+    "score": "分数",
+    "xpEarned": "+{{xp}} XP",
+    "perfect": "完美分数！",
+    "complete": "课程完成",
+    "tryAgain": "重新尝试",
+    "seeResults": "查看结果",
+    "continue": "继续"
+  },
+  "music": {
+    "connection": "音乐联系",
+    "listen": "聆听",
+    "relatedTo": "相关于",
+    "composer": "作曲家",
+    "piece": "作品"
+  },
+  "navigation": {
+    "back": "上一页",
+    "next": "下一页",
+    "relatedArtworks": "相关作品",
+    "musicConnections": "音乐联系"
+  }
+}

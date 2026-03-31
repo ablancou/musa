@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "title": "A Arte Como Você Nunca Vivenciou",
+    "subtitle": "4 mil anos de história da arte numa experiência imersiva. Narrativa cinematográfica, a música de cada época e ferramentas interativas que transformam seu aprendizado.",
+    "cta": "Comece Grátis",
+    "ctaSecondary": "Explorar Aulas",
+    "badge": "A plataforma #1 de arte"
+  },
+  "features": {
+    "title": "Uma Experiência Sem Precedentes",
+    "subtitle": "Ferramentas que nenhuma outra plataforma oferece",
+    "narrative": {
+      "title": "Narrativa Cinematográfica",
+      "description": "Cada aula é uma história com personagens, conflitos e reviravoltas emocionantes. Não apenas fatos: experiências vividas."
+    },
+    "music": {
+      "title": "Arte + Música",
+      "description": "Descubra a conexão profunda entre cada movimento artístico e seu equivalente musical."
+    },
+    "timeline": {
+      "title": "Linha do Tempo Interativa",
+      "description": "4 mil anos de arte numa jornada visual. Filtre por região, movimento ou artista."
+    },
+    "compare": {
+      "title": "Ferramenta de Comparação",
+      "description": "Compare duas obras lado a lado com análises de técnica, paleta e contexto."
+    },
+    "ai": {
+      "title": "Assistente IA",
+      "description": "Um guia inteligente que responde suas dúvidas durante cada aula."
+    },
+    "gamification": {
+      "title": "Aprenda Brincando",
+      "description": "Sequências diárias, níveis desbloqueáveis, desafios e certificados por cada era completada."
+    }
+  },
+  "levels": {
+    "title": "Do Zero ao Conhecedor",
+    "subtitle": "Um caminho claro desde sua primeira obra até dominar a história da arte",
+    "starter": {
+      "name": "Iniciante",
+      "description": "Sem conhecimentos prévios. Começamos do zero com as obras mais icônicas."
+    },
+    "explorer": {
+      "name": "Explorador",
+      "description": "Você já conhece o básico. Mergulhe em movimentos e conexões entre artistas."
+    },
+    "enthusiast": {
+      "name": "Entusiasta",
+      "description": "Você domina vários períodos. Analise técnicas, influências e contexto histórico."
+    },
+    "connoisseur": {
+      "name": "Conhecedor",
+      "description": "Nível avançado. Debates críticos, análise comparativa e certificação."
+    }
+  },
+  "cta": {
+    "title": "Comece Sua Jornada Artística Hoje",
+    "subtitle": "Grátis. Sem cartão de crédito. No seu idioma.",
+    "button": "Criar Conta Grátis"
+  },
+  "stats": {
+    "artworks": "Obras de Arte",
+    "years": "Anos de História",
+    "languages": "Idiomas",
+    "free": "100% Grátis para Começar"
+  }
+}

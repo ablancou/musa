@@ -1,0 +1,17 @@
+{
+  "gallery": {
+    "title": "El Museo de los Museos",
+    "subtitle": "Camina por las salas más impresionantes de la historia del arte",
+    "room": "Sala",
+    "enterRoom": "Entrar a la Sala",
+    "exploreEra": "Explorar esta Era",
+    "viewFull": "Ver Imagen Completa",
+    "musicConnection": "Conexión Musical",
+    "useArrowKeys": "Usa las flechas del teclado para navegar",
+    "swipeToNavigate": "Desliza para cambiar de sala",
+    "artworksInRoom": "{{count}} obras en esta sala",
+    "artistsInRoom": "{{count}} artistas",
+    "tapToExplore": "Toca una obra para explorarla",
+    "loading": "Entrando al museo..."
+  }
+}

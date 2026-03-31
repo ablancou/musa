@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "lessons": "レッスン",
+    "timeline": "時間軸",
+    "compare": "比較する",
+    "community": "コミュニティ",
+    "profile": "プロフィール",
+    "achievements": "成就",
+    "login": "ログイン",
+    "register": "登録",
+    "logout": "ログアウト"
+  },
+  "footer": {
+    "tagline": "美術がいきいきとなる場所",
+    "about": "MŪSAについて",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "contact": "お問い合わせ",
+    "languages": "言語",
+    "copyright": "© 2026 MŪSA. 著作権所有。"
+  },
+  "levels": {
+    "starter": "入門者",
+    "explorer": "探究者",
+    "enthusiast": "愛好家",
+    "connoisseur": "鑑賞家"
+  },
+  "actions": {
+    "start": "開始する",
+    "continue": "続ける",
+    "explore": "探索する",
+    "share": "共有する",
+    "save": "保存する",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "next": "次へ",
+    "previous": "前へ",
+    "seeMore": "もっと見る",
+    "loading": "読み込み中..."
+  },
+  "language": {
+    "selector": "言語",
+    "current": "日本語"
+  },
+  "immersive": {
+    "listenStory": "物語を聴く",
+    "musicConnection": "音楽とのつながり",
+    "listenAgain": "もう一度聴く",
+    "backToGallery": "ギャラリーに戻る",
+    "narrating": "ナレーション中...",
+    "tapToListen": "タップして物語を聴く",
+    "voiceNotAvailable": "このブラウザでは音声ナレーションをご利用いただけません"
+  },
+  "gallery": {
+    "title": "美術館の中の美術館",
+    "subtitle": "美術史で最も印象的な部屋を歩く",
+    "room": "展示室",
+    "enterRoom": "展示室に入る",
+    "exploreEra": "この時代を探索する",
+    "viewFull": "フルサイズで見る",
+    "musicConnection": "音楽とのつながり",
+    "useArrowKeys": "矢印キーでナビゲート",
+    "swipeToNavigate": "スワイプで展示室を切り替え",
+    "artworksInRoom": "この展示室に{{count}}作品",
+    "tapToExplore": "作品をタップして探索",
+    "loading": "美術館に入ります..."
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "lessons": "Lecciones",
+    "timeline": "Línea de Tiempo",
+    "compare": "Comparador",
+    "community": "Comunidad",
+    "profile": "Mi Perfil",
+    "achievements": "Logros",
+    "login": "Inicia Sesión",
+    "register": "Regístrate",
+    "logout": "Cerrar Sesión"
+  },
+  "footer": {
+    "tagline": "Donde el arte cobra vida",
+    "about": "Sobre MŪSA",
+    "privacy": "Privacidad",
+    "terms": "Términos de Uso",
+    "contact": "Contacto",
+    "languages": "Idiomas",
+    "copyright": "© 2026 MŪSA. Todos los derechos reservados."
+  },
+  "levels": {
+    "starter": "Principiante",
+    "explorer": "Explorador",
+    "enthusiast": "Entusiasta",
+    "connoisseur": "Conocedor"
+  },
+  "actions": {
+    "start": "Comenzar",
+    "continue": "Continuar",
+    "explore": "Explorar",
+    "share": "Compartir",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "seeMore": "Ver más",
+    "loading": "Cargando..."
+  },
+  "language": {
+    "selector": "Idioma",
+    "current": "Español"
+  },
+  "immersive": {
+    "listenStory": "Escuchar la Historia",
+    "musicConnection": "Conexión Musical",
+    "listenAgain": "Escuchar de Nuevo",
+    "backToGallery": "Volver a la Galería",
+    "narrating": "Narrando...",
+    "tapToListen": "Toca para escuchar la historia",
+    "voiceNotAvailable": "Narración de voz no disponible en este navegador"
+  },
+  "gallery": {
+    "title": "El Museo de los Museos",
+    "subtitle": "Camina por las salas más impresionantes de la historia del arte",
+    "room": "Sala",
+    "enterRoom": "Entrar a la Sala",
+    "exploreEra": "Explorar esta Era",
+    "viewFull": "Ver Imagen Completa",
+    "musicConnection": "Conexión Musical",
+    "useArrowKeys": "Usa las flechas del teclado para navegar",
+    "swipeToNavigate": "Desliza para cambiar de sala",
+    "artworksInRoom": "{{count}} obras en esta sala",
+    "tapToExplore": "Toca una obra para explorarla",
+    "loading": "Entrando al museo..."
+  }
+}

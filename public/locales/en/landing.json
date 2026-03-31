@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "title": "Art Like You've Never Experienced It",
+    "subtitle": "4,000 years of art history in one immersive experience. Cinematic storytelling, the music of each era, and interactive tools that transform how you learn.",
+    "cta": "Start Free",
+    "ctaSecondary": "Explore Lessons",
+    "badge": "The #1 art learning platform"
+  },
+  "features": {
+    "title": "An Unprecedented Learning Experience",
+    "subtitle": "Tools no other platform offers",
+    "narrative": {
+      "title": "Cinematic Storytelling",
+      "description": "Every lesson is a story with characters, conflict, and emotional stakes. Not just facts—lived experiences."
+    },
+    "music": {
+      "title": "Art + Music Connection",
+      "description": "Discover the profound relationship between every art movement and its musical equivalent."
+    },
+    "timeline": {
+      "title": "Interactive Timeline",
+      "description": "4,000 years of art in one visual journey. Filter by region, movement, or artist."
+    },
+    "compare": {
+      "title": "Visual Comparison Tool",
+      "description": "Compare two artworks side-by-side with deep dives into technique, color, and context."
+    },
+    "ai": {
+      "title": "AI Guide",
+      "description": "An intelligent companion that answers your questions throughout each lesson."
+    },
+    "gamification": {
+      "title": "Learn Through Play",
+      "description": "Daily streaks, unlockable levels, challenges, and certificates for every era you master."
+    }
+  },
+  "levels": {
+    "title": "From Zero to Connoisseur",
+    "subtitle": "A clear path from your first masterpiece to mastering art history",
+    "starter": {
+      "name": "Starter",
+      "description": "No prior knowledge needed. We start with the world's most iconic works."
+    },
+    "explorer": {
+      "name": "Explorer",
+      "description": "You know the basics. Dive into movements and artist connections."
+    },
+    "enthusiast": {
+      "name": "Enthusiast",
+      "description": "You've mastered multiple periods. Analyze technique, influence, and historical context."
+    },
+    "connoisseur": {
+      "name": "Connoisseur",
+      "description": "Advanced level. Critical debates, comparative analysis, and certification."
+    }
+  },
+  "cta": {
+    "title": "Start Your Art Journey Today",
+    "subtitle": "Free. No credit card. In your language.",
+    "button": "Create Free Account"
+  },
+  "stats": {
+    "artworks": "Artworks",
+    "years": "Years of History",
+    "languages": "Languages",
+    "free": "100% Free to Start"
+  }
+}
