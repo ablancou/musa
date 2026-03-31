@@ -35,3 +35,5 @@ export default function LandingPage() {
     </Suspense>
   );
 }
+
+export const dynamic = 'force-dynamic';

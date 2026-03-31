@@ -58,7 +58,7 @@ export default function LessonContent({ lesson }: LessonContentProps) {
           <motion.div
             className="h-full bg-gradient-to-r from-art-gold to-art-wine"
             style={{ width: `${scrollProgress}%` }}
-            transition={{ type: 'linear', duration: 0 }}
+            transition={{ ease: 'linear', duration: 0 }}
           />
         </div>
       )}

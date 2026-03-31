@@ -37,3 +37,5 @@ export default function ExplorePage() {
     </>
   );
 }
+
+export const dynamic = 'force-dynamic';

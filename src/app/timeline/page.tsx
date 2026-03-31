@@ -29,3 +29,5 @@ export default function TimelinePage() {
     </div>
   );
 }
+
+export const dynamic = 'force-dynamic';

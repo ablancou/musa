@@ -29,3 +29,5 @@ export default function GalleryPage() {
     </div>
   );
 }
+
+export const dynamic = 'force-dynamic';
