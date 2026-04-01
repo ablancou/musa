@@ -5,6 +5,11 @@
     "timeline": "Zeitleiste",
     "compare": "Vergleichen",
     "community": "Gemeinschaft",
+    "explore": "Museen Erkunden",
+    "gallery": "Galerie",
+    "guestExplore": "Ohne Konto erkunden",
+    "createAccount": "Konto erstellen",
+    "guestMode": "Gastmodus",
     "profile": "Mein Profil",
     "achievements": "Auszeichnungen",
     "login": "Anmelden",
@@ -43,6 +48,12 @@
     "selector": "Sprache",
     "current": "Deutsch"
   },
+  "theme": {
+    "light": "Hell",
+    "dark": "Dunkel",
+    "system": "System",
+    "toggle": "Design wechseln"
+  },
   "immersive": {
     "listenStory": "Die Geschichte anhören",
     "musicConnection": "Musikalische Verbindung",
@@ -51,6 +62,31 @@
     "narrating": "Erzählung läuft...",
     "tapToListen": "Tippen Sie, um die Geschichte zu hören",
     "voiceNotAvailable": "Sprachausgabe in diesem Browser nicht verfügbar"
+  },
+  "consent": {
+    "title": "Deine Privatsphäre ist wichtig",
+    "description": "Wir verwenden Cookies, um dein Erlebnis zu verbessern. Siehe unsere",
+    "privacyLink": "Datenschutzerklärung",
+    "and": "und",
+    "termsLink": "Nutzungsbedingungen",
+    "acceptAll": "Alle akzeptieren",
+    "essentialOnly": "Nur essenzielle",
+    "customize": "Anpassen",
+    "savePreferences": "Einstellungen speichern",
+    "essential": "Essenziell",
+    "essentialDesc": "Notwendig für die Funktion der Seite",
+    "analytics": "Analytisch",
+    "analyticsDesc": "Helfen uns, die Plattform zu verbessern",
+    "preferences": "Präferenzen",
+    "preferencesDesc": "Merken sich deine Sprache und Einstellungen"
+  },
+  "guest": {
+    "unlockFeature": "Erstelle ein Konto zum Freischalten",
+    "createAccountTitle": "Werde Teil von MŪSA",
+    "createAccountDesc": "Erstelle dein kostenloses Konto, um Fortschritte zu speichern, Erfolge zu erzielen und auf exklusive Inhalte zuzugreifen.",
+    "signUpFree": "Kostenlos registrieren",
+    "alreadyHaveAccount": "Bereits ein Konto? Anmelden",
+    "maybeLater": "Vielleicht später"
   },
   "gallery": {
     "title": "Das Museum der Museen",
@@ -65,5 +101,21 @@
     "artworksInRoom": "{{count}} Werke in diesem Saal",
     "tapToExplore": "Tippen Sie auf ein Werk, um es zu erkunden",
     "loading": "Betreten Sie das Museum..."
+  },
+  "compare": {
+    "title": "Visueller Vergleich",
+    "subtitle": "Wählen Sie zwei Werke, um sie nebeneinander zu vergleichen",
+    "pickFirst": "Erstes Werk auswählen",
+    "pickSecond": "Zweites Werk auswählen",
+    "searchPlaceholder": "Nach Künstler, Titel, Bewegung suchen...",
+    "noResults": "Keine Ergebnisse gefunden",
+    "suggestedTitle": "Vorgeschlagene Vergleiche",
+    "yearsDifference": "{{count}} Jahre Unterschied",
+    "movement": "Kunstrichtung",
+    "year": "Jahr",
+    "technique": "Technik",
+    "dimensions": "Abmessungen",
+    "museum": "Museum",
+    "music": "Musik"
   }
 }

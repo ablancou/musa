@@ -5,6 +5,11 @@
     "timeline": "Linea del Tempo",
     "compare": "Confronta",
     "community": "Comunità",
+    "explore": "Esplora i Musei",
+    "gallery": "Galleria",
+    "guestExplore": "Esplora senza account",
+    "createAccount": "Crea Account",
+    "guestMode": "Modalità Ospite",
     "profile": "Profilo",
     "achievements": "Traguardi",
     "login": "Accedi",
@@ -43,6 +48,12 @@
     "selector": "Lingua",
     "current": "Italiano"
   },
+  "theme": {
+    "light": "Chiaro",
+    "dark": "Scuro",
+    "system": "Sistema",
+    "toggle": "Cambia tema"
+  },
   "immersive": {
     "listenStory": "Ascolta la Storia",
     "musicConnection": "Connessione Musicale",
@@ -51,6 +62,31 @@
     "narrating": "Narrando...",
     "tapToListen": "Tocca per ascoltare la storia",
     "voiceNotAvailable": "Narrazione vocale non disponibile in questo browser"
+  },
+  "consent": {
+    "title": "La tua privacy è importante",
+    "description": "Utilizziamo cookie per migliorare la tua esperienza. Consulta la nostra",
+    "privacyLink": "Informativa sulla Privacy",
+    "and": "e",
+    "termsLink": "Termini di Utilizzo",
+    "acceptAll": "Accetta tutto",
+    "essentialOnly": "Solo essenziali",
+    "customize": "Personalizza",
+    "savePreferences": "Salva preferenze",
+    "essential": "Essenziali",
+    "essentialDesc": "Necessari per il funzionamento del sito",
+    "analytics": "Analitici",
+    "analyticsDesc": "Ci aiutano a migliorare la piattaforma",
+    "preferences": "Preferenze",
+    "preferencesDesc": "Ricordano la tua lingua e le impostazioni"
+  },
+  "guest": {
+    "unlockFeature": "Crea un account per sbloccare",
+    "createAccountTitle": "Unisciti a MŪSA",
+    "createAccountDesc": "Crea il tuo account gratuito per salvare i progressi, ottenere risultati e accedere a contenuti esclusivi.",
+    "signUpFree": "Registrati Gratis",
+    "alreadyHaveAccount": "Hai già un account? Accedi",
+    "maybeLater": "Forse più tardi"
   },
   "gallery": {
     "title": "Il Museo dei Musei",
@@ -65,5 +101,21 @@
     "artworksInRoom": "{{count}} opere in questa sala",
     "tapToExplore": "Tocca un'opera per esplorarla",
     "loading": "Entrando nel museo..."
+  },
+  "compare": {
+    "title": "Confronto Visivo",
+    "subtitle": "Seleziona due opere da confrontare fianco a fianco",
+    "pickFirst": "Scegli la prima opera",
+    "pickSecond": "Scegli la seconda opera",
+    "searchPlaceholder": "Cerca per artista, titolo, movimento...",
+    "noResults": "Nessun risultato",
+    "suggestedTitle": "Confronti Suggeriti",
+    "yearsDifference": "{{count}} anni di differenza",
+    "movement": "Movimento",
+    "year": "Anno",
+    "technique": "Tecnica",
+    "dimensions": "Dimensioni",
+    "museum": "Museo",
+    "music": "Musica"
   }
 }

@@ -2,9 +2,10 @@
   "hero": {
     "title": "体验前所未有的艺术之旅",
     "subtitle": "4000年艺术史浓缩在一次沉浸式体验中。电影般的叙述、各时代的音乐，以及改变学习方式的互动工具。",
-    "cta": "免费开始",
-    "ctaSecondary": "浏览课程",
-    "badge": "第一艺术学习平台"
+    "cta": "探索艺术世界",
+    "ctaSecondary": "查看时间线",
+    "badge": "博物馆中的博物馆",
+    "exploreGlobe": "点击地球探索博物馆"
   },
   "features": {
     "title": "前所未有的学习体验",
@@ -59,10 +60,15 @@
     "subtitle": "完全免费。无需信用卡。支持您的语言。",
     "button": "创建免费账户"
   },
+  "artworkOfDay": {
+    "badge": "每日名作",
+    "explore": "在画廊中探索"
+  },
   "stats": {
     "artworks": "艺术作品",
     "years": "年的历史",
     "languages": "种语言",
+    "museums": "世界博物馆",
     "free": "完全免费开始"
   }
 }

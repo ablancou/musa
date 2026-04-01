@@ -2,9 +2,10 @@
   "hero": {
     "title": "L'Arte Come Non l'Hai Mai Sperimentata",
     "subtitle": "4.000 anni di storia dell'arte in un'esperienza immersiva. Narrazione cinematografica, la musica di ogni epoca e strumenti interattivi che trasformano l'apprendimento.",
-    "cta": "Inizia Gratuitamente",
-    "ctaSecondary": "Esplora le Lezioni",
-    "badge": "La piattaforma #1 per l'arte"
+    "cta": "Esplora il Mondo dell'Arte",
+    "ctaSecondary": "Vedi la Linea del Tempo",
+    "badge": "Il Museo dei Musei",
+    "exploreGlobe": "Clicca il globo per esplorare i musei"
   },
   "features": {
     "title": "Un'Esperienza Senza Precedenti",
@@ -59,10 +60,15 @@
     "subtitle": "Gratuito. Senza carta di credito. Nella tua lingua.",
     "button": "Crea un Account Gratuito"
   },
+  "artworkOfDay": {
+    "badge": "Opera del Giorno",
+    "explore": "Esplora nella Galleria"
+  },
   "stats": {
     "artworks": "Opere d'Arte",
     "years": "Anni di Storia",
     "languages": "Lingue",
+    "museums": "Musei nel Mondo",
     "free": "100% Gratuito per Iniziare"
   }
 }

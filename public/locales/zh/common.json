@@ -5,6 +5,11 @@
     "timeline": "时间线",
     "compare": "比较",
     "community": "社区",
+    "explore": "探索博物馆",
+    "gallery": "画廊",
+    "guestExplore": "无需账号探索",
+    "createAccount": "创建账号",
+    "guestMode": "访客模式",
     "profile": "我的资料",
     "achievements": "成就",
     "login": "登录",
@@ -43,6 +48,12 @@
     "selector": "语言",
     "current": "简体中文"
   },
+  "theme": {
+    "light": "浅色",
+    "dark": "深色",
+    "system": "系统",
+    "toggle": "切换主题"
+  },
   "immersive": {
     "listenStory": "聆听故事",
     "musicConnection": "音乐关联",
@@ -51,6 +62,31 @@
     "narrating": "讲述中...",
     "tapToListen": "点击聆听故事",
     "voiceNotAvailable": "此浏览器不支持语音讲述"
+  },
+  "consent": {
+    "title": "您的隐私很重要",
+    "description": "我们使用Cookie来提升您的体验。请查看我们的",
+    "privacyLink": "隐私政策",
+    "and": "和",
+    "termsLink": "使用条款",
+    "acceptAll": "全部接受",
+    "essentialOnly": "仅必要",
+    "customize": "自定义",
+    "savePreferences": "保存偏好",
+    "essential": "必要",
+    "essentialDesc": "网站运行所必需",
+    "analytics": "分析",
+    "analyticsDesc": "帮助我们改进平台",
+    "preferences": "偏好",
+    "preferencesDesc": "记住您的语言和设置"
+  },
+  "guest": {
+    "unlockFeature": "创建账号解锁",
+    "createAccountTitle": "加入 MŪSA",
+    "createAccountDesc": "创建免费账号，保存进度、获得成就、访问独家内容。",
+    "signUpFree": "免费注册",
+    "alreadyHaveAccount": "已有账号？登录",
+    "maybeLater": "以后再说"
   },
   "gallery": {
     "title": "博物馆中的博物馆",
@@ -65,5 +101,21 @@
     "artworksInRoom": "此展厅有{{count}}件作品",
     "tapToExplore": "点击作品进行探索",
     "loading": "正在进入博物馆..."
+  },
+  "compare": {
+    "title": "视觉对比",
+    "subtitle": "选择两件作品进行并排比较",
+    "pickFirst": "选择第一件作品",
+    "pickSecond": "选择第二件作品",
+    "searchPlaceholder": "按艺术家、标题、流派搜索...",
+    "noResults": "未找到结果",
+    "suggestedTitle": "推荐对比",
+    "yearsDifference": "相隔{{count}}年",
+    "movement": "流派",
+    "year": "年代",
+    "technique": "技法",
+    "dimensions": "尺寸",
+    "museum": "博物馆",
+    "music": "音乐"
   }
 }

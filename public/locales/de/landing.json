@@ -2,9 +2,10 @@
   "hero": {
     "title": "Kunst wie Sie sie noch nie erlebt haben",
     "subtitle": "4.000 Jahre Kunstgeschichte in einem immersiven Erlebnis. Filmische Erzählung, die Musik jeder Epoche und interaktive Werkzeuge, die das Lernen transformieren.",
-    "cta": "Kostenlos Starten",
-    "ctaSecondary": "Lektionen Erkunden",
-    "badge": "Die #1 Kunstplattform"
+    "cta": "Entdecke die Welt der Kunst",
+    "ctaSecondary": "Zeitleiste ansehen",
+    "badge": "Das Museum der Museen",
+    "exploreGlobe": "Klicke auf den Globus, um Museen zu erkunden"
   },
   "features": {
     "title": "Ein Beispielloses Lernerlebnis",
@@ -59,10 +60,15 @@
     "subtitle": "Kostenlos. Keine Kreditkarte erforderlich. In Ihrer Sprache.",
     "button": "Kostenloses Konto Erstellen"
   },
+  "artworkOfDay": {
+    "badge": "Kunstwerk des Tages",
+    "explore": "In der Galerie entdecken"
+  },
   "stats": {
     "artworks": "Kunstwerke",
     "years": "Jahre Geschichte",
     "languages": "Sprachen",
+    "museums": "Museen weltweit",
     "free": "100% Kostenlos zum Starten"
   }
 }

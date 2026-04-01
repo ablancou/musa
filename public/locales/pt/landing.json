@@ -2,9 +2,10 @@
   "hero": {
     "title": "A Arte Como Você Nunca Vivenciou",
     "subtitle": "4 mil anos de história da arte numa experiência imersiva. Narrativa cinematográfica, a música de cada época e ferramentas interativas que transformam seu aprendizado.",
-    "cta": "Comece Grátis",
-    "ctaSecondary": "Explorar Aulas",
-    "badge": "A plataforma #1 de arte"
+    "cta": "Explore o Mundo da Arte",
+    "ctaSecondary": "Ver Linha do Tempo",
+    "badge": "O Museu dos Museus",
+    "exploreGlobe": "Clique no globo para explorar museus"
   },
   "features": {
     "title": "Uma Experiência Sem Precedentes",
@@ -59,10 +60,15 @@
     "subtitle": "Grátis. Sem cartão de crédito. No seu idioma.",
     "button": "Criar Conta Grátis"
   },
+  "artworkOfDay": {
+    "badge": "Obra do Dia",
+    "explore": "Explorar na Galeria"
+  },
   "stats": {
     "artworks": "Obras de Arte",
     "years": "Anos de História",
     "languages": "Idiomas",
+    "museums": "Museus no Mundo",
     "free": "100% Grátis para Começar"
   }
 }

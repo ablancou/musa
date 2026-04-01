@@ -5,6 +5,11 @@
     "timeline": "Linha do Tempo",
     "compare": "Comparar",
     "community": "Comunidade",
+    "explore": "Explorar Museus",
+    "gallery": "Galeria",
+    "guestExplore": "Explorar sem conta",
+    "createAccount": "Criar Conta",
+    "guestMode": "Modo Visitante",
     "profile": "Meu Perfil",
     "achievements": "Conquistas",
     "login": "Entrar",
@@ -43,6 +48,12 @@
     "selector": "Idioma",
     "current": "Português"
   },
+  "theme": {
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema",
+    "toggle": "Alternar tema"
+  },
   "immersive": {
     "listenStory": "Ouvir a História",
     "musicConnection": "Conexão Musical",
@@ -51,6 +62,31 @@
     "narrating": "Narrando...",
     "tapToListen": "Toque para ouvir a história",
     "voiceNotAvailable": "Narração por voz não disponível neste navegador"
+  },
+  "consent": {
+    "title": "Sua privacidade importa",
+    "description": "Usamos cookies para melhorar sua experiência. Consulte nossa",
+    "privacyLink": "Política de Privacidade",
+    "and": "e",
+    "termsLink": "Termos de Uso",
+    "acceptAll": "Aceitar tudo",
+    "essentialOnly": "Apenas essenciais",
+    "customize": "Personalizar",
+    "savePreferences": "Salvar preferências",
+    "essential": "Essenciais",
+    "essentialDesc": "Necessários para o funcionamento do site",
+    "analytics": "Analíticos",
+    "analyticsDesc": "Nos ajudam a melhorar a plataforma",
+    "preferences": "Preferências",
+    "preferencesDesc": "Lembram seu idioma e configurações"
+  },
+  "guest": {
+    "unlockFeature": "Crie uma conta para desbloquear",
+    "createAccountTitle": "Junte-se ao MŪSA",
+    "createAccountDesc": "Crie sua conta gratuita para salvar progresso, ganhar conquistas e acessar conteúdo exclusivo.",
+    "signUpFree": "Cadastre-se Grátis",
+    "alreadyHaveAccount": "Já tem conta? Faça login",
+    "maybeLater": "Talvez depois"
   },
   "gallery": {
     "title": "O Museu dos Museus",
@@ -65,5 +101,21 @@
     "artworksInRoom": "{{count}} obras nesta sala",
     "tapToExplore": "Toque em uma obra para explorar",
     "loading": "Entrando no museu..."
+  },
+  "compare": {
+    "title": "Comparador Visual",
+    "subtitle": "Selecione duas obras para compará-las lado a lado",
+    "pickFirst": "Escolha a primeira obra",
+    "pickSecond": "Escolha a segunda obra",
+    "searchPlaceholder": "Procure por artista, título, movimento...",
+    "noResults": "Nenhum resultado encontrado",
+    "suggestedTitle": "Comparações Sugeridas",
+    "yearsDifference": "{{count}} anos de diferença",
+    "movement": "Movimento",
+    "year": "Ano",
+    "technique": "Técnica",
+    "dimensions": "Dimensões",
+    "museum": "Museu",
+    "music": "Música"
   }
 }

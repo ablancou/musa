@@ -13,17 +13,20 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sparkles } from 'lucide-react';
 import { LanguageSelector } from '@/components/shared/LanguageSelector';
+import { ThemeToggle } from '@/components/shared/ThemeToggle';
+import { useUserStore } from '@/stores/userStore';
 import { cn } from '@/lib/utils/cn';
 
 const NAV_LINKS = [
-  { key: 'lessons', href: '/lessons' },
   { key: 'timeline', href: '/timeline' },
-  { key: 'compare', href: '/compare' },
-  { key: 'community', href: '/community' },
+  { key: 'explore', href: '/explore' },
+  { key: 'gallery', href: '/gallery' },
+  { key: 'lessons', href: '/lessons' },
 ] as const;
 
 export function Header() {
   const { t } = useTranslation('common');
+  const { authenticated, isGuest, enterAsGuest } = useUserStore();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -78,23 +81,62 @@ export function Header() {
 
           {/* Desktop Right Side */}
           <div className="hidden lg:flex items-center gap-3">
+            <ThemeToggle />
             <LanguageSelector />
-            <a
-              href="/login"
-              className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 transition-colors hover:text-art-charcoal"
-            >
-              {t('nav.login')}
-            </a>
-            <a
-              href="/register"
-              className="rounded-full bg-art-gold px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-art-gold-light hover:shadow-lg active:scale-[0.98]"
-            >
-              {t('nav.register')}
-            </a>
+            {authenticated ? (
+              <>
+                <a
+                  href="/profile"
+                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 transition-colors hover:text-art-charcoal"
+                >
+                  {t('nav.profile')}
+                </a>
+                <a
+                  href="/logout"
+                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 transition-colors hover:text-art-charcoal"
+                >
+                  {t('nav.logout')}
+                </a>
+              </>
+            ) : isGuest ? (
+              <>
+                <span className="text-xs font-medium text-art-gold uppercase tracking-wide">
+                  {t('nav.guestMode')}
+                </span>
+                <a
+                  href="/register"
+                  className="rounded-full bg-art-gold px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-art-gold-light hover:shadow-lg active:scale-[0.98]"
+                >
+                  {t('nav.createAccount')}
+                </a>
+              </>
+            ) : (
+              <>
+                <a
+                  href="/login"
+                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 transition-colors hover:text-art-charcoal"
+                >
+                  {t('nav.login')}
+                </a>
+                <button
+                  onClick={enterAsGuest}
+                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-gold transition-colors hover:text-art-gold-light"
+                >
+                  {t('nav.guestExplore')}
+                </button>
+                <a
+                  href="/register"
+                  className="rounded-full bg-art-gold px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-art-gold-light hover:shadow-lg active:scale-[0.98]"
+                >
+                  {t('nav.register')}
+                </a>
+              </>
+            )}
           </div>
 
-          {/* Mobile: Language + Hamburger */}
+          {/* Mobile: Language + Theme Toggle + Hamburger */}
           <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
             <LanguageSelector />
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -137,20 +179,65 @@ export function Header() {
                   </a>
                 ))}
                 <hr className="my-2 border-art-charcoal/10" />
-                <a
-                  href="/login"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70"
-                >
-                  {t('nav.login')}
-                </a>
-                <a
-                  href="/register"
-                  onClick={() => setMenuOpen(false)}
-                  className="mt-1 flex min-h-[48px] items-center justify-center rounded-full bg-art-gold px-5 text-base font-semibold text-white"
-                >
-                  {t('nav.register')}
-                </a>
+                {authenticated ? (
+                  <>
+                    <a
+                      href="/profile"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70"
+                    >
+                      {t('nav.profile')}
+                    </a>
+                    <a
+                      href="/logout"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70"
+                    >
+                      {t('nav.logout')}
+                    </a>
+                  </>
+                ) : isGuest ? (
+                  <>
+                    <div className="flex min-h-[48px] items-center rounded-xl px-4">
+                      <span className="text-xs font-medium text-art-gold uppercase tracking-wide">
+                        {t('nav.guestMode')}
+                      </span>
+                    </div>
+                    <a
+                      href="/register"
+                      onClick={() => setMenuOpen(false)}
+                      className="mt-1 flex min-h-[48px] items-center justify-center rounded-full bg-art-gold px-5 text-base font-semibold text-white"
+                    >
+                      {t('nav.createAccount')}
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <a
+                      href="/login"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70"
+                    >
+                      {t('nav.login')}
+                    </a>
+                    <button
+                      onClick={() => {
+                        enterAsGuest();
+                        setMenuOpen(false);
+                      }}
+                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-gold transition-colors hover:text-art-gold-light"
+                    >
+                      {t('nav.guestExplore')}
+                    </button>
+                    <a
+                      href="/register"
+                      onClick={() => setMenuOpen(false)}
+                      className="mt-1 flex min-h-[48px] items-center justify-center rounded-full bg-art-gold px-5 text-base font-semibold text-white"
+                    >
+                      {t('nav.register')}
+                    </a>
+                  </>
+                )}
               </div>
             </motion.nav>
           </>

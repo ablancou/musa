@@ -7,9 +7,14 @@
     "community": "Comunidad",
     "profile": "Mi Perfil",
     "achievements": "Logros",
+    "explore": "Explorar Museos",
+    "gallery": "Galería",
     "login": "Inicia Sesión",
     "register": "Regístrate",
-    "logout": "Cerrar Sesión"
+    "logout": "Cerrar Sesión",
+    "guestExplore": "Explorar sin cuenta",
+    "createAccount": "Crear Cuenta",
+    "guestMode": "Modo Invitado"
   },
   "footer": {
     "tagline": "Donde el arte cobra vida",
@@ -43,6 +48,12 @@
     "selector": "Idioma",
     "current": "Español"
   },
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema",
+    "toggle": "Cambiar tema"
+  },
   "immersive": {
     "listenStory": "Escuchar la Historia",
     "musicConnection": "Conexión Musical",
@@ -51,6 +62,31 @@
     "narrating": "Narrando...",
     "tapToListen": "Toca para escuchar la historia",
     "voiceNotAvailable": "Narración de voz no disponible en este navegador"
+  },
+  "consent": {
+    "title": "Tu privacidad importa",
+    "description": "Usamos cookies para mejorar tu experiencia. Consulta nuestra",
+    "privacyLink": "Política de Privacidad",
+    "and": "y",
+    "termsLink": "Términos de Uso",
+    "acceptAll": "Aceptar todo",
+    "essentialOnly": "Solo esenciales",
+    "customize": "Personalizar",
+    "savePreferences": "Guardar preferencias",
+    "essential": "Esenciales",
+    "essentialDesc": "Necesarias para el funcionamiento del sitio",
+    "analytics": "Analíticas",
+    "analyticsDesc": "Nos ayudan a mejorar la plataforma",
+    "preferences": "Preferencias",
+    "preferencesDesc": "Recuerdan tu idioma y configuración"
+  },
+  "guest": {
+    "unlockFeature": "Crea una cuenta para desbloquear",
+    "createAccountTitle": "Únete a MŪSA",
+    "createAccountDesc": "Crea tu cuenta gratuita para guardar progreso, ganar logros y acceder a contenido exclusivo.",
+    "signUpFree": "Registrarse Gratis",
+    "alreadyHaveAccount": "¿Ya tienes cuenta? Inicia sesión",
+    "maybeLater": "Quizás más tarde"
   },
   "gallery": {
     "title": "El Museo de los Museos",
@@ -65,5 +101,21 @@
     "artworksInRoom": "{{count}} obras en esta sala",
     "tapToExplore": "Toca una obra para explorarla",
     "loading": "Entrando al museo..."
+  },
+  "compare": {
+    "title": "Comparador Visual",
+    "subtitle": "Selecciona dos obras para compararlas lado a lado",
+    "pickFirst": "Elige la primera obra",
+    "pickSecond": "Elige la segunda obra",
+    "searchPlaceholder": "Buscar por artista, título, movimiento...",
+    "noResults": "Sin resultados",
+    "suggestedTitle": "Comparaciones sugeridas",
+    "yearsDifference": "{{count}} años de diferencia",
+    "movement": "Movimiento",
+    "year": "Año",
+    "technique": "Técnica",
+    "dimensions": "Dimensiones",
+    "museum": "Museo",
+    "music": "Música"
   }
 }

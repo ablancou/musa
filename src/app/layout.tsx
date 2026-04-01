@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter, Playfair_Display, Cormorant_Garamond, Noto_Sans_JP, Noto_Sans_SC } from 'next/font/google';
 import './globals.css';
 import { I18nProvider } from '@/lib/i18n/I18nProvider';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { ConsentProvider } from '@/components/providers/ConsentProvider';
 
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
@@ -62,7 +64,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-art-cream text-art-charcoal antialiased">
-        <I18nProvider>{children}</I18nProvider>
+        <I18nProvider>
+          <ThemeProvider>
+            {children}
+            <ConsentProvider />
+          </ThemeProvider>
+        </I18nProvider>
       </body>
     </html>
   );

@@ -43,7 +43,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const [registerError, setRegisterError] = useState('');
 
   // Store actions
-  const { login, register, signInWithGoogle, loading } = useUserStore();
+  const { login, register, signInWithGoogle, enterAsGuest, loading } = useUserStore();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -312,6 +312,20 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 </svg>
                 {t('auth.googleSignIn') || 'Sign in with Google'}
               </button>
+
+              {/* Continue as guest link */}
+              <div className="mt-6 text-center border-t border-art-charcoal/10 pt-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    enterAsGuest();
+                    onClose();
+                  }}
+                  className="text-sm text-art-charcoal/60 hover:text-art-charcoal transition-colors"
+                >
+                  {t('guest.maybeLater') || 'Maybe later'}
+                </button>
+              </div>
             </form>
           )}
 
@@ -562,6 +576,20 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 </svg>
                 {t('auth.googleSignUp') || 'Sign up with Google'}
               </button>
+
+              {/* Continue as guest link */}
+              <div className="mt-6 text-center border-t border-art-charcoal/10 pt-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    enterAsGuest();
+                    onClose();
+                  }}
+                  className="text-sm text-art-charcoal/60 hover:text-art-charcoal transition-colors"
+                >
+                  {t('guest.maybeLater') || 'Maybe later'}
+                </button>
+              </div>
             </form>
           )}
         </div>

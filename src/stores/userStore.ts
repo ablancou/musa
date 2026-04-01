@@ -11,6 +11,7 @@ interface UserStoreState {
   user: Profile | null;
   loading: boolean;
   authenticated: boolean;
+  isGuest: boolean;
   error: string | null;
 
   // Auth actions
@@ -25,6 +26,7 @@ interface UserStoreState {
   logout: () => Promise<void>;
   signInWithGoogle: () => Promise<void>;
   resetPassword: (email: string) => Promise<void>;
+  enterAsGuest: () => void;
 
   // Profile actions
   updateProfile: (updates: Partial<Profile>) => Promise<void>;
@@ -44,6 +46,7 @@ export const useUserStore = create<UserStoreState>((set, get) => ({
   user: null,
   loading: false,
   authenticated: false,
+  isGuest: false,
   error: null,
 
   // Auth actions
@@ -150,6 +153,7 @@ export const useUserStore = create<UserStoreState>((set, get) => ({
       set({
         user: null,
         authenticated: false,
+        isGuest: false,
         loading: false,
       });
     } catch (error) {
@@ -326,6 +330,17 @@ export const useUserStore = create<UserStoreState>((set, get) => ({
       set({ error: message });
       throw error;
     }
+  },
+
+  // Guest mode
+  enterAsGuest: () => {
+    set({
+      isGuest: true,
+      authenticated: false,
+      user: null,
+      loading: false,
+      error: null,
+    });
   },
 
   // Utility

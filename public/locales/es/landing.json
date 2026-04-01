@@ -2,9 +2,10 @@
   "hero": {
     "title": "El Arte Como Nunca lo Habías Vivido",
     "subtitle": "4,000 años de historia del arte en una experiencia inmersiva. Narrativa cinematográfica, música de cada época y herramientas interactivas que transforman el aprendizaje.",
-    "cta": "Comienza Gratis",
-    "ctaSecondary": "Explorar Lecciones",
-    "badge": "La plataforma #1 de arte"
+    "cta": "Explorar el Mundo del Arte",
+    "ctaSecondary": "Ver Línea de Tiempo",
+    "badge": "El Museo de los Museos",
+    "exploreGlobe": "Haz clic en el globo para explorar museos"
   },
   "features": {
     "title": "Una Experiencia Sin Precedentes",
@@ -59,9 +60,14 @@
     "subtitle": "Gratis. Sin tarjeta de crédito. En tu idioma.",
     "button": "Crear Cuenta Gratis"
   },
+  "artworkOfDay": {
+    "badge": "Obra del Día",
+    "explore": "Explorar en la Galería"
+  },
   "stats": {
     "artworks": "Obras de Arte",
     "years": "Años de Historia",
+    "museums": "Museos del Mundo",
     "languages": "Idiomas",
     "free": "100% Gratis para Empezar"
   }

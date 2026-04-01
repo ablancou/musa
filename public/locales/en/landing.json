@@ -2,9 +2,10 @@
   "hero": {
     "title": "Art Like You've Never Experienced It",
     "subtitle": "4,000 years of art history in one immersive experience. Cinematic storytelling, the music of each era, and interactive tools that transform how you learn.",
-    "cta": "Start Free",
-    "ctaSecondary": "Explore Lessons",
-    "badge": "The #1 art learning platform"
+    "cta": "Explore the World of Art",
+    "ctaSecondary": "View Timeline",
+    "badge": "The Museum of Museums",
+    "exploreGlobe": "Click the globe to explore museums"
   },
   "features": {
     "title": "An Unprecedented Learning Experience",
@@ -59,10 +60,15 @@
     "subtitle": "Free. No credit card. In your language.",
     "button": "Create Free Account"
   },
+  "artworkOfDay": {
+    "badge": "Artwork of the Day",
+    "explore": "Explore in the Gallery"
+  },
   "stats": {
     "artworks": "Artworks",
     "years": "Years of History",
     "languages": "Languages",
+    "museums": "World Museums",
     "free": "100% Free to Start"
   }
 }

@@ -108,6 +108,44 @@ body {
   color: white;
 }
 
+/* ===== Dark Mode ===== */
+.dark {
+  --color-art-cream: #0F0F14;
+  --color-art-charcoal: #E8E4DC;
+  --color-art-ivory: #1A1A22;
+  --color-art-navy: #C5C0B8;
+}
+
+.dark body,
+html.dark body {
+  background-color: #0F0F14;
+  color: #E8E4DC;
+}
+
+.dark ::selection {
+  background-color: #C4A265;
+  color: #0F0F14;
+}
+
+/* Dark mode specific overrides */
+.dark .bg-white\/80 { background-color: rgba(15, 15, 20, 0.8); }
+.dark .bg-white\/50 { background-color: rgba(15, 15, 20, 0.5); }
+.dark .bg-white { background-color: #1A1A22; }
+.dark .text-art-charcoal\/70 { color: rgba(232, 228, 220, 0.7); }
+.dark .text-art-charcoal\/60 { color: rgba(232, 228, 220, 0.6); }
+.dark .text-art-charcoal\/50 { color: rgba(232, 228, 220, 0.5); }
+.dark .text-art-charcoal\/40 { color: rgba(232, 228, 220, 0.4); }
+.dark .border-art-charcoal\/10 { border-color: rgba(232, 228, 220, 0.1); }
+.dark .hover\:bg-art-charcoal\/5:hover { background-color: rgba(232, 228, 220, 0.05); }
+.dark .ring-art-charcoal\/5 { --tw-ring-color: rgba(232, 228, 220, 0.05); }
+.dark .ring-art-charcoal\/10 { --tw-ring-color: rgba(232, 228, 220, 0.1); }
+.dark .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3); }
+
+/* Smooth theme transition */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 /* Focus ring for accessibility */
 :focus-visible {
   outline: 2px solid var(--color-art-gold);

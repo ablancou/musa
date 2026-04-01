@@ -5,6 +5,11 @@
     "timeline": "時間軸",
     "compare": "比較する",
     "community": "コミュニティ",
+    "explore": "美術館を探索",
+    "gallery": "ギャラリー",
+    "guestExplore": "アカウントなしで探索",
+    "createAccount": "アカウント作成",
+    "guestMode": "ゲストモード",
     "profile": "プロフィール",
     "achievements": "成就",
     "login": "ログイン",
@@ -43,6 +48,12 @@
     "selector": "言語",
     "current": "日本語"
   },
+  "theme": {
+    "light": "ライト",
+    "dark": "ダーク",
+    "system": "システム",
+    "toggle": "テーマ切替"
+  },
   "immersive": {
     "listenStory": "物語を聴く",
     "musicConnection": "音楽とのつながり",
@@ -51,6 +62,31 @@
     "narrating": "ナレーション中...",
     "tapToListen": "タップして物語を聴く",
     "voiceNotAvailable": "このブラウザでは音声ナレーションをご利用いただけません"
+  },
+  "consent": {
+    "title": "プライバシーについて",
+    "description": "より良い体験のためにCookieを使用しています。詳しくは",
+    "privacyLink": "プライバシーポリシー",
+    "and": "と",
+    "termsLink": "利用規約",
+    "acceptAll": "すべて同意",
+    "essentialOnly": "必須のみ",
+    "customize": "カスタマイズ",
+    "savePreferences": "設定を保存",
+    "essential": "必須",
+    "essentialDesc": "サイトの動作に必要です",
+    "analytics": "分析",
+    "analyticsDesc": "プラットフォームの改善に役立ちます",
+    "preferences": "設定",
+    "preferencesDesc": "言語と設定を記憶します"
+  },
+  "guest": {
+    "unlockFeature": "アカウントを作成してロック解除",
+    "createAccountTitle": "MŪSAに参加しよう",
+    "createAccountDesc": "無料アカウントを作成して、進捗の保存、実績の獲得、限定コンテンツへのアクセスを。",
+    "signUpFree": "無料で登録",
+    "alreadyHaveAccount": "アカウントをお持ちですか？ログイン",
+    "maybeLater": "また今度"
   },
   "gallery": {
     "title": "美術館の中の美術館",
@@ -65,5 +101,21 @@
     "artworksInRoom": "この展示室に{{count}}作品",
     "tapToExplore": "作品をタップして探索",
     "loading": "美術館に入ります..."
+  },
+  "compare": {
+    "title": "ビジュアル比較",
+    "subtitle": "2つの作品を選んで、並べて比較してください",
+    "pickFirst": "最初の作品を選ぶ",
+    "pickSecond": "2番目の作品を選ぶ",
+    "searchPlaceholder": "アーティスト、タイトル、流派で検索...",
+    "noResults": "結果が見つかりません",
+    "suggestedTitle": "おすすめの比較",
+    "yearsDifference": "{{count}}年の時差",
+    "movement": "流派",
+    "year": "年代",
+    "technique": "技法",
+    "dimensions": "寸法",
+    "museum": "美術館",
+    "music": "音楽"
   }
 }

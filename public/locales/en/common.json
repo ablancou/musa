@@ -5,6 +5,11 @@
     "timeline": "Timeline",
     "compare": "Compare",
     "community": "Community",
+    "explore": "Explore Museums",
+    "gallery": "Gallery",
+    "guestExplore": "Explore without account",
+    "createAccount": "Create Account",
+    "guestMode": "Guest Mode",
     "profile": "Profile",
     "achievements": "Achievements",
     "login": "Sign In",
@@ -43,6 +48,12 @@
     "selector": "Language",
     "current": "English"
   },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle theme"
+  },
   "immersive": {
     "listenStory": "Listen to the Story",
     "musicConnection": "Musical Connection",
@@ -51,6 +62,31 @@
     "narrating": "Narrating...",
     "tapToListen": "Tap to listen to the story",
     "voiceNotAvailable": "Voice narration not available in this browser"
+  },
+  "consent": {
+    "title": "Your Privacy Matters",
+    "description": "We use cookies to enhance your experience. See our",
+    "privacyLink": "Privacy Policy",
+    "and": "and",
+    "termsLink": "Terms of Use",
+    "acceptAll": "Accept All",
+    "essentialOnly": "Essential Only",
+    "customize": "Customize",
+    "savePreferences": "Save Preferences",
+    "essential": "Essential",
+    "essentialDesc": "Required for the site to function",
+    "analytics": "Analytics",
+    "analyticsDesc": "Help us improve the platform",
+    "preferences": "Preferences",
+    "preferencesDesc": "Remember your language and settings"
+  },
+  "guest": {
+    "unlockFeature": "Create an account to unlock",
+    "createAccountTitle": "Join MŪSA",
+    "createAccountDesc": "Create your free account to save progress, earn achievements, and access exclusive content.",
+    "signUpFree": "Sign Up Free",
+    "alreadyHaveAccount": "Already have an account? Sign in",
+    "maybeLater": "Maybe later"
   },
   "gallery": {
     "title": "The Museum of Museums",
@@ -65,5 +101,21 @@
     "artworksInRoom": "{{count}} artworks in this room",
     "tapToExplore": "Tap an artwork to explore",
     "loading": "Entering the museum..."
+  },
+  "compare": {
+    "title": "Visual Comparison",
+    "subtitle": "Select two artworks to compare them side by side",
+    "pickFirst": "Choose the first artwork",
+    "pickSecond": "Choose the second artwork",
+    "searchPlaceholder": "Search by artist, title, movement...",
+    "noResults": "No results found",
+    "suggestedTitle": "Suggested Comparisons",
+    "yearsDifference": "{{count}} years apart",
+    "movement": "Movement",
+    "year": "Year",
+    "technique": "Technique",
+    "dimensions": "Dimensions",
+    "museum": "Museum",
+    "music": "Music"
   }
 }
