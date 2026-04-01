@@ -71,3 +71,5 @@ export default async function LessonPage(props: PageProps) {
 
   return <LessonContent lesson={lesson} />;
 }
+
+export const dynamic = 'force-dynamic';

@@ -14,3 +14,5 @@ export default function ComparePage() {
     </main>
   );
 }
+
+export const dynamic = 'force-dynamic';
