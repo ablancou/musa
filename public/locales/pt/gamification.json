@@ -1,0 +1,134 @@
+{
+  "levels": {
+    "starter": "Iniciante",
+    "starter.desc": "Sua jornada pela arte começa aqui.",
+    "explorer": "Explorador",
+    "explorer.desc": "Você já conhece o básico. Agora aprofunde.",
+    "enthusiast": "Entusiasta",
+    "enthusiast.desc": "Você domina vários períodos e estilos artísticos.",
+    "connoisseur": "Conhecedor",
+    "connoisseur.desc": "Nível especialista. A arte não tem segredos para você."
+  },
+  "xp": {
+    "total": "XP Total",
+    "gained": "+{{count}} XP",
+    "nextLevel": "{{count}} XP para {{level}}",
+    "bonus": "Bônus por quiz perfeito"
+  },
+  "streak": {
+    "title": "Sequência Diária",
+    "days": "{{count}} dia",
+    "days_plural": "{{count}} dias",
+    "multiplier": "Multiplicador ×{{count}}",
+    "frozen": "Sequência protegida",
+    "freezeAvailable": "1 freeze disponível esta semana",
+    "freezeUsed": "Freeze usado esta semana",
+    "lost": "Sequência perdida. Comece de novo!"
+  },
+  "badges": {
+    "title": "Insígnias",
+    "unlocked": "Desbloqueada",
+    "locked": "Bloqueada",
+    "newBadge": "Nova insígnia!",
+    "rarity": {
+      "common": "Comum",
+      "rare": "Rara",
+      "epic": "Épica",
+      "legendary": "Lendária"
+    },
+    "categories": {
+      "exploration": "Exploração",
+      "knowledge": "Conhecimento",
+      "consistency": "Constância",
+      "social": "Social",
+      "special": "Especiais"
+    },
+    "firstView": {
+      "name": "Primeiro Olhar",
+      "desc": "Contemple sua primeira obra de arte."
+    },
+    "museumWanderer": {
+      "name": "Viajante de Museus",
+      "desc": "Explore seu primeiro museu no globo."
+    },
+    "globeTrotter": {
+      "name": "Trotamundos",
+      "desc": "Explore 5 museus ao redor do mundo."
+    },
+    "comparatorExpert": {
+      "name": "Olho Comparador",
+      "desc": "Use o comparador visual 10 vezes."
+    },
+    "artSeeker": {
+      "name": "Buscador de Arte",
+      "desc": "Contemple 100 obras de arte."
+    },
+    "firstNarration": {
+      "name": "Primeira História",
+      "desc": "Leia sua primeira narração cinematográfica."
+    },
+    "quizNovice": {
+      "name": "Aprendiz",
+      "desc": "Complete seu primeiro quiz de arte."
+    },
+    "perfectScholar": {
+      "name": "Erudito Perfeito",
+      "desc": "Obtenha pontuação máxima em 5 quizzes."
+    },
+    "eraConqueror": {
+      "name": "Conquistador de Eras",
+      "desc": "Complete 3 eras artísticas inteiras."
+    },
+    "artHistorian": {
+      "name": "Historiador da Arte",
+      "desc": "Complete 5 eras e 10 quizzes."
+    },
+    "streakBeginner": {
+      "name": "Primeiro Dia",
+      "desc": "Inicie sua primeira sequência diária."
+    },
+    "weekWarrior": {
+      "name": "Guerreiro Semanal",
+      "desc": "Mantenha uma sequência de 7 dias consecutivos."
+    },
+    "monthlyMuse": {
+      "name": "Musa Mensal",
+      "desc": "Mantenha uma sequência de 30 dias consecutivos."
+    },
+    "freezeMaster": {
+      "name": "Escudo Protetor",
+      "desc": "Use seu primeiro freeze para proteger sua sequência."
+    },
+    "streakLegend": {
+      "name": "Lenda Imparável",
+      "desc": "Alcance uma sequência de 100 dias consecutivos."
+    },
+    "firstShare": {
+      "name": "Primeiro Compartilhamento",
+      "desc": "Compartilhe uma obra de arte com alguém."
+    },
+    "communityBuilder": {
+      "name": "Construtor de Comunidade",
+      "desc": "Convide 3 amigos para o MŪSA."
+    },
+    "artAmbassador": {
+      "name": "Embaixador da Arte",
+      "desc": "Compartilhe 10 obras de arte."
+    },
+    "musaPioneer": {
+      "name": "Pioneiro MŪSA",
+      "desc": "Ganhe seu primeiro ponto de experiência."
+    },
+    "connoisseurLegend": {
+      "name": "Lenda Conhecedora",
+      "desc": "Alcance o nível Conhecedor. Você é um mestre!"
+    }
+  },
+  "leaderboard": {
+    "title": "Classificação",
+    "global": "Global",
+    "regional": "Por Região",
+    "rank": "#{{rank}}",
+    "you": "Você"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "levels": {
+    "starter": "Anfänger",
+    "starter.desc": "Ihre Reise durch die Kunst beginnt hier.",
+    "explorer": "Entdecker",
+    "explorer.desc": "Sie kennen die Grundlagen. Jetzt vertiefen Sie sich.",
+    "enthusiast": "Enthusiast",
+    "enthusiast.desc": "Sie beherrschen mehrere Epochen und Kunststile.",
+    "connoisseur": "Kenner",
+    "connoisseur.desc": "Expertenniveau. Die Kunst hat keine Geheimnisse mehr für Sie."
+  },
+  "xp": {
+    "total": "Gesamt-XP",
+    "gained": "+{{count}} XP",
+    "nextLevel": "{{count}} XP bis {{level}}",
+    "bonus": "Bonus für perfektes Quiz"
+  },
+  "streak": {
+    "title": "Tägliche Serie",
+    "days": "{{count}} Tag",
+    "days_plural": "{{count}} Tage",
+    "multiplier": "Multiplikator ×{{count}}",
+    "frozen": "Serie geschützt",
+    "freezeAvailable": "1 Freeze diese Woche verfügbar",
+    "freezeUsed": "Freeze diese Woche verwendet",
+    "lost": "Serie verloren. Fangen Sie neu an!"
+  },
+  "badges": {
+    "title": "Abzeichen",
+    "unlocked": "Freigeschaltet",
+    "locked": "Gesperrt",
+    "newBadge": "Neues Abzeichen!",
+    "rarity": {
+      "common": "Gewöhnlich",
+      "rare": "Selten",
+      "epic": "Episch",
+      "legendary": "Legendär"
+    },
+    "categories": {
+      "exploration": "Erkundung",
+      "knowledge": "Wissen",
+      "consistency": "Beständigkeit",
+      "social": "Sozial",
+      "special": "Besondere"
+    },
+    "firstView": {
+      "name": "Erster Blick",
+      "desc": "Betrachten Sie Ihr erstes Kunstwerk."
+    },
+    "museumWanderer": {
+      "name": "Museumswanderer",
+      "desc": "Erkunden Sie Ihr erstes Museum auf dem Globus."
+    },
+    "globeTrotter": {
+      "name": "Weltenbummler",
+      "desc": "Erkunden Sie 5 Museen auf der ganzen Welt."
+    },
+    "comparatorExpert": {
+      "name": "Kennerblick",
+      "desc": "Nutzen Sie den visuellen Vergleicher 10 Mal."
+    },
+    "artSeeker": {
+      "name": "Kunstsucher",
+      "desc": "Betrachten Sie 100 Kunstwerke."
+    },
+    "firstNarration": {
+      "name": "Erste Erzählung",
+      "desc": "Lesen Sie Ihre erste filmische Erzählung."
+    },
+    "quizNovice": {
+      "name": "Lehrling",
+      "desc": "Absolvieren Sie Ihr erstes Kunstquiz."
+    },
+    "perfectScholar": {
+      "name": "Perfekter Gelehrter",
+      "desc": "Erreichen Sie die Höchstpunktzahl in 5 Quizzen."
+    },
+    "eraConqueror": {
+      "name": "Epochen-Eroberer",
+      "desc": "Absolvieren Sie 3 vollständige Kunstepochen."
+    },
+    "artHistorian": {
+      "name": "Kunsthistoriker",
+      "desc": "Absolvieren Sie 5 Epochen und 10 Quizze."
+    },
+    "streakBeginner": {
+      "name": "Erster Tag",
+      "desc": "Starten Sie Ihre erste tägliche Serie."
+    },
+    "weekWarrior": {
+      "name": "Wochenkrieger",
+      "desc": "Halten Sie eine Serie von 7 aufeinanderfolgenden Tagen."
+    },
+    "monthlyMuse": {
+      "name": "Monatsmuse",
+      "desc": "Halten Sie eine Serie von 30 aufeinanderfolgenden Tagen."
+    },
+    "freezeMaster": {
+      "name": "Schutzschild",
+      "desc": "Nutzen Sie Ihren ersten Freeze, um Ihre Serie zu schützen."
+    },
+    "streakLegend": {
+      "name": "Unaufhaltsame Legende",
+      "desc": "Erreichen Sie eine Serie von 100 aufeinanderfolgenden Tagen."
+    },
+    "firstShare": {
+      "name": "Erstes Teilen",
+      "desc": "Teilen Sie ein Kunstwerk mit jemandem."
+    },
+    "communityBuilder": {
+      "name": "Gemeinschaftsgründer",
+      "desc": "Laden Sie 3 Freunde zu MŪSA ein."
+    },
+    "artAmbassador": {
+      "name": "Kunstbotschafter",
+      "desc": "Teilen Sie 10 Kunstwerke."
+    },
+    "musaPioneer": {
+      "name": "MŪSA-Pionier",
+      "desc": "Verdienen Sie Ihren ersten Erfahrungspunkt."
+    },
+    "connoisseurLegend": {
+      "name": "Kenner-Legende",
+      "desc": "Erreichen Sie das Kenner-Niveau. Sie sind ein Meister!"
+    }
+  },
+  "leaderboard": {
+    "title": "Bestenliste",
+    "global": "Global",
+    "regional": "Nach Region",
+    "rank": "#{{rank}}",
+    "you": "Sie"
+  }
+}

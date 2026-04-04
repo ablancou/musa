@@ -80,7 +80,7 @@ export function FeaturesSection() {
   const { t } = useTranslation('landing');
 
   return (
-    <section className="relative bg-white py-16 sm:py-20 lg:py-28 dark:bg-[#0F0F14]">
+    <section className="relative bg-white py-16 sm:py-20 lg:py-28 dark:bg-art-charcoal">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center">

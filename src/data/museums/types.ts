@@ -75,6 +75,10 @@ export interface Museum {
   accentColor: string;
   /** Short description key for i18n */
   descriptionKey: string;
+  /** Virtual tour URL (Google Arts & Culture, museum's own tour, etc.) */
+  virtualTourUrl?: string;
+  /** Online collection URL for browsing all works digitally */
+  onlineCollectionUrl?: string;
 }
 
 // ─── Artwork (expanded with full metadata) ───

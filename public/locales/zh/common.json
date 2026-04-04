@@ -100,7 +100,28 @@
     "swipeToNavigate": "滑动切换展厅",
     "artworksInRoom": "此展厅有{{count}}件作品",
     "tapToExplore": "点击作品进行探索",
-    "loading": "正在进入博物馆..."
+    "loading": "正在进入博物馆...",
+    "walkMode": "展厅漫步",
+    "exploreMode": "探索作品",
+    "searchPlaceholder": "搜索作品或艺术家...",
+    "filters": "筛选",
+    "movementFilter": "流派",
+    "museumFilter": "博物馆",
+    "centuryFilter": "时期",
+    "clearFilters": "清除筛选",
+    "resultsCount": "件作品",
+    "activeFilters": "个筛选条件",
+    "noResults": "未找到符合条件的作品。",
+    "centuries": {
+      "ancient": "古代",
+      "medieval": "中世纪",
+      "15th": "15世纪",
+      "16th": "16世纪",
+      "17th": "17世纪",
+      "18th": "18世纪",
+      "19th": "19世纪",
+      "20th": "20世纪"
+    }
   },
   "compare": {
     "title": "视觉对比",

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Header } from '@/components/layout/Header';
 import { CompareClient } from '@/components/compare/CompareClient';
 
 export const metadata: Metadata = {
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function ComparePage() {
   return (
     <main className="min-h-screen bg-art-cream dark:bg-art-charcoal">
+      <Header />
       <CompareClient />
     </main>
   );

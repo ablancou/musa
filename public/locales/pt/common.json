@@ -100,7 +100,28 @@
     "swipeToNavigate": "Deslize para mudar de sala",
     "artworksInRoom": "{{count}} obras nesta sala",
     "tapToExplore": "Toque em uma obra para explorar",
-    "loading": "Entrando no museu..."
+    "loading": "Entrando no museu...",
+    "walkMode": "Passeio",
+    "exploreMode": "Explorar Obras",
+    "searchPlaceholder": "Buscar obra ou artista...",
+    "filters": "Filtros",
+    "movementFilter": "Movimento",
+    "museumFilter": "Museu",
+    "centuryFilter": "Período",
+    "clearFilters": "Limpar filtros",
+    "resultsCount": "obras",
+    "activeFilters": "filtros ativos",
+    "noResults": "Nenhuma obra encontrada com esses filtros.",
+    "centuries": {
+      "ancient": "Antiguidade",
+      "medieval": "Medieval",
+      "15th": "Século XV",
+      "16th": "Século XVI",
+      "17th": "Século XVII",
+      "18th": "Século XVIII",
+      "19th": "Século XIX",
+      "20th": "Século XX"
+    }
   },
   "compare": {
     "title": "Comparador Visual",

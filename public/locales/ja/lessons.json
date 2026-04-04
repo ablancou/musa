@@ -15,7 +15,12 @@
     "nextLesson": "次のレッスン",
     "previousLesson": "前のレッスン",
     "progress": "進捗",
-    "minuteRead": "{{minutes}}分の読書時間"
+    "minuteRead": "{{minutes}}分の読書時間",
+    "catalogTitle": "シネマティック・レッスン",
+    "catalogSubtitle": "各レッスンは没入型の体験です。データではなく、アートの見方を変える物語。",
+    "filterAll": "すべて",
+    "comingSoon": "近日公開",
+    "moreComing": "さらに多くのレッスンを開発中 — 近日公開"
   },
   "quiz": {
     "question": "質問{{current}}（全{{total}}問）",
@@ -42,5 +47,39 @@
     "next": "次へ",
     "relatedArtworks": "関連する作品",
     "musicConnections": "音楽的なつながり"
+  },
+  "lessons": {
+    "catalog": {
+      "starryNight": {
+        "title": "星月夜",
+        "artist": "フィンセント・ファン・ゴッホ",
+        "era": "ポスト印象派"
+      },
+      "monaLisa": {
+        "title": "モナ・リザ",
+        "artist": "レオナルド・ダ・ヴィンチ",
+        "era": "盛期ルネサンス"
+      },
+      "theKiss": {
+        "title": "接吻",
+        "artist": "グスタフ・クリムト",
+        "era": "アール・ヌーヴォー / ウィーン分離派"
+      },
+      "waterLilies": {
+        "title": "睡蓮",
+        "artist": "クロード・モネ",
+        "era": "印象派"
+      },
+      "girlPearl": {
+        "title": "真珠の耳飾りの少女",
+        "artist": "ヨハネス・フェルメール",
+        "era": "オランダ黄金時代"
+      },
+      "greatWave": {
+        "title": "神奈川沖浪裏",
+        "artist": "葛飾北斎",
+        "era": "浮世絵"
+      }
+    }
   }
 }

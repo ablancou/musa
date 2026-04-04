@@ -15,7 +15,12 @@
     "nextLesson": "Próxima Lição",
     "previousLesson": "Lição Anterior",
     "progress": "Progresso",
-    "minuteRead": "{{minutes}} min de leitura"
+    "minuteRead": "{{minutes}} min de leitura",
+    "catalogTitle": "Lições Cinematográficas",
+    "catalogSubtitle": "Cada lição é uma experiência imersiva. Não são dados — são histórias que mudam sua forma de ver a arte.",
+    "filterAll": "Todas",
+    "comingSoon": "Em Breve",
+    "moreComing": "Mais lições em desenvolvimento — em breve"
   },
   "quiz": {
     "question": "Pergunta {{current}} de {{total}}",
@@ -42,5 +47,39 @@
     "next": "Próximo",
     "relatedArtworks": "Obras Relacionadas",
     "musicConnections": "Conexões Musicais"
+  },
+  "lessons": {
+    "catalog": {
+      "starryNight": {
+        "title": "A Noite Estrelada",
+        "artist": "Vincent van Gogh",
+        "era": "Pós-Impressionismo"
+      },
+      "monaLisa": {
+        "title": "Mona Lisa",
+        "artist": "Leonardo da Vinci",
+        "era": "Alto Renascimento"
+      },
+      "theKiss": {
+        "title": "O Beijo",
+        "artist": "Gustav Klimt",
+        "era": "Art Nouveau / Secessão Vienense"
+      },
+      "waterLilies": {
+        "title": "Nenúfares",
+        "artist": "Claude Monet",
+        "era": "Impressionismo"
+      },
+      "girlPearl": {
+        "title": "Moça com Brinco de Pérola",
+        "artist": "Johannes Vermeer",
+        "era": "Era de Ouro Holandesa"
+      },
+      "greatWave": {
+        "title": "A Grande Onda de Kanagawa",
+        "artist": "Katsushika Hokusai",
+        "era": "Ukiyo-e japonês"
+      }
+    }
   }
 }

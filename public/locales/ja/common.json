@@ -100,7 +100,28 @@
     "swipeToNavigate": "スワイプで展示室を切り替え",
     "artworksInRoom": "この展示室に{{count}}作品",
     "tapToExplore": "作品をタップして探索",
-    "loading": "美術館に入ります..."
+    "loading": "美術館に入ります...",
+    "walkMode": "館内巡り",
+    "exploreMode": "作品を探す",
+    "searchPlaceholder": "作品やアーティストを検索...",
+    "filters": "フィルター",
+    "movementFilter": "様式",
+    "museumFilter": "美術館",
+    "centuryFilter": "時代",
+    "clearFilters": "フィルターをクリア",
+    "resultsCount": "作品",
+    "activeFilters": "適用中のフィルター",
+    "noResults": "このフィルターに一致する作品はありません。",
+    "centuries": {
+      "ancient": "古代",
+      "medieval": "中世",
+      "15th": "15世紀",
+      "16th": "16世紀",
+      "17th": "17世紀",
+      "18th": "18世紀",
+      "19th": "19世紀",
+      "20th": "20世紀"
+    }
   },
   "compare": {
     "title": "ビジュアル比較",

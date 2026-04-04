@@ -100,7 +100,28 @@
     "swipeToNavigate": "Wischen Sie, um den Saal zu wechseln",
     "artworksInRoom": "{{count}} Werke in diesem Saal",
     "tapToExplore": "Tippen Sie auf ein Werk, um es zu erkunden",
-    "loading": "Betreten Sie das Museum..."
+    "loading": "Betreten Sie das Museum...",
+    "walkMode": "Rundgang",
+    "exploreMode": "Werke Entdecken",
+    "searchPlaceholder": "Werk oder Künstler suchen...",
+    "filters": "Filter",
+    "movementFilter": "Stilrichtung",
+    "museumFilter": "Museum",
+    "centuryFilter": "Epoche",
+    "clearFilters": "Filter zurücksetzen",
+    "resultsCount": "Werke",
+    "activeFilters": "aktive Filter",
+    "noResults": "Keine Werke mit diesen Filtern gefunden.",
+    "centuries": {
+      "ancient": "Antike",
+      "medieval": "Mittelalter",
+      "15th": "15. Jahrhundert",
+      "16th": "16. Jahrhundert",
+      "17th": "17. Jahrhundert",
+      "18th": "18. Jahrhundert",
+      "19th": "19. Jahrhundert",
+      "20th": "20. Jahrhundert"
+    }
   },
   "compare": {
     "title": "Visueller Vergleich",

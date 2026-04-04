@@ -15,7 +15,12 @@
     "nextLesson": "下一课",
     "previousLesson": "上一课",
     "progress": "进度",
-    "minuteRead": "{{minutes}}分钟阅读"
+    "minuteRead": "{{minutes}}分钟阅读",
+    "catalogTitle": "电影式课程",
+    "catalogSubtitle": "每一课都是沉浸式体验。不是数据——而是改变你看待艺术方式的故事。",
+    "filterAll": "全部",
+    "comingSoon": "即将推出",
+    "moreComing": "更多课程正在开发中——即将推出"
   },
   "quiz": {
     "question": "题目{{current}}/共{{total}}",
@@ -42,5 +47,39 @@
     "next": "下一页",
     "relatedArtworks": "相关作品",
     "musicConnections": "音乐联系"
+  },
+  "lessons": {
+    "catalog": {
+      "starryNight": {
+        "title": "星夜",
+        "artist": "文森特·梵高",
+        "era": "后印象派"
+      },
+      "monaLisa": {
+        "title": "蒙娜丽莎",
+        "artist": "列奥纳多·达·芬奇",
+        "era": "文艺复兴全盛期"
+      },
+      "theKiss": {
+        "title": "吻",
+        "artist": "古斯塔夫·克里姆特",
+        "era": "新艺术运动 / 维也纳分离派"
+      },
+      "waterLilies": {
+        "title": "睡莲",
+        "artist": "克劳德·莫奈",
+        "era": "印象派"
+      },
+      "girlPearl": {
+        "title": "戴珍珠耳环的少女",
+        "artist": "约翰内斯·维米尔",
+        "era": "荷兰黄金时代"
+      },
+      "greatWave": {
+        "title": "神奈川冲浪里",
+        "artist": "葛饰北斋",
+        "era": "日本浮世绘"
+      }
+    }
   }
 }

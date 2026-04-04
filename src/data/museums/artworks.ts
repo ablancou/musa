@@ -22,9 +22,14 @@
  */
 
 import type { Artwork } from './types';
+import { ARTWORKS_BATCH2 } from './artworks-batch2';
+import { ARTWORKS_BATCH3 } from './artworks-batch3';
+import { ARTWORKS_BATCH4A } from './artworks-batch4a';
+import { ARTWORKS_BATCH4B } from './artworks-batch4b';
+import { ARTWORKS_BATCH4C } from './artworks-batch4c';
 export type { Artwork } from './types';
 
-export const ARTWORKS: Artwork[] = [
+const ARTWORKS_BASE: Artwork[] = [
   // ═══════════════════════════════════════════════════════
   // LOUVRE — Paris, France
   // ═══════════════════════════════════════════════════════
@@ -986,6 +991,18 @@ export const ARTWORKS: Artwork[] = [
     hasNarration: false,
     highlights: ['Dramatic tenebrism', 'Beam of light as divine call', 'Figures in contemporary dress'],
   },
+];
+
+// ═══════════════════════════════════════════════════════
+// Merge all batches into single collection
+// ═══════════════════════════════════════════════════════
+export const ARTWORKS: Artwork[] = [
+  ...ARTWORKS_BASE,
+  ...ARTWORKS_BATCH2,
+  ...ARTWORKS_BATCH3,
+  ...ARTWORKS_BATCH4A,
+  ...ARTWORKS_BATCH4B,
+  ...ARTWORKS_BATCH4C,
 ];
 
 // ─── Helper functions ───

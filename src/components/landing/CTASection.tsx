@@ -17,7 +17,7 @@ export function CTASection() {
   const { t } = useTranslation('landing');
 
   return (
-    <section className="relative overflow-hidden bg-art-navy py-16 sm:py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-art-navy dark:bg-[#0a0a0f] py-16 sm:py-20 lg:py-28">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-art-gold blur-3xl" />
@@ -49,7 +49,7 @@ export function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-4 text-base text-white/60 sm:text-lg lg:text-xl"
+          className="mt-4 text-base text-art-charcoal/60 dark:text-white/60 sm:text-lg lg:text-xl"
         >
           {t('cta.subtitle')}
         </motion.p>
@@ -65,7 +65,7 @@ export function CTASection() {
             href="/register"
             className={cn(
               'group inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all',
-              'bg-art-gold text-white shadow-xl hover:bg-art-gold-light hover:shadow-2xl active:scale-[0.98]',
+              'bg-art-gold text-art-charcoal dark:text-white shadow-xl hover:bg-art-gold-light hover:shadow-2xl active:scale-[0.98]',
               'w-full px-8 py-4 text-base sm:w-auto sm:py-4 sm:text-lg lg:px-10 lg:py-5 lg:text-xl'
             )}
           >
@@ -80,7 +80,7 @@ export function CTASection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs text-white/40 sm:gap-6 sm:text-sm"
+          className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs text-art-charcoal/40 dark:text-white/40 sm:gap-6 sm:text-sm"
         >
           <span>✓ {t('stats.free')}</span>
           <span className="hidden sm:inline">·</span>

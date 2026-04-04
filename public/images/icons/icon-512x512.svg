@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2C2C2C"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D4A843"/>
+      <stop offset="100%" stop-color="#C5932A"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="77" fill="url(#bg)"/>
+  <text x="256" y="266.24" font-family="Georgia, 'Times New Roman', serif" font-size="113" font-weight="700" fill="url(#gold)" text-anchor="middle" dominant-baseline="middle" letter-spacing="7.68">MŪSA</text>
+  <text x="256" y="368.64" font-family="Georgia, 'Times New Roman', serif" font-size="41" fill="#C5932A" text-anchor="middle" opacity="0.7">EL MUSEO DE LOS MUSEOS</text>
+  <rect x="102.4" y="179.2" width="307.2" height="1" fill="#C5932A" opacity="0.3"/>
+  <rect x="102.4" y="399.36" width="307.2" height="1" fill="#C5932A" opacity="0.3"/>
+</svg>

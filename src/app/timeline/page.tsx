@@ -3,10 +3,27 @@
  * Interactive 4,000-year art history timeline
  */
 
+import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { TimelineView } from '@/components/timeline/TimelineView';
+
+export const metadata: Metadata = {
+  title: 'Línea de Tiempo — MŪSA | 4,000 Años de Arte',
+  description:
+    'Explora 4,000 años de historia del arte en una línea de tiempo interactiva. Del arte egipcio al expresionismo abstracto, con conexiones musicales de cada época.',
+  openGraph: {
+    title: 'Timeline — MŪSA | 4,000 Years of Art History',
+    description: 'Explore 4,000 years of art in an interactive timeline with music connections for every era.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MŪSA Timeline — 4,000 Years of Art',
+    description: 'An interactive journey through art history with music from every era.',
+  },
+};
 
 export const dynamic = 'force-dynamic';
 
@@ -23,7 +40,7 @@ function TimelineLoading() {
 
 export default function TimelinePage() {
   return (
-    <div className="min-h-screen bg-art-cream">
+    <div className="min-h-screen bg-art-cream dark:bg-art-charcoal transition-colors duration-300">
       <Header />
       <main className="pt-16 lg:pt-20">
         <Suspense fallback={<TimelineLoading />}>

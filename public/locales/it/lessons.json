@@ -15,7 +15,12 @@
     "nextLesson": "Prossima Lezione",
     "previousLesson": "Lezione Precedente",
     "progress": "Progresso",
-    "minuteRead": "{{minutes}} min di lettura"
+    "minuteRead": "{{minutes}} min di lettura",
+    "catalogTitle": "Lezioni Cinematografiche",
+    "catalogSubtitle": "Ogni lezione è un'esperienza immersiva. Non dati — storie che cambiano il tuo modo di vedere l'arte.",
+    "filterAll": "Tutte",
+    "comingSoon": "Prossimamente",
+    "moreComing": "Altre lezioni in fase di sviluppo — prossimamente"
   },
   "quiz": {
     "question": "Domanda {{current}} di {{total}}",
@@ -42,5 +47,39 @@
     "next": "Successivo",
     "relatedArtworks": "Opere Correlate",
     "musicConnections": "Connessioni Musicali"
+  },
+  "lessons": {
+    "catalog": {
+      "starryNight": {
+        "title": "Notte stellata",
+        "artist": "Vincent van Gogh",
+        "era": "Post-Impressionismo"
+      },
+      "monaLisa": {
+        "title": "La Gioconda",
+        "artist": "Leonardo da Vinci",
+        "era": "Alto Rinascimento"
+      },
+      "theKiss": {
+        "title": "Il bacio",
+        "artist": "Gustav Klimt",
+        "era": "Art Nouveau / Secessione Viennese"
+      },
+      "waterLilies": {
+        "title": "Ninfee",
+        "artist": "Claude Monet",
+        "era": "Impressionismo"
+      },
+      "girlPearl": {
+        "title": "Ragazza con l'orecchino di perla",
+        "artist": "Johannes Vermeer",
+        "era": "Età dell'Oro Olandese"
+      },
+      "greatWave": {
+        "title": "La grande onda di Kanagawa",
+        "artist": "Katsushika Hokusai",
+        "era": "Ukiyo-e giapponese"
+      }
+    }
   }
 }

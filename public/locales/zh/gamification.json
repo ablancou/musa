@@ -1,0 +1,134 @@
+{
+  "levels": {
+    "starter": "入门者",
+    "starter.desc": "你的艺术之旅从这里开始。",
+    "explorer": "探索者",
+    "explorer.desc": "你已掌握基础知识，现在深入探索吧。",
+    "enthusiast": "爱好者",
+    "enthusiast.desc": "你已精通多个艺术时期和风格。",
+    "connoisseur": "鉴赏家",
+    "connoisseur.desc": "专家级别。艺术对你已无秘密可言。"
+  },
+  "xp": {
+    "total": "总经验值",
+    "gained": "+{{count}} XP",
+    "nextLevel": "距{{level}}还需{{count}} XP",
+    "bonus": "满分测验奖励"
+  },
+  "streak": {
+    "title": "每日连续",
+    "days": "{{count}}天",
+    "days_plural": "{{count}}天",
+    "multiplier": "倍率 ×{{count}}",
+    "frozen": "连续记录已保护",
+    "freezeAvailable": "本周可用1次冻结",
+    "freezeUsed": "本周冻结已使用",
+    "lost": "连续记录中断，重新开始吧！"
+  },
+  "badges": {
+    "title": "徽章",
+    "unlocked": "已解锁",
+    "locked": "未解锁",
+    "newBadge": "获得新徽章！",
+    "rarity": {
+      "common": "普通",
+      "rare": "稀有",
+      "epic": "史诗",
+      "legendary": "传奇"
+    },
+    "categories": {
+      "exploration": "探索",
+      "knowledge": "知识",
+      "consistency": "坚持",
+      "social": "社交",
+      "special": "特别"
+    },
+    "firstView": {
+      "name": "初次邂逅",
+      "desc": "欣赏你的第一件艺术作品。"
+    },
+    "museumWanderer": {
+      "name": "博物馆旅人",
+      "desc": "在地球仪上探索你的第一座博物馆。"
+    },
+    "globeTrotter": {
+      "name": "环球旅行家",
+      "desc": "探索世界各地的5座博物馆。"
+    },
+    "comparatorExpert": {
+      "name": "鉴赏之眼",
+      "desc": "使用视觉比较器10次。"
+    },
+    "artSeeker": {
+      "name": "艺术探寻者",
+      "desc": "欣赏100件艺术作品。"
+    },
+    "firstNarration": {
+      "name": "初识故事",
+      "desc": "阅读你的第一篇电影般的叙事。"
+    },
+    "quizNovice": {
+      "name": "学徒",
+      "desc": "完成你的第一个艺术测验。"
+    },
+    "perfectScholar": {
+      "name": "完美学者",
+      "desc": "在5个测验中获得满分。"
+    },
+    "eraConqueror": {
+      "name": "时代征服者",
+      "desc": "完成3个完整的艺术时代。"
+    },
+    "artHistorian": {
+      "name": "艺术史学家",
+      "desc": "完成5个时代和10个测验。"
+    },
+    "streakBeginner": {
+      "name": "第一天",
+      "desc": "开启你的第一次每日连续。"
+    },
+    "weekWarrior": {
+      "name": "周勇士",
+      "desc": "保持7天连续记录。"
+    },
+    "monthlyMuse": {
+      "name": "月度缪斯",
+      "desc": "保持30天连续记录。"
+    },
+    "freezeMaster": {
+      "name": "守护之盾",
+      "desc": "使用你的第一次冻结来保护连续记录。"
+    },
+    "streakLegend": {
+      "name": "不可阻挡的传奇",
+      "desc": "达成100天连续记录。"
+    },
+    "firstShare": {
+      "name": "首次分享",
+      "desc": "与他人分享一件艺术作品。"
+    },
+    "communityBuilder": {
+      "name": "社区建设者",
+      "desc": "邀请3位朋友加入MŪSA。"
+    },
+    "artAmbassador": {
+      "name": "艺术大使",
+      "desc": "分享10件艺术作品。"
+    },
+    "musaPioneer": {
+      "name": "MŪSA先锋",
+      "desc": "获得你的第一个经验值。"
+    },
+    "connoisseurLegend": {
+      "name": "鉴赏家传奇",
+      "desc": "达到鉴赏家等级。你是大师！"
+    }
+  },
+  "leaderboard": {
+    "title": "排行榜",
+    "global": "全球",
+    "regional": "按地区",
+    "rank": "#{{rank}}",
+    "you": "你"
+  }
+}

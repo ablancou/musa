@@ -2,6 +2,11 @@ import React from 'react';
 import { Metadata } from 'next';
 import LessonContent from './LessonContent';
 import { VAN_GOGH_STARRY_NIGHT } from '@/data/lessons/van-gogh-starry-night';
+import { MONET_WATER_LILIES_LESSON } from '@/data/lessons/monet-water-lilies';
+import { KLIMT_THE_KISS_LESSON } from '@/data/lessons/klimt-the-kiss';
+import { HOKUSAI_GREAT_WAVE } from '@/data/lessons/hokusai-great-wave';
+import { MONA_LISA_LESSON } from '@/data/lessons/mona-lisa';
+import { GIRL_PEARL_EARRING_LESSON } from '@/data/lessons/girl-pearl-earring';
 
 /**
  * Lesson Page — Server Component wrapper
@@ -15,6 +20,11 @@ interface PageProps {
 // Map of lesson slugs to lesson data
 const LESSONS_MAP = {
   'van-gogh-starry-night': VAN_GOGH_STARRY_NIGHT,
+  'monet-water-lilies': MONET_WATER_LILIES_LESSON,
+  'klimt-the-kiss': KLIMT_THE_KISS_LESSON,
+  'hokusai-great-wave': HOKUSAI_GREAT_WAVE,
+  'mona-lisa': MONA_LISA_LESSON,
+  'girl-pearl-earring': GIRL_PEARL_EARRING_LESSON,
 };
 
 export async function generateMetadata(
@@ -69,7 +79,8 @@ export default async function LessonPage(props: PageProps) {
     );
   }
 
-  return <LessonContent lesson={lesson} />;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return <LessonContent lesson={lesson as any} />;
 }
 
 export const dynamic = 'force-dynamic';

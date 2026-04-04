@@ -16,10 +16,10 @@ export const dynamic = 'force-dynamic';
 
 function LoadingFallback() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-art-cream">
+    <div className="flex min-h-screen items-center justify-center bg-art-cream dark:bg-art-charcoal">
       <div className="flex flex-col items-center gap-3">
         <div className="h-8 w-8 animate-spin rounded-full border-2 border-art-gold border-t-transparent" />
-        <span className="text-sm text-art-charcoal/50">MŪSA</span>
+        <span className="text-sm text-art-charcoal/50 dark:text-white/50">MŪSA</span>
       </div>
     </div>
   );
@@ -28,7 +28,7 @@ function LoadingFallback() {
 export default function LandingPage() {
   return (
     <Suspense fallback={<LoadingFallback />}>
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-art-cream dark:bg-art-charcoal">
         <Header />
         <main>
           <HeroSection />

@@ -16,7 +16,7 @@ export default function SearchPage() {
       <Header />
       <Suspense
         fallback={
-          <div className="flex min-h-screen items-center justify-center bg-art-charcoal">
+          <div className="flex min-h-screen items-center justify-center bg-white dark:bg-art-charcoal">
             <div className="h-8 w-8 animate-spin rounded-full border-2 border-art-gold/20 border-t-art-gold" />
           </div>
         }

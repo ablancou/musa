@@ -1,13 +1,30 @@
 /**
  * Gallery Page — Server Component
- * The Museum Walk experience
+ * Dual view: Museum Walk (immersive rooms) + Artwork Explorer (filterable grid)
  */
 
 import { Suspense } from 'react';
 import { Header } from '@/components/layout/Header';
-import { GalleryWalk } from '@/components/gallery/GalleryWalk';
+import { Footer } from '@/components/layout/Footer';
+import { GalleryTabs } from '@/components/gallery/GalleryTabs';
 
-export const dynamic = 'force-dynamic';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Galería — MŪSA | Obras Maestras del Mundo',
+  description:
+    'Explora las obras maestras del arte mundial en salas inmersivas 3D. Filtra por movimiento, museo, técnica y siglo. Más de 1,000 obras de dominio público.',
+  openGraph: {
+    title: 'Gallery — MŪSA | Masterpieces of the World',
+    description: 'Walk through immersive 3D gallery rooms or explore 1,000+ artworks with advanced filters.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MŪSA Gallery — World Masterpieces',
+    description: 'Immersive 3D rooms and 1,000+ filterable artworks from the world\'s greatest museums.',
+  },
+};
 
 function GalleryLoading() {
   return (
@@ -28,9 +45,12 @@ export default function GalleryPage() {
       <Header />
       <main className="pt-16 lg:pt-20">
         <Suspense fallback={<GalleryLoading />}>
-          <GalleryWalk />
+          <GalleryTabs />
         </Suspense>
       </main>
+      <Footer />
     </div>
   );
 }
+
+export const dynamic = 'force-dynamic';

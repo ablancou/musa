@@ -133,14 +133,14 @@ function ArtworkDetailModal({
           </div>
 
           {/* Music connection */}
-          <div className="mt-5 rounded-xl bg-art-cream p-4">
+          <div className="mt-5 rounded-xl bg-art-cream dark:bg-art-charcoal p-4">
             <div className="flex items-center gap-2">
               <Music className="h-5 w-5 flex-shrink-0" style={{ color: era.color }} />
               <div>
-                <p className="text-xs font-semibold text-art-charcoal/50 uppercase tracking-wider">
+                <p className="text-xs font-semibold text-art-charcoal/50 dark:text-white/50 uppercase tracking-wider">
                   {t('gallery.musicConnection')}
                 </p>
-                <p className="mt-0.5 text-sm text-art-charcoal/70">{era.musicGenre}</p>
+                <p className="mt-0.5 text-sm text-art-charcoal/70 dark:text-white/70">{era.musicGenre}</p>
               </div>
             </div>
           </div>
@@ -218,7 +218,7 @@ function RoomNavigator({
           />
 
           {/* Tooltip — desktop only */}
-          <div className="absolute -top-8 left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded-md bg-art-charcoal px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 lg:block">
+          <div className="absolute -top-8 left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded-md bg-art-charcoal dark:bg-white px-2 py-1 text-[10px] text-white dark:text-art-charcoal opacity-0 transition-opacity group-hover:opacity-100 lg:block">
             {t(era.nameKey)}
           </div>
         </button>

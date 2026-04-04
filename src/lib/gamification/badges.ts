@@ -6,7 +6,7 @@
  */
 
 import type { BadgeDefinition } from './types';
-import { getLevelFromXP } from './engine';
+import { getLevelFromXP } from './levels';
 
 export const ALL_BADGES: BadgeDefinition[] = [
   // ═══ EXPLORATION ═══

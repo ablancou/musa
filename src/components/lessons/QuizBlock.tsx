@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, XCircle, Award } from 'lucide-react';
+import { CheckCircle, XCircle, Award, Flame, Sparkles } from 'lucide-react';
 import type { QuizQuestion } from '@/data/lessons/van-gogh-starry-night';
+import { useGamificationStore } from '@/stores/gamificationStore';
 
 /**
  * VIEWPORT GUIDE (Triple Responsive):
@@ -89,6 +90,23 @@ export default function QuizBlock({ questions }: QuizBlockProps) {
       isComplete: false,
     });
   };
+
+  // Award XP when quiz is completed
+  const { performAction } = useGamificationStore();
+  const [xpAwarded, setXpAwarded] = useState(false);
+
+  useEffect(() => {
+    if (state.isComplete && !xpAwarded) {
+      const correctCount = state.answers.filter(
+        (answer, idx) => answer === questions[idx].correctAnswer
+      ).length;
+      const isPerfect = correctCount === questions.length;
+      performAction('complete_quiz', {
+        perfect: isPerfect,
+      });
+      setXpAwarded(true);
+    }
+  }, [state.isComplete, xpAwarded, state.answers, questions, score, performAction]);
 
   if (state.isComplete) {
     return (

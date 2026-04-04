@@ -1,5 +1,10 @@
 {
   "lesson": {
+    "catalogTitle": "Lecciones Cinematográficas",
+    "catalogSubtitle": "Cada lección es una experiencia inmersiva. No son datos: son historias que cambian tu forma de ver el arte.",
+    "filterAll": "Todas",
+    "comingSoon": "Próximamente",
+    "moreComing": "Más lecciones en desarrollo — próximamente",
     "difficulty": {
       "starter": "Principiante",
       "explorer": "Explorador",
@@ -16,6 +21,40 @@
     "previousLesson": "Lección Anterior",
     "progress": "Progreso",
     "minuteRead": "{{minutes}} min de lectura"
+  },
+  "lessons": {
+    "catalog": {
+      "starryNight": {
+        "title": "La Noche Estrellada",
+        "artist": "Vincent van Gogh",
+        "era": "Post-Impresionismo"
+      },
+      "monaLisa": {
+        "title": "La Mona Lisa",
+        "artist": "Leonardo da Vinci",
+        "era": "Alto Renacimiento"
+      },
+      "theKiss": {
+        "title": "El Beso",
+        "artist": "Gustav Klimt",
+        "era": "Art Nouveau / Secesión Vienesa"
+      },
+      "waterLilies": {
+        "title": "Nenúfares",
+        "artist": "Claude Monet",
+        "era": "Impresionismo"
+      },
+      "girlPearl": {
+        "title": "La Joven de la Perla",
+        "artist": "Johannes Vermeer",
+        "era": "Barroco Holandés"
+      },
+      "greatWave": {
+        "title": "La Gran Ola de Kanagawa",
+        "artist": "Katsushika Hokusai",
+        "era": "Ukiyo-e Japonés"
+      }
+    }
   },
   "quiz": {
     "question": "Pregunta {{current}} de {{total}}",

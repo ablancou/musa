@@ -25,7 +25,14 @@
       "expressionism": "表現主義",
       "surrealism": "シュルレアリスム",
       "abstractExpressionism": "抽象表現主義",
-      "popArt": "ポップアート"
+      "popArt": "ポップアート",
+      "gothic": "ゴシック",
+      "rococo": "ロココ",
+      "neoclassicism": "新古典主義",
+      "realism": "写実主義",
+      "fauvism": "フォーヴィスム",
+      "islamicGoldenAge": "イスラム美術",
+      "precolumbian": "プレコロンブス美術"
     },
     "music": {
       "ancientEgypt": "古代楽器：ハープ、笛、シストルム",
@@ -41,7 +48,14 @@
       "expressionism": "シェーンベルク、ベルク — 不協和音として感情を表現",
       "surrealism": "エリック・サティ、ジョン・ケージ — 予想外が音楽になる",
       "abstractExpressionism": "ジャズ：コルトレーン、セロニアス・モンク、チャーリー・パーカー — 純粋な即興",
-      "popArt": "ザ・ビートルズ、ヴェルヴェット・アンダーグラウンド、デヴィッド・ボウイ — 美術とポップが一体化"
+      "popArt": "ザ・ビートルズ、ヴェルヴェット・アンダーグラウンド、デヴィッド・ボウイ — 美術とポップが一体化",
+      "gothic": "アルス・ノヴァとグレゴリオ聖歌",
+      "rococo": "ギャラント様式 — 初期モーツァルト、C.P.E.バッハ",
+      "neoclassicism": "古典派 — モーツァルト、ハイドン",
+      "realism": "ロマン主義的国民楽派 — ヴェルディ、ワーグナー",
+      "fauvism": "初期モダニズム — ラヴェル、初期ストラヴィンスキー",
+      "islamicGoldenAge": "マカーム伝統、アンダルシア古典音楽",
+      "precolumbian": "先住民の管楽器と打楽器"
     },
     "artworks": {
       "nefertiti": "ネフェルティティの胸像",

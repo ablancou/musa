@@ -25,7 +25,14 @@
       "expressionism": "表现主义",
       "surrealism": "超现实主义",
       "abstractExpressionism": "抽象表现主义",
-      "popArt": "波普艺术"
+      "popArt": "波普艺术",
+      "gothic": "哥特式",
+      "rococo": "洛可可",
+      "neoclassicism": "新古典主义",
+      "realism": "现实主义",
+      "fauvism": "野兽派",
+      "islamicGoldenAge": "伊斯兰艺术",
+      "precolumbian": "前哥伦布艺术"
     },
     "music": {
       "ancientEgypt": "古代乐器：竖琴、长笛和西斯琴",
@@ -41,7 +48,14 @@
       "expressionism": "勋伯格、贝尔格——不协和音作为情感",
       "surrealism": "埃里克·萨蒂、约翰·凯奇——意料之外的音乐",
       "abstractExpressionism": "爵士乐：科尔特兰、蒙克、帕克——纯粹的即兴演奏",
-      "popArt": "披头士乐队、地下丝绒乐队、大卫·鲍伊——艺术与流行的结合"
+      "popArt": "披头士乐队、地下丝绒乐队、大卫·鲍伊——艺术与流行的结合",
+      "gothic": "新艺术与格里高利圣歌",
+      "rococo": "华丽风格 — 早期莫扎特、C.P.E.巴赫",
+      "neoclassicism": "古典主义时期 — 莫扎特、海顿",
+      "realism": "浪漫民族主义 — 威尔第、瓦格纳",
+      "fauvism": "早期现代主义 — 拉威尔、早期斯特拉文斯基",
+      "islamicGoldenAge": "马卡姆传统、安达卢西亚古典音乐",
+      "precolumbian": "原住民管乐器和打击乐"
     },
     "artworks": {
       "nefertiti": "纳芙蒂蒂半身像",

@@ -15,7 +15,12 @@
     "nextLesson": "Nächste Lektion",
     "previousLesson": "Vorherige Lektion",
     "progress": "Fortschritt",
-    "minuteRead": "{{minutes}} min Lesezeit"
+    "minuteRead": "{{minutes}} min Lesezeit",
+    "catalogTitle": "Filmische Lektionen",
+    "catalogSubtitle": "Jede Lektion ist ein immersives Erlebnis. Keine Daten — Geschichten, die Ihre Sicht auf die Kunst verändern.",
+    "filterAll": "Alle",
+    "comingSoon": "Demnächst",
+    "moreComing": "Weitere Lektionen in Entwicklung — demnächst verfügbar"
   },
   "quiz": {
     "question": "Frage {{current}} von {{total}}",
@@ -42,5 +47,39 @@
     "next": "Weiter",
     "relatedArtworks": "Verwandte Werke",
     "musicConnections": "Musikalische Verbindungen"
+  },
+  "lessons": {
+    "catalog": {
+      "starryNight": {
+        "title": "Sternennacht",
+        "artist": "Vincent van Gogh",
+        "era": "Postimpressionismus"
+      },
+      "monaLisa": {
+        "title": "Mona Lisa",
+        "artist": "Leonardo da Vinci",
+        "era": "Hochrenaissance"
+      },
+      "theKiss": {
+        "title": "Der Kuss",
+        "artist": "Gustav Klimt",
+        "era": "Jugendstil / Wiener Secession"
+      },
+      "waterLilies": {
+        "title": "Seerosen",
+        "artist": "Claude Monet",
+        "era": "Impressionismus"
+      },
+      "girlPearl": {
+        "title": "Das Mädchen mit dem Perlenohrring",
+        "artist": "Johannes Vermeer",
+        "era": "Goldenes Zeitalter der Niederlande"
+      },
+      "greatWave": {
+        "title": "Die große Welle vor Kanagawa",
+        "artist": "Katsushika Hokusai",
+        "era": "Japanischer Ukiyo-e"
+      }
+    }
   }
 }

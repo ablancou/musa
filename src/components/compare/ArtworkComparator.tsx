@@ -71,8 +71,8 @@ function ArtworkPicker({
         className={cn(
           'w-full rounded-2xl border-2 border-dashed transition-all',
           selected
-            ? 'border-art-gold/30 bg-white dark:bg-[#1A1A22]'
-            : 'border-art-charcoal/20 bg-art-cream/50 dark:border-white/20 dark:bg-white/5 hover:border-art-gold/40'
+            ? 'border-art-gold/30 bg-white dark:bg-white/5'
+            : 'border-art-charcoal/20 dark:border-white/20 bg-art-cream/50 dark:bg-white/5 hover:border-art-gold/40'
         )}
       >
         {selected ? (
@@ -114,11 +114,11 @@ function ArtworkPicker({
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              className="absolute left-0 right-0 top-full z-50 mt-2 max-h-[60vh] overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-art-charcoal/10 dark:bg-[#1A1A22] dark:ring-white/10"
+              className="absolute left-0 right-0 top-full z-50 mt-2 max-h-[60vh] overflow-hidden rounded-2xl bg-white dark:bg-white/5 shadow-2xl ring-1 ring-art-charcoal/10 dark:ring-white/10"
             >
               {/* Search */}
-              <div className="sticky top-0 z-10 border-b border-art-charcoal/10 bg-white p-3 dark:border-white/10 dark:bg-[#1A1A22]">
-                <div className="flex items-center gap-2 rounded-xl bg-art-cream px-3 py-2 dark:bg-white/5">
+              <div className="sticky top-0 z-10 border-b border-art-charcoal/10 dark:border-white/10 bg-white dark:bg-white/5 p-3">
+                <div className="flex items-center gap-2 rounded-xl bg-art-cream dark:bg-white/10 px-3 py-2">
                   <Search className="h-4 w-4 text-art-charcoal/40 dark:text-white/40" />
                   <input
                     type="text"
@@ -154,7 +154,7 @@ function ArtworkPicker({
                         'flex w-full items-center gap-3 rounded-xl p-2 text-left transition-colors',
                         isOther
                           ? 'opacity-30 cursor-not-allowed'
-                          : 'hover:bg-art-cream dark:hover:bg-white/5'
+                          : 'hover:bg-art-cream/50 dark:hover:bg-white/10'
                       )}
                     >
                       <img
@@ -214,7 +214,7 @@ function CompareRow({
   return (
     <div className={cn(
       'grid grid-cols-[1fr,auto,1fr] gap-2 items-center rounded-xl px-3 py-2.5 sm:px-4 sm:py-3',
-      highlight ? 'bg-art-gold/5 dark:bg-art-gold/10' : 'bg-art-cream/50 dark:bg-white/5'
+      highlight ? 'bg-art-gold/10 dark:bg-art-gold/10' : 'bg-art-cream/50 dark:bg-white/5'
     )}>
       <p className="text-xs text-art-charcoal/80 dark:text-white/80 text-right sm:text-sm">
         {valueA}
@@ -281,7 +281,7 @@ export function ArtworkComparator() {
   const bothSelected = artworkA && artworkB;
 
   return (
-    <div className="min-h-screen bg-art-cream pt-20 pb-12 dark:bg-[#0F0F14]">
+    <div className="min-h-screen bg-art-cream dark:bg-art-charcoal pt-20 pb-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-8">
@@ -309,7 +309,7 @@ export function ArtworkComparator() {
               'mx-auto flex h-10 w-10 items-center justify-center rounded-full transition-all self-center',
               bothSelected
                 ? 'bg-art-gold text-white shadow-md hover:shadow-lg hover:scale-105'
-                : 'bg-art-charcoal/10 text-art-charcoal/30 dark:bg-white/10 dark:text-white/30'
+                : 'bg-art-charcoal/10 dark:bg-white/10 text-art-charcoal/30 dark:text-white/30'
             )}
           >
             <ArrowLeftRight className="h-4 w-4" />
@@ -465,7 +465,7 @@ export function ArtworkComparator() {
                       setArtworkA(a);
                       setArtworkB(b);
                     }}
-                    className="rounded-full border border-art-charcoal/10 px-4 py-2 text-sm text-art-charcoal/60 transition-all hover:border-art-gold/30 hover:text-art-gold dark:border-white/10 dark:text-white/50 dark:hover:border-art-gold/30"
+                    className="rounded-full border border-art-charcoal/10 dark:border-white/10 px-4 py-2 text-sm text-art-charcoal/60 dark:text-white/50 transition-all hover:border-art-gold/30 hover:text-art-gold dark:hover:border-art-gold/30"
                   >
                     {suggestion.label}
                   </button>

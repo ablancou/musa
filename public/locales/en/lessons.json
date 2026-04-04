@@ -15,7 +15,12 @@
     "nextLesson": "Next Lesson",
     "previousLesson": "Previous Lesson",
     "progress": "Progress",
-    "minuteRead": "{{minutes}} min read"
+    "minuteRead": "{{minutes}} min read",
+    "catalogTitle": "Cinematic Lessons",
+    "catalogSubtitle": "Each lesson is an immersive experience. Not data — stories that change how you see art.",
+    "filterAll": "All",
+    "comingSoon": "Coming Soon",
+    "moreComing": "More lessons in development — coming soon"
   },
   "quiz": {
     "question": "Question {{current}} of {{total}}",
@@ -42,5 +47,39 @@
     "next": "Next",
     "relatedArtworks": "Related Artworks",
     "musicConnections": "Musical Connections"
+  },
+  "lessons": {
+    "catalog": {
+      "starryNight": {
+        "title": "The Starry Night",
+        "artist": "Vincent van Gogh",
+        "era": "Post-Impressionism"
+      },
+      "monaLisa": {
+        "title": "Mona Lisa",
+        "artist": "Leonardo da Vinci",
+        "era": "High Renaissance"
+      },
+      "theKiss": {
+        "title": "The Kiss",
+        "artist": "Gustav Klimt",
+        "era": "Art Nouveau / Vienna Secession"
+      },
+      "waterLilies": {
+        "title": "Water Lilies",
+        "artist": "Claude Monet",
+        "era": "Impressionism"
+      },
+      "girlPearl": {
+        "title": "Girl with a Pearl Earring",
+        "artist": "Johannes Vermeer",
+        "era": "Dutch Golden Age"
+      },
+      "greatWave": {
+        "title": "The Great Wave off Kanagawa",
+        "artist": "Katsushika Hokusai",
+        "era": "Japanese Ukiyo-e"
+      }
+    }
   }
 }

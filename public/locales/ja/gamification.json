@@ -1,0 +1,134 @@
+{
+  "levels": {
+    "starter": "初心者",
+    "starter.desc": "アートの旅がここから始まります。",
+    "explorer": "探検家",
+    "explorer.desc": "基本を学びました。さらに深く探求しましょう。",
+    "enthusiast": "愛好家",
+    "enthusiast.desc": "複数の時代と芸術様式を習得しています。",
+    "connoisseur": "鑑定家",
+    "connoisseur.desc": "エキスパートレベル。芸術に秘密はもうありません。"
+  },
+  "xp": {
+    "total": "合計XP",
+    "gained": "+{{count}} XP",
+    "nextLevel": "{{level}}まであと{{count}} XP",
+    "bonus": "パーフェクトクイズボーナス"
+  },
+  "streak": {
+    "title": "デイリーストリーク",
+    "days": "{{count}}日",
+    "days_plural": "{{count}}日間",
+    "multiplier": "倍率 ×{{count}}",
+    "frozen": "ストリーク保護中",
+    "freezeAvailable": "今週のフリーズ1回利用可能",
+    "freezeUsed": "今週のフリーズ使用済み",
+    "lost": "ストリークが途切れました。もう一度始めましょう！"
+  },
+  "badges": {
+    "title": "バッジ",
+    "unlocked": "獲得済み",
+    "locked": "未獲得",
+    "newBadge": "新しいバッジ獲得！",
+    "rarity": {
+      "common": "コモン",
+      "rare": "レア",
+      "epic": "エピック",
+      "legendary": "レジェンダリー"
+    },
+    "categories": {
+      "exploration": "探索",
+      "knowledge": "知識",
+      "consistency": "継続",
+      "social": "ソーシャル",
+      "special": "スペシャル"
+    },
+    "firstView": {
+      "name": "はじめての鑑賞",
+      "desc": "最初の芸術作品を鑑賞しましょう。"
+    },
+    "museumWanderer": {
+      "name": "美術館の旅人",
+      "desc": "地球儀上で最初の美術館を探索しましょう。"
+    },
+    "globeTrotter": {
+      "name": "世界を巡る旅人",
+      "desc": "世界中の5つの美術館を探索しましょう。"
+    },
+    "comparatorExpert": {
+      "name": "鑑識眼",
+      "desc": "ビジュアルコンパレーターを10回使用しましょう。"
+    },
+    "artSeeker": {
+      "name": "アート探求者",
+      "desc": "100点の芸術作品を鑑賞しましょう。"
+    },
+    "firstNarration": {
+      "name": "はじめての物語",
+      "desc": "最初のシネマティックナレーションを読みましょう。"
+    },
+    "quizNovice": {
+      "name": "見習い",
+      "desc": "最初のアートクイズに挑戦しましょう。"
+    },
+    "perfectScholar": {
+      "name": "完璧な学者",
+      "desc": "5つのクイズで満点を獲得しましょう。"
+    },
+    "eraConqueror": {
+      "name": "時代の征服者",
+      "desc": "3つの芸術時代を完全制覇しましょう。"
+    },
+    "artHistorian": {
+      "name": "美術史家",
+      "desc": "5つの時代と10のクイズを完了しましょう。"
+    },
+    "streakBeginner": {
+      "name": "はじめの一歩",
+      "desc": "最初のデイリーストリークを開始しましょう。"
+    },
+    "weekWarrior": {
+      "name": "一週間の戦士",
+      "desc": "7日間連続のストリークを維持しましょう。"
+    },
+    "monthlyMuse": {
+      "name": "月のミューズ",
+      "desc": "30日間連続のストリークを維持しましょう。"
+    },
+    "freezeMaster": {
+      "name": "守護の盾",
+      "desc": "最初のフリーズを使ってストリークを守りましょう。"
+    },
+    "streakLegend": {
+      "name": "止められない伝説",
+      "desc": "100日間連続のストリークを達成しましょう。"
+    },
+    "firstShare": {
+      "name": "はじめての共有",
+      "desc": "芸術作品を誰かと共有しましょう。"
+    },
+    "communityBuilder": {
+      "name": "コミュニティビルダー",
+      "desc": "3人の友人をMŪSAに招待しましょう。"
+    },
+    "artAmbassador": {
+      "name": "アートアンバサダー",
+      "desc": "10点の芸術作品を共有しましょう。"
+    },
+    "musaPioneer": {
+      "name": "MŪSAパイオニア",
+      "desc": "最初の経験値ポイントを獲得しましょう。"
+    },
+    "connoisseurLegend": {
+      "name": "鑑定家の伝説",
+      "desc": "鑑定家レベルに到達。あなたはマスターです！"
+    }
+  },
+  "leaderboard": {
+    "title": "ランキング",
+    "global": "グローバル",
+    "regional": "地域別",
+    "rank": "#{{rank}}",
+    "you": "あなた"
+  }
+}

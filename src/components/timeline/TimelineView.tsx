@@ -58,7 +58,7 @@ function ArtworkCard({
         style={{ backgroundImage: `url(${artwork.imageUrl})` }}
       />
       {/* Fallback gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-art-charcoal/20 to-art-charcoal/60" />
+      <div className="absolute inset-0 bg-gradient-to-br from-art-charcoal/20 to-art-charcoal/60 dark:from-black/30 dark:to-black/70" />
 
       {/* Info overlay */}
       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
@@ -101,7 +101,7 @@ function ArtworkModal({
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl"
+        className="relative w-full max-w-2xl overflow-hidden rounded-2xl bg-white dark:bg-art-charcoal shadow-2xl"
       >
         {/* Close button */}
         <button
@@ -127,18 +127,18 @@ function ArtworkModal({
           >
             {t(`${era.nameKey}`)}
           </div>
-          <h3 className="mt-3 font-[var(--font-cormorant)] text-2xl font-bold text-art-charcoal sm:text-3xl">
+          <h3 className="mt-3 font-[var(--font-cormorant)] text-2xl font-bold text-art-charcoal dark:text-white sm:text-3xl">
             {artwork.title}
           </h3>
-          <p className="mt-1 text-art-charcoal/60">
+          <p className="mt-1 text-art-charcoal/60 dark:text-white/60">
             {artwork.artist} · {formatYear(artwork.year)}
           </p>
-          <p className="mt-1 text-sm text-art-charcoal/40">{artwork.medium}</p>
+          <p className="mt-1 text-sm text-art-charcoal/40 dark:text-white/40">{artwork.medium}</p>
 
           {/* Music connection */}
-          <div className="mt-4 flex items-center gap-2 rounded-lg bg-art-cream p-3">
+          <div className="mt-4 flex items-center gap-2 rounded-lg bg-art-cream dark:bg-white/5 p-3">
             <Music className="h-4 w-4 text-art-gold" />
-            <span className="text-sm text-art-charcoal/70">{era.musicGenre}</span>
+            <span className="text-sm text-art-charcoal/70 dark:text-white/70">{era.musicGenre}</span>
           </div>
         </div>
       </motion.div>
@@ -181,7 +181,7 @@ function TimelineDesktop({
   return (
     <div className="relative">
       {/* Scroll hint */}
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-24 bg-gradient-to-l from-art-cream to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-24 bg-gradient-to-l from-art-cream dark:from-art-charcoal to-transparent" />
 
       <div
         ref={scrollRef}
@@ -196,10 +196,10 @@ function TimelineDesktop({
             return (
               <div
                 key={year}
-                className="absolute top-0 bottom-0 border-l border-art-charcoal/5"
+                className="absolute top-0 bottom-0 border-l border-art-charcoal/5 dark:border-white/5"
                 style={{ left: `${x}px` }}
               >
-                <span className="absolute -top-0 left-1 text-[10px] text-art-charcoal/30 font-medium">
+                <span className="absolute -top-0 left-1 text-[10px] text-art-charcoal/30 dark:text-white/30 font-medium">
                   {formatYear(year)}
                 </span>
               </div>
@@ -235,10 +235,10 @@ function TimelineDesktop({
                       className="h-3 w-3 rounded-full"
                       style={{ backgroundColor: era.color }}
                     />
-                    <h3 className="text-sm font-semibold text-art-charcoal">
+                    <h3 className="text-sm font-semibold text-art-charcoal dark:text-white">
                       {t(era.nameKey)}
                     </h3>
-                    <span className="text-xs text-art-charcoal/40">
+                    <span className="text-xs text-art-charcoal/40 dark:text-white/40">
                       {formatYear(era.startYear)} – {formatYear(era.endYear)}
                     </span>
                   </div>
@@ -258,7 +258,7 @@ function TimelineDesktop({
                   {/* Music connection tag */}
                   <div className="mt-2 flex items-center gap-1.5">
                     <Music className="h-3 w-3" style={{ color: era.color }} />
-                    <span className="text-[11px] text-art-charcoal/50">{era.musicGenre}</span>
+                    <span className="text-[11px] text-art-charcoal/50 dark:text-white/50">{era.musicGenre}</span>
                   </div>
                 </div>
               </motion.div>
@@ -286,7 +286,7 @@ function TimelineMobile({
   return (
     <div className="relative pl-6">
       {/* Vertical line */}
-      <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-art-gold/50 via-art-charcoal/10 to-art-charcoal/5" />
+      <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-art-gold/50 via-art-charcoal/10 dark:via-white/10 to-art-charcoal/5 dark:to-white/5" />
 
       <div className="space-y-3">
         {eras.map((era, idx) => {
@@ -314,16 +314,16 @@ function TimelineMobile({
                 className={cn(
                   'w-full rounded-xl p-4 text-left transition-all',
                   isExpanded
-                    ? 'bg-white shadow-md'
-                    : 'bg-white/50 hover:bg-white/80'
+                    ? 'bg-white dark:bg-white/10 shadow-md'
+                    : 'bg-white/50 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10'
                 )}
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-base font-semibold text-art-charcoal">
+                    <h3 className="text-base font-semibold text-art-charcoal dark:text-white">
                       {t(era.nameKey)}
                     </h3>
-                    <div className="mt-0.5 flex items-center gap-2 text-xs text-art-charcoal/40">
+                    <div className="mt-0.5 flex items-center gap-2 text-xs text-art-charcoal/40 dark:text-white/40">
                       <Calendar className="h-3 w-3" />
                       <span>
                         {formatYear(era.startYear)} – {formatYear(era.endYear)}
@@ -334,14 +334,14 @@ function TimelineMobile({
                     animate={{ rotate: isExpanded ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <ChevronDown className="h-5 w-5 text-art-charcoal/30" />
+                    <ChevronDown className="h-5 w-5 text-art-charcoal/30 dark:text-white/30" />
                   </motion.div>
                 </div>
 
                 {/* Music tag — always visible */}
                 <div className="mt-2 flex items-center gap-1.5">
                   <Music className="h-3 w-3" style={{ color: era.color }} />
-                  <span className="text-[11px] text-art-charcoal/50">{era.musicGenre}</span>
+                  <span className="text-[11px] text-art-charcoal/50 dark:text-white/50">{era.musicGenre}</span>
                 </div>
               </button>
 
@@ -361,11 +361,11 @@ function TimelineMobile({
                         {era.artists.map((artist) => (
                           <div
                             key={artist.name}
-                            className="flex items-center gap-2 text-sm text-art-charcoal/70"
+                            className="flex items-center gap-2 text-sm text-art-charcoal/70 dark:text-white/70"
                           >
                             <MapPin className="h-3 w-3 flex-shrink-0" style={{ color: era.color }} />
                             <span className="font-medium">{artist.name}</span>
-                            <span className="text-xs text-art-charcoal/30">
+                            <span className="text-xs text-art-charcoal/30 dark:text-white/30">
                               {artist.birthYear}–{artist.deathYear}
                             </span>
                           </div>
@@ -436,14 +436,14 @@ export function TimelineView() {
   ];
 
   return (
-    <div className="min-h-screen bg-art-cream">
+    <div className="min-h-screen bg-art-cream dark:bg-art-charcoal transition-colors duration-300">
       {/* Header */}
-      <div className="border-b border-art-charcoal/5 bg-white/50 backdrop-blur-sm">
+      <div className="border-b border-art-charcoal/5 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-[var(--font-cormorant)] text-[clamp(1.75rem,1.2rem+2vw,3.5rem)] font-bold text-art-charcoal"
+            className="font-[var(--font-cormorant)] text-[clamp(1.75rem,1.2rem+2vw,3.5rem)] font-bold text-art-charcoal dark:text-white"
           >
             {t('timeline.title')}
           </motion.h1>
@@ -451,7 +451,7 @@ export function TimelineView() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mt-2 text-art-charcoal/60 text-sm sm:text-base"
+            className="mt-2 text-art-charcoal/60 dark:text-white/60 text-sm sm:text-base"
           >
             {t('timeline.subtitle')}
           </motion.p>
@@ -471,8 +471,8 @@ export function TimelineView() {
                   'flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-all',
                   'min-h-[44px] sm:min-h-0', // Touch target
                   regionFilter === region.key
-                    ? 'bg-art-charcoal text-white shadow-md'
-                    : 'bg-art-charcoal/5 text-art-charcoal/60 hover:bg-art-charcoal/10'
+                    ? 'bg-art-charcoal dark:bg-white text-white dark:text-art-charcoal shadow-md'
+                    : 'bg-art-charcoal/5 dark:bg-white/5 text-art-charcoal/60 dark:text-white/60 hover:bg-art-charcoal/10 dark:hover:bg-white/10'
                 )}
               >
                 <span>{region.icon}</span>
@@ -496,7 +496,7 @@ export function TimelineView() {
         </div>
 
         {/* Era count */}
-        <div className="mt-6 text-center text-xs text-art-charcoal/30">
+        <div className="mt-6 text-center text-xs text-art-charcoal/30 dark:text-white/30">
           {filteredEras.length} {t('timeline.erasCount')} ·{' '}
           {filteredEras.reduce((sum, era) => sum + era.artists.length, 0)}{' '}
           {t('timeline.artistsCount')} ·{' '}

@@ -28,6 +28,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.mna.inah.gob.mx',
     accentColor: '#8B4513',
     descriptionKey: 'museums.museoNacionalAntropologia.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/museo-nacional-de-antropologia',
+    onlineCollectionUrl: 'https://www.mna.inah.gob.mx/',
   },
   {
     id: 'palacio-bellas-artes',
@@ -67,6 +69,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.museofridakahlo.org.mx',
     accentColor: '#003DA5',
     descriptionKey: 'museums.museoFridaKahlo.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/museo-frida-kahlo',
+    onlineCollectionUrl: 'https://www.museofridakahlo.org.mx/',
   },
   {
     id: 'museo-soumaya',
@@ -93,6 +97,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.munal.com.mx',
     accentColor: '#6B4226',
     descriptionKey: 'museums.munal.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/munal',
+    onlineCollectionUrl: 'https://munal.mx/en/collections',
   },
   {
     id: 'museo-arte-moderno',
@@ -163,6 +169,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.louvre.fr',
     accentColor: '#C5A55A',
     descriptionKey: 'museums.louvre.desc',
+    virtualTourUrl: 'https://www.louvre.fr/en/online-tours',
+    onlineCollectionUrl: 'https://collections.louvre.fr/en/',
   },
   {
     id: 'musee-dorsay',
@@ -176,6 +184,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.musee-orsay.fr',
     accentColor: '#D4A574',
     descriptionKey: 'museums.museeDOrsay.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/musee-dorsay-paris',
+    onlineCollectionUrl: 'https://www.musee-orsay.fr/en/collections',
   },
   {
     id: 'centre-pompidou',
@@ -189,6 +199,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.centrepompidou.fr',
     accentColor: '#E63946',
     descriptionKey: 'museums.centrePompidou.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/centre-pompidou',
+    onlineCollectionUrl: 'https://www.centrepompidou.fr/en/collections',
   },
   {
     id: 'musee-orangerie',
@@ -202,6 +214,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.musee-orangerie.fr',
     accentColor: '#87CEEB',
     descriptionKey: 'museums.museeOrangerie.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/musee-de-lorangerie',
+    onlineCollectionUrl: 'https://www.musee-orangerie.fr/en/collections',
   },
   {
     id: 'musee-rodin',
@@ -215,6 +229,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.musee-rodin.fr',
     accentColor: '#556B2F',
     descriptionKey: 'museums.museeRodin.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/musee-rodin',
+    onlineCollectionUrl: 'https://www.musee-rodin.fr/en/collections',
   },
 
   // ╔═══════════════════════════════════════════════════╗
@@ -233,6 +249,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.uffizi.it',
     accentColor: '#8B4513',
     descriptionKey: 'museums.uffizi.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/uffizi-gallery',
+    onlineCollectionUrl: 'https://www.uffizi.it/en/online-exhibitions',
   },
   {
     id: 'vatican-museums',
@@ -246,6 +264,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.museivaticani.va',
     accentColor: '#1A1B4B',
     descriptionKey: 'museums.vatican.desc',
+    virtualTourUrl: 'https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/tour-virtuali-elenco.html',
+    onlineCollectionUrl: 'https://artsandculture.google.com/partner/vatican-museums',
   },
   {
     id: 'galleria-accademia',
@@ -259,6 +279,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.galleriaaccademiafirenze.it',
     accentColor: '#CD853F',
     descriptionKey: 'museums.galleriaAccademia.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/accademia-gallery',
+    onlineCollectionUrl: 'https://www.galleriaaccademiafirenze.it/en/artworks/',
   },
   {
     id: 'galleria-borghese',
@@ -272,6 +294,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://galleriaborghese.beniculturali.it',
     accentColor: '#2F4F4F',
     descriptionKey: 'museums.galleriaBorghese.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/galleria-borghese',
+    onlineCollectionUrl: 'https://galleriaborghese.beniculturali.it/en/',
   },
   {
     id: 'pinacoteca-brera',
@@ -285,6 +309,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://pinacotecabrera.org',
     accentColor: '#4A0E0E',
     descriptionKey: 'museums.pinacotecaBrera.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/pinacoteca-di-brera',
+    onlineCollectionUrl: 'https://pinacotecabrera.org/en/collection/',
   },
 
   // ╔═══════════════════════════════════════════════════╗
@@ -303,6 +329,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.museodelprado.es',
     accentColor: '#722F37',
     descriptionKey: 'museums.prado.desc',
+    virtualTourUrl: 'https://www.museodelprado.es/en/the-collection',
+    onlineCollectionUrl: 'https://www.museodelprado.es/en/the-collection',
   },
   {
     id: 'reina-sofia',
@@ -316,6 +344,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.museoreinasofia.es',
     accentColor: '#CC0000',
     descriptionKey: 'museums.reinaSofia.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/museo-reina-sofia',
+    onlineCollectionUrl: 'https://www.museoreinasofia.es/en/collection',
   },
   {
     id: 'thyssen-bornemisza',
@@ -329,6 +359,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.museothyssen.org',
     accentColor: '#E8A87C',
     descriptionKey: 'museums.thyssenBornemisza.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/museo-thyssen-bornemisza',
+    onlineCollectionUrl: 'https://www.museothyssen.org/en/collection',
   },
   {
     id: 'guggenheim-bilbao',
@@ -373,6 +405,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.nationalgallery.org.uk',
     accentColor: '#3D5A80',
     descriptionKey: 'museums.nationalGalleryLondon.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/the-national-gallery-london',
+    onlineCollectionUrl: 'https://www.nationalgallery.org.uk/paintings',
   },
   {
     id: 'tate-modern',
@@ -386,6 +420,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.tate.org.uk/visit/tate-modern',
     accentColor: '#1A1A1A',
     descriptionKey: 'museums.tateModern.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/tate-modern',
+    onlineCollectionUrl: 'https://www.tate.org.uk/art',
   },
   {
     id: 'tate-britain',
@@ -399,6 +435,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.tate.org.uk/visit/tate-britain',
     accentColor: '#006400',
     descriptionKey: 'museums.tateBritain.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/tate-britain',
+    onlineCollectionUrl: 'https://www.tate.org.uk/art',
   },
   {
     id: 'british-museum',
@@ -412,6 +450,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.britishmuseum.org',
     accentColor: '#2C3E50',
     descriptionKey: 'museums.britishMuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/the-british-museum',
+    onlineCollectionUrl: 'https://www.britishmuseum.org/collection',
   },
   {
     id: 'va-museum',
@@ -425,6 +465,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.vam.ac.uk',
     accentColor: '#800020',
     descriptionKey: 'museums.vaMuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/victoria-and-albert-museum',
+    onlineCollectionUrl: 'https://collections.vam.ac.uk/',
   },
 
   // ╔═══════════════════════════════════════════════════╗
@@ -443,6 +485,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.rijksmuseum.nl',
     accentColor: '#2C3E50',
     descriptionKey: 'museums.rijksmuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/rijksmuseum',
+    onlineCollectionUrl: 'https://www.rijksmuseum.nl/en/rijksstudio',
   },
   {
     id: 'mauritshuis',
@@ -469,6 +513,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.vangoghmuseum.nl',
     accentColor: '#F4D03F',
     descriptionKey: 'museums.vanGoghMuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/van-gogh-museum',
+    onlineCollectionUrl: 'https://www.vangoghmuseum.nl/en/collection',
   },
 
   // ╔═══════════════════════════════════════════════════╗
@@ -487,6 +533,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.pinakothek.de',
     accentColor: '#4A5568',
     descriptionKey: 'museums.altePinakothek.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/alte-pinakothek',
+    onlineCollectionUrl: 'https://www.sammlung.pinakothek.de/en',
   },
   {
     id: 'pergamon-museum',
@@ -500,6 +548,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.smb.museum/museen-einrichtungen/pergamonmuseum',
     accentColor: '#5D6D7E',
     descriptionKey: 'museums.pergamonMuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/pergamonmuseum-staatliche-museen-zu-berlin',
+    onlineCollectionUrl: 'https://www.smb.museum/en/museums-institutions/pergamonmuseum/',
   },
   {
     id: 'gemaldegalerie-berlin',
@@ -513,6 +563,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.smb.museum/museen-einrichtungen/gemaeldegalerie',
     accentColor: '#34495E',
     descriptionKey: 'museums.gemaldegalerieBerlin.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/gemaldegalerie-staatliche-museen-zu-berlin',
+    onlineCollectionUrl: 'https://www.smb.museum/en/museums-institutions/gemaldegalerie/',
   },
 
   // ╔═══════════════════════════════════════════════════╗
@@ -531,6 +583,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.belvedere.at',
     accentColor: '#C4A265',
     descriptionKey: 'museums.belvedere.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/belvedere',
+    onlineCollectionUrl: 'https://www.belvedere.at/en/collection',
   },
   {
     id: 'kunsthistorisches-museum',
@@ -544,6 +598,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.khm.at',
     accentColor: '#8B6914',
     descriptionKey: 'museums.kunsthistorischesMuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/kunsthistorisches-museum-vienna',
+    onlineCollectionUrl: 'https://www.khm.at/en/objectdb/',
   },
 
   // ╔═══════════════════════════════════════════════════╗
@@ -562,6 +618,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.munchmuseet.no',
     accentColor: '#5B2C6F',
     descriptionKey: 'museums.munchMuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/munchmuseet',
+    onlineCollectionUrl: 'https://www.munchmuseet.no/en/collection/',
   },
 
   // ╔═══════════════════════════════════════════════════╗
@@ -580,6 +638,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.hermitagemuseum.org',
     accentColor: '#2E8B57',
     descriptionKey: 'museums.hermitage.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/the-state-hermitage-museum',
+    onlineCollectionUrl: 'https://www.hermitagemuseum.org/wps/portal/hermitage/explore/collections',
   },
   {
     id: 'tretyakov-gallery',
@@ -593,6 +653,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.tretyakovgallery.ru',
     accentColor: '#8B0000',
     descriptionKey: 'museums.tretyakovGallery.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/the-state-tretyakov-gallery',
+    onlineCollectionUrl: 'https://www.tretyakovgallery.ru/en/collection/',
   },
 
   // ╔═══════════════════════════════════════════════════╗
@@ -611,6 +673,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.metmuseum.org',
     accentColor: '#E74C3C',
     descriptionKey: 'museums.met.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/the-metropolitan-museum-of-art',
+    onlineCollectionUrl: 'https://www.metmuseum.org/art/collection',
   },
   {
     id: 'moma',
@@ -624,6 +688,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.moma.org',
     accentColor: '#000000',
     descriptionKey: 'museums.moma.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/moma-the-museum-of-modern-art',
+    onlineCollectionUrl: 'https://www.moma.org/collection/',
   },
   {
     id: 'national-gallery-washington',
@@ -637,6 +703,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.nga.gov',
     accentColor: '#1E3A5F',
     descriptionKey: 'museums.nationalGalleryWashington.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/national-gallery-of-art-washington-dc',
+    onlineCollectionUrl: 'https://www.nga.gov/collection.html',
   },
   {
     id: 'art-institute-chicago',
@@ -650,6 +718,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.artic.edu',
     accentColor: '#2F4F4F',
     descriptionKey: 'museums.artInstituteChicago.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/the-art-institute-of-chicago',
+    onlineCollectionUrl: 'https://www.artic.edu/collection',
   },
   {
     id: 'guggenheim-nyc',
@@ -663,6 +733,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.guggenheim.org',
     accentColor: '#FFFDF0',
     descriptionKey: 'museums.guggenheimNYC.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/solomon-r-guggenheim-museum',
+    onlineCollectionUrl: 'https://www.guggenheim.org/collection-online',
   },
   {
     id: 'getty-museum',
@@ -676,6 +748,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.getty.edu/museum',
     accentColor: '#F5F5DC',
     descriptionKey: 'museums.gettyMuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/the-j-paul-getty-museum',
+    onlineCollectionUrl: 'https://www.getty.edu/art/collection/',
   },
   {
     id: 'lacma',
@@ -720,6 +794,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://masp.org.br',
     accentColor: '#E63946',
     descriptionKey: 'museums.masp.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/masp',
+    onlineCollectionUrl: 'https://masp.org.br/en/collection',
   },
   {
     id: 'pinacoteca-sao-paulo',
@@ -790,6 +866,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.tnm.jp',
     accentColor: '#8B0000',
     descriptionKey: 'museums.tokyoNational.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/tokyo-national-museum',
+    onlineCollectionUrl: 'https://www.tnm.jp/modules/r_collection/',
   },
   {
     id: 'nmwa-tokyo',
@@ -834,6 +912,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.dpm.org.cn',
     accentColor: '#B22222',
     descriptionKey: 'museums.palaceMuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/the-palace-museum-beijing',
+    onlineCollectionUrl: 'https://en.dpm.org.cn/collections/',
   },
   {
     id: 'shanghai-museum',
@@ -847,6 +927,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.shanghaimuseum.net',
     accentColor: '#8B6914',
     descriptionKey: 'museums.shanghaiMuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/shanghai-museum',
+    onlineCollectionUrl: 'https://www.shanghaimuseum.net/en/',
   },
   {
     id: 'national-art-museum-china',
@@ -878,6 +960,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.museum.go.kr',
     accentColor: '#003366',
     descriptionKey: 'museums.nationalMuseumKorea.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/national-museum-of-korea',
+    onlineCollectionUrl: 'https://www.museum.go.kr/site/eng/collection/list',
   },
 
   // ╔═══════════════════════════════════════════════════╗
@@ -968,6 +1052,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://egyptianmuseum.org',
     accentColor: '#C5932A',
     descriptionKey: 'museums.egyptianMuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/the-egyptian-museum',
+    onlineCollectionUrl: 'https://egyptianmuseumcairo.eg/',
   },
   {
     id: 'zeitz-mocaa',
@@ -1011,6 +1097,8 @@ export const MUSEUMS: Museum[] = [
     websiteUrl: 'https://www.theacropolismuseum.gr/en',
     accentColor: '#C8A26A',
     descriptionKey: 'museums.acropolisMuseum.desc',
+    virtualTourUrl: 'https://artsandculture.google.com/partner/acropolis-museum',
+    onlineCollectionUrl: 'https://www.theacropolismuseum.gr/en/collection',
   },
 
   // ═══════════════════════════════════════════════════════

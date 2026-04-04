@@ -14,6 +14,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sparkles } from 'lucide-react';
 import { LanguageSelector } from '@/components/shared/LanguageSelector';
 import { ThemeToggle } from '@/components/shared/ThemeToggle';
+import { StreakBadge } from '@/components/shared/StreakBadge';
 import { useUserStore } from '@/stores/userStore';
 import { cn } from '@/lib/utils/cn';
 
@@ -53,7 +54,7 @@ export function Header() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-white/80 backdrop-blur-xl shadow-sm'
+            ? 'bg-white/80 dark:bg-art-charcoal/80 backdrop-blur-xl shadow-sm'
             : 'bg-transparent'
         )}
       >
@@ -61,7 +62,7 @@ export function Header() {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 group">
             <Sparkles className="h-6 w-6 text-art-gold transition-transform group-hover:rotate-12 lg:h-7 lg:w-7" />
-            <span className="font-[var(--font-cormorant)] text-xl font-semibold tracking-wide text-art-charcoal lg:text-2xl">
+            <span className="font-[var(--font-cormorant)] text-xl font-semibold tracking-wide text-art-charcoal dark:text-white lg:text-2xl">
               MŪSA
             </span>
           </a>
@@ -72,7 +73,7 @@ export function Header() {
               <a
                 key={link.key}
                 href={link.href}
-                className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 transition-colors hover:bg-art-charcoal/5 hover:text-art-charcoal"
+                className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:bg-art-charcoal/5 dark:hover:bg-white/5 hover:text-art-charcoal dark:hover:text-white"
               >
                 {t(`nav.${link.key}`)}
               </a>
@@ -81,19 +82,20 @@ export function Header() {
 
           {/* Desktop Right Side */}
           <div className="hidden lg:flex items-center gap-3">
+            <StreakBadge />
             <ThemeToggle />
             <LanguageSelector />
             {authenticated ? (
               <>
                 <a
                   href="/profile"
-                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 transition-colors hover:text-art-charcoal"
+                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white"
                 >
                   {t('nav.profile')}
                 </a>
                 <a
                   href="/logout"
-                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 transition-colors hover:text-art-charcoal"
+                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white"
                 >
                   {t('nav.logout')}
                 </a>
@@ -114,13 +116,13 @@ export function Header() {
               <>
                 <a
                   href="/login"
-                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 transition-colors hover:text-art-charcoal"
+                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white"
                 >
                   {t('nav.login')}
                 </a>
                 <button
                   onClick={enterAsGuest}
-                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-gold transition-colors hover:text-art-gold-light"
+                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-gold transition-colors hover:text-art-gold-light dark:text-art-gold dark:hover:text-art-gold-light"
                 >
                   {t('nav.guestExplore')}
                 </button>
@@ -136,11 +138,12 @@ export function Header() {
 
           {/* Mobile: Language + Theme Toggle + Hamburger */}
           <div className="flex items-center gap-2 lg:hidden">
+            <StreakBadge />
             <ThemeToggle />
             <LanguageSelector />
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl transition-colors hover:bg-art-charcoal/5"
+              className="flex h-10 w-10 items-center justify-center rounded-xl transition-colors hover:bg-art-charcoal/5 dark:hover:bg-white/5 text-art-charcoal dark:text-white"
               aria-label="Toggle menu"
             >
               {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -165,7 +168,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="fixed left-4 right-4 top-20 z-50 rounded-2xl bg-white p-4 shadow-xl ring-1 ring-art-charcoal/5 sm:left-auto sm:right-6 sm:w-72 lg:hidden"
+              className="fixed left-4 right-4 top-20 z-50 rounded-2xl bg-white dark:bg-art-charcoal p-4 shadow-xl ring-1 ring-art-charcoal/5 dark:ring-white/10 sm:left-auto sm:right-6 sm:w-72 lg:hidden"
             >
               <div className="flex flex-col gap-1">
                 {NAV_LINKS.map((link) => (
@@ -173,7 +176,7 @@ export function Header() {
                     key={link.key}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 transition-colors hover:bg-art-charcoal/5 hover:text-art-charcoal"
+                    className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:bg-art-charcoal/5 dark:hover:bg-white/5 hover:text-art-charcoal dark:hover:text-white"
                   >
                     {t(`nav.${link.key}`)}
                   </a>
@@ -184,14 +187,14 @@ export function Header() {
                     <a
                       href="/profile"
                       onClick={() => setMenuOpen(false)}
-                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70"
+                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70"
                     >
                       {t('nav.profile')}
                     </a>
                     <a
                       href="/logout"
                       onClick={() => setMenuOpen(false)}
-                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70"
+                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70"
                     >
                       {t('nav.logout')}
                     </a>
@@ -216,7 +219,7 @@ export function Header() {
                     <a
                       href="/login"
                       onClick={() => setMenuOpen(false)}
-                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70"
+                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70"
                     >
                       {t('nav.login')}
                     </a>
@@ -225,7 +228,7 @@ export function Header() {
                         enterAsGuest();
                         setMenuOpen(false);
                       }}
-                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-gold transition-colors hover:text-art-gold-light"
+                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-gold transition-colors hover:text-art-gold-light dark:text-art-gold dark:hover:text-art-gold-light"
                     >
                       {t('nav.guestExplore')}
                     </button>

@@ -25,7 +25,14 @@
       "expressionism": "Espressionismo",
       "surrealism": "Surrealismo",
       "abstractExpressionism": "Espressionismo Astratto",
-      "popArt": "Pop Art"
+      "popArt": "Pop Art",
+      "gothic": "Gotico",
+      "rococo": "Rococò",
+      "neoclassicism": "Neoclassicismo",
+      "realism": "Realismo",
+      "fauvism": "Fauvismo",
+      "islamicGoldenAge": "Arte Islamica",
+      "precolumbian": "Arte Precolombiana"
     },
     "music": {
       "ancientEgypt": "Strumenti antichi: arpa, flauto e sistro",
@@ -41,7 +48,14 @@
       "expressionism": "Schoenberg, Berg — la dissonanza come emozione",
       "surrealism": "Erik Satie, John Cage — l'inaspettato fatto musica",
       "abstractExpressionism": "Jazz: Coltrane, Monk, Parker — pura improvvisazione",
-      "popArt": "The Beatles, Velvet Underground, Bowie — arte e pop unite"
+      "popArt": "The Beatles, Velvet Underground, Bowie — arte e pop unite",
+      "gothic": "Ars Nova e canto gregoriano",
+      "rococo": "Stile galante — Mozart giovane, C.P.E. Bach",
+      "neoclassicism": "Classicismo — Mozart, Haydn",
+      "realism": "Nazionalismo romantico — Verdi, Wagner",
+      "fauvism": "Primo modernismo — Ravel, Stravinsky giovane",
+      "islamicGoldenAge": "Tradizione maqam, musica classica andalusa",
+      "precolumbian": "Strumenti a fiato e percussioni indigeni"
     },
     "artworks": {
       "nefertiti": "Busto di Nefertiti",
