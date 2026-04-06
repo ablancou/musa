@@ -1,28 +1,28 @@
 'use client';
 
 /**
- * MuseumGlobe — The World's Museums on a 3D Globe
+ * MuseumGlobe — Interactive Photorealistic 3D Earth with Museum Markers
  *
- * A photorealistic Earth rendered with Three.js where each museum
- * glows as a golden point of light. Click a country to reveal
- * its museums. Click a museum to enter its halls.
+ * A high-fidelity Earth rendered with Three.js where each museum
+ * glows as a golden point of light. Click a museum to see details.
+ * Drag to rotate, scroll to zoom.
  *
- * This is the gateway to "El Museo de los Museos" — the user sees
- * the entire world of art before diving into a specific museum.
+ * Visual features:
+ * - NASA Blue Marble texture (public domain) for photorealistic look
+ * - Cloud layer with independent rotation
+ * - Day/night cycle with city lights on dark side
+ * - Multi-layer atmosphere (inner glow + outer halo)
+ * - Golden museum markers with pulse animation
+ * - Specular ocean reflections
+ * - Deep multi-layer star field
  *
  * Responsive Modes:
- * - Desktop (>=1024px): Large globe (600px), sidebar with museum list,
- *   orbit controls (drag to rotate, scroll to zoom), hover tooltips,
- *   golden connection arcs between related museums.
- * - Landscape (568-1023px): Medium globe (400px), bottom sheet
- *   for museum list, touch orbit controls.
- * - Portrait (320-567px): Smaller globe (300px) at top, museum list
- *   below as scrollable cards, tap to select country.
+ * - Desktop (>=1024px): Large globe (60% width), sidebar with museum list
+ * - Landscape (568-1023px): Medium globe (55vh), bottom sheet for list
+ * - Portrait (320-567px): Smaller globe (45vh), museum list below
  *
- * Tech: Three.js (r128 via CDN), NASA Blue Marble texture (free),
- * custom shaders for atmosphere glow. Zero paid resources.
+ * Tech: Three.js, NASA Blue Marble texture, custom GLSL shaders.
  */
-
 
 import { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -49,6 +49,12 @@ function latLngToVector3(lat: number, lng: number, radius: number): [number, num
   const z = radius * Math.sin(phi) * Math.sin(theta);
   return [x, y, z];
 }
+
+// NASA / public domain texture URLs
+const EARTH_TEXTURE_URL = 'https://unpkg.com/three-globe@2.31.1/example/img/earth-blue-marble.jpg';
+const EARTH_NIGHT_URL = 'https://unpkg.com/three-globe@2.31.1/example/img/earth-night.jpg';
+const CLOUD_TEXTURE_URL = 'https://unpkg.com/three-globe@2.31.1/example/img/earth-clouds.png';
+const EARTH_BUMP_URL = 'https://unpkg.com/three-globe@2.31.1/example/img/earth-topology.png';
 
 // ─── Museum Pin Component (HTML overlay) ───
 interface MuseumPinProps {
@@ -134,7 +140,6 @@ function MuseumCard({
       )}
       onClick={onClick}
     >
-      {/* Museum header */}
       <div className="flex items-start gap-3 p-4">
         <div
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
@@ -153,7 +158,6 @@ function MuseumCard({
         </span>
       </div>
 
-      {/* Expanded content */}
       <AnimatePresence>
         {isSelected && (
           <motion.div
@@ -163,13 +167,9 @@ function MuseumCard({
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            {/* Artwork preview strip */}
             <div className="flex gap-2 overflow-x-auto px-4 pb-3 scrollbar-none">
               {artworks.slice(0, 5).map((artwork) => (
-                <div
-                  key={artwork.id}
-                  className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg"
-                >
+                <div key={artwork.id} className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg">
                   <img
                     src={artwork.imageUrl}
                     alt={artwork.titleOriginal}
@@ -185,24 +185,16 @@ function MuseumCard({
               )}
             </div>
 
-            {/* Movement tags */}
             <div className="flex flex-wrap gap-1.5 px-4 pb-3">
               {movements.slice(0, 3).map((m) => (
-                <span
-                  key={m}
-                  className="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] text-white/60"
-                >
+                <span key={m} className="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] text-white/60">
                   {m.replace(/-/g, ' ')}
                 </span>
               ))}
             </div>
 
-            {/* Enter museum button */}
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onEnter();
-              }}
+              onClick={(e) => { e.stopPropagation(); onEnter(); }}
               className="flex w-full items-center justify-center gap-2 border-t border-white/10 bg-gradient-to-r from-art-gold/20 to-art-gold/10 px-4 py-3 text-sm font-semibold text-art-gold transition-all hover:from-art-gold/30 hover:to-art-gold/20"
             >
               {t('gallery.enterRoom')}
@@ -227,8 +219,8 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
     scene: any;
     camera: any;
     renderer: any;
-    globe: any;
-    atmosphere: any;
+    earthGroup: any;
+    clouds: any;
     rotation: { x: number; y: number };
     targetRotation: { x: number; y: number };
     isDragging: boolean;
@@ -240,16 +232,12 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Museum artwork counts (memoized)
   const museumArtworks = useMemo(() => {
     const map: Record<string, Artwork[]> = {};
-    MUSEUMS.forEach((m) => {
-      map[m.id] = getArtworksByMuseum(m.id);
-    });
+    MUSEUMS.forEach((m) => { map[m.id] = getArtworksByMuseum(m.id); });
     return map;
   }, []);
 
-  // Filtered museums
   const filteredMuseums = useMemo(() => {
     if (!searchQuery) return MUSEUMS;
     const q = searchQuery.toLowerCase();
@@ -270,130 +258,147 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
     let THREE: any;
 
     const initScene = async () => {
-      // Dynamic import Three.js
       THREE = await import('three');
+      const textureLoader = new THREE.TextureLoader();
 
       const width = container.clientWidth;
       const height = container.clientHeight;
 
-      // Scene
       const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x0a0a0f);
+      scene.background = new THREE.Color(0x060610);
 
-      // Camera
       const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
       camera.position.z = 3.5;
 
-      // Renderer
-      const renderer = new THREE.WebGLRenderer({
-        canvas,
-        antialias: true,
-        alpha: true,
-      });
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
       renderer.setSize(width, height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.2;
 
-      // ── Globe Geometry ──
-      const globeGeometry = new THREE.SphereGeometry(1, 64, 64);
+      // Lighting
+      const ambientLight = new THREE.AmbientLight(0x333355, 0.4);
+      scene.add(ambientLight);
+      const sunLight = new THREE.DirectionalLight(0xffeedd, 2.0);
+      sunLight.position.set(5, 3, 5);
+      scene.add(sunLight);
+      const fillLight = new THREE.DirectionalLight(0x4466aa, 0.3);
+      fillLight.position.set(-3, -1, -3);
+      scene.add(fillLight);
 
-      // Procedural earth-like material (no external textures needed = free)
-      const globeMaterial = new THREE.ShaderMaterial({
+      // Stars
+      const createStars = (count: number, spread: number, size: number, opacity: number) => {
+        const geo = new THREE.BufferGeometry();
+        const pos = new Float32Array(count * 3);
+        for (let i = 0; i < count; i++) {
+          const r = spread + Math.random() * spread;
+          const t = Math.random() * Math.PI * 2;
+          const p = Math.acos(2 * Math.random() - 1);
+          pos[i * 3] = r * Math.sin(p) * Math.cos(t);
+          pos[i * 3 + 1] = r * Math.sin(p) * Math.sin(t);
+          pos[i * 3 + 2] = r * Math.cos(p);
+        }
+        geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+        return new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xffffff, size, transparent: true, opacity, sizeAttenuation: true }));
+      };
+      scene.add(createStars(4000, 80, 0.08, 0.4));
+      scene.add(createStars(1500, 40, 0.15, 0.6));
+      scene.add(createStars(300, 20, 0.35, 0.9));
+
+      // Earth Group
+      const earthGroup = new THREE.Group();
+      scene.add(earthGroup);
+
+      // Load textures
+      const earthTexture = textureLoader.load(EARTH_TEXTURE_URL);
+      earthTexture.colorSpace = THREE.SRGBColorSpace;
+      const nightTexture = textureLoader.load(EARTH_NIGHT_URL);
+      nightTexture.colorSpace = THREE.SRGBColorSpace;
+      const bumpTexture = textureLoader.load(EARTH_BUMP_URL);
+
+      // Earth with day/night shader
+      const earthGeo = new THREE.SphereGeometry(1, 128, 128);
+      const earthMat = new THREE.ShaderMaterial({
         uniforms: {
-          uTime: { value: 0 },
+          dayTexture: { value: earthTexture },
+          nightTexture: { value: nightTexture },
+          bumpMap: { value: bumpTexture },
+          sunDirection: { value: new THREE.Vector3(1, 0.5, 1).normalize() },
         },
         vertexShader: `
           varying vec3 vNormal;
           varying vec3 vPosition;
           varying vec2 vUv;
+          varying vec3 vWorldNormal;
           void main() {
             vNormal = normalize(normalMatrix * normal);
             vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
             vUv = uv;
+            vWorldNormal = normalize((modelMatrix * vec4(normal, 0.0)).xyz);
             gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
           }
         `,
         fragmentShader: `
+          uniform sampler2D dayTexture;
+          uniform sampler2D nightTexture;
+          uniform sampler2D bumpMap;
+          uniform vec3 sunDirection;
           varying vec3 vNormal;
           varying vec3 vPosition;
           varying vec2 vUv;
-          uniform float uTime;
-
-          // Simple procedural earth colors
-          vec3 getEarthColor(vec2 uv) {
-            // Ocean base
-            vec3 ocean = vec3(0.05, 0.12, 0.25);
-            vec3 deepOcean = vec3(0.02, 0.06, 0.15);
-
-            // Land colors
-            vec3 land = vec3(0.15, 0.22, 0.12);
-            vec3 desert = vec3(0.35, 0.28, 0.15);
-            vec3 ice = vec3(0.85, 0.88, 0.92);
-
-            // Approximate continents with math
-            float lat = (uv.y - 0.5) * 3.14159;
-            float lon = (uv.x - 0.5) * 6.28318;
-
-            // Simplified continent shapes using sine combinations
-            float continent = 0.0;
-
-            // Europe/Africa (centered around lon 0.5)
-            continent += smoothstep(0.0, 0.1, sin(lon * 2.0 + 0.3) * sin(lat * 1.5 + 0.8)) * 0.5;
-
-            // Americas (left side)
-            continent += smoothstep(0.0, 0.15, sin(lon * 1.8 - 2.0) * sin(lat * 2.0 + 0.2)) * 0.4;
-
-            // Asia (right side)
-            continent += smoothstep(0.0, 0.12, sin(lon * 2.2 + 1.8) * sin(lat * 1.3 + 1.0)) * 0.5;
-
-            continent = clamp(continent, 0.0, 1.0);
-
-            // Ice caps
-            float iceFactor = smoothstep(0.85, 0.95, abs(uv.y - 0.5) * 2.0);
-
-            // Mix colors
-            vec3 oceanColor = mix(deepOcean, ocean, sin(uv.x * 20.0 + uTime * 0.1) * 0.5 + 0.5);
-            vec3 landColor = mix(land, desert, sin(lat * 3.0) * 0.5 + 0.5);
-            vec3 color = mix(oceanColor, landColor, continent);
-            color = mix(color, ice, iceFactor);
-
-            return color;
-          }
+          varying vec3 vWorldNormal;
 
           void main() {
-            vec3 lightDir = normalize(vec3(0.8, 0.5, 1.0));
-            float diffuse = max(dot(vNormal, lightDir), 0.0);
-            float ambient = 0.15;
+            vec3 normal = normalize(vNormal);
+            vec3 worldNormal = normalize(vWorldNormal);
+            float sunDot = dot(worldNormal, sunDirection);
+            float dayFactor = smoothstep(-0.15, 0.25, sunDot);
 
-            // Fresnel for edge glow
+            vec3 dayColor = texture2D(dayTexture, vUv).rgb;
+            vec3 nightColor = texture2D(nightTexture, vUv).rgb * 1.8;
+            nightColor = mix(nightColor, nightColor * vec3(1.2, 1.0, 0.7), 0.5);
+
+            vec3 baseColor = mix(nightColor, dayColor, dayFactor);
+            float diffuse = max(dot(normal, normalize(vec3(1.0, 0.5, 1.0))), 0.0);
+            baseColor *= (0.3 + diffuse * 0.7);
+
+            // Ocean specular
             vec3 viewDir = normalize(-vPosition);
-            float fresnel = pow(1.0 - max(dot(viewDir, vNormal), 0.0), 3.0);
+            vec3 halfDir = normalize(normalize(vec3(1.0, 0.5, 1.0)) + viewDir);
+            float spec = pow(max(dot(normal, halfDir), 0.0), 120.0);
+            float bumpVal = texture2D(bumpMap, vUv).r;
+            float isOcean = 1.0 - smoothstep(0.0, 0.15, bumpVal);
+            baseColor += vec3(0.9, 0.95, 1.0) * spec * 0.4 * isOcean * dayFactor;
 
-            vec3 earthColor = getEarthColor(vUv);
-            vec3 finalColor = earthColor * (ambient + diffuse * 0.85);
+            // Atmosphere rim
+            float rim = 1.0 - max(dot(normal, viewDir), 0.0);
+            rim = pow(rim, 3.5);
+            baseColor += vec3(0.25, 0.4, 0.8) * rim * 0.5 * dayFactor;
 
-            // Subtle atmosphere rim
-            finalColor += vec3(0.3, 0.5, 0.9) * fresnel * 0.3;
-
-            // Specular on oceans
-            vec3 halfDir = normalize(lightDir + viewDir);
-            float spec = pow(max(dot(vNormal, halfDir), 0.0), 80.0);
-            float isOcean = 1.0 - step(0.3, length(earthColor - vec3(0.05, 0.12, 0.25)));
-            finalColor += vec3(0.8, 0.9, 1.0) * spec * 0.3 * isOcean;
-
-            gl_FragColor = vec4(finalColor, 1.0);
+            gl_FragColor = vec4(baseColor, 1.0);
           }
         `,
       });
+      earthGroup.add(new THREE.Mesh(earthGeo, earthMat));
 
-      const globe = new THREE.Mesh(globeGeometry, globeMaterial);
-      scene.add(globe);
+      // Clouds
+      const cloudTexture = textureLoader.load(CLOUD_TEXTURE_URL);
+      const clouds = new THREE.Mesh(
+        new THREE.SphereGeometry(1.012, 96, 96),
+        new THREE.MeshPhongMaterial({
+          map: cloudTexture,
+          transparent: true,
+          opacity: 0.3,
+          depthWrite: false,
+          side: THREE.DoubleSide,
+        })
+      );
+      earthGroup.add(clouds);
 
-      // ── Atmosphere glow ──
-      const atmosphereGeometry = new THREE.SphereGeometry(1.08, 64, 64);
-      const atmosphereMaterial = new THREE.ShaderMaterial({
+      // Inner atmosphere
+      const innerAtmosMat = new THREE.ShaderMaterial({
         vertexShader: `
-          varying vec3 vNormal;
-          varying vec3 vPosition;
+          varying vec3 vNormal; varying vec3 vPosition;
           void main() {
             vNormal = normalize(normalMatrix * normal);
             vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
@@ -401,61 +406,54 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
           }
         `,
         fragmentShader: `
-          varying vec3 vNormal;
-          varying vec3 vPosition;
+          varying vec3 vNormal; varying vec3 vPosition;
           void main() {
-            vec3 viewDir = normalize(-vPosition);
-            float fresnel = pow(1.0 - max(dot(viewDir, vNormal), 0.0), 4.0);
-            vec3 atmosphereColor = vec3(0.3, 0.6, 1.0);
-            gl_FragColor = vec4(atmosphereColor, fresnel * 0.4);
+            float rim = 1.0 - max(dot(vNormal, normalize(-vPosition)), 0.0);
+            float glow = pow(rim, 5.0);
+            gl_FragColor = vec4(vec3(0.3, 0.55, 1.0), glow * 0.35);
           }
         `,
-        blending: THREE.AdditiveBlending,
-        side: THREE.BackSide,
-        transparent: true,
+        transparent: true, side: THREE.FrontSide, depthWrite: false,
       });
+      earthGroup.add(new THREE.Mesh(new THREE.SphereGeometry(1.02, 96, 96), innerAtmosMat));
 
-      const atmosphere = new THREE.Mesh(atmosphereGeometry, atmosphereMaterial);
-      scene.add(atmosphere);
+      // Outer atmosphere
+      const outerAtmosMat = new THREE.ShaderMaterial({
+        vertexShader: `
+          varying vec3 vNormal; varying vec3 vPosition;
+          void main() {
+            vNormal = normalize(normalMatrix * normal);
+            vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
+        fragmentShader: `
+          varying vec3 vNormal; varying vec3 vPosition;
+          void main() {
+            float rim = 1.0 - max(dot(vNormal, normalize(-vPosition)), 0.0);
+            float glow = pow(rim, 6.0);
+            gl_FragColor = vec4(vec3(0.2, 0.4, 0.9), glow * 0.2);
+          }
+        `,
+        transparent: true, side: THREE.BackSide, depthWrite: false,
+        blending: THREE.AdditiveBlending,
+      });
+      earthGroup.add(new THREE.Mesh(new THREE.SphereGeometry(1.15, 64, 64), outerAtmosMat));
 
-      // ── Museum point markers on globe ──
+      // Museum dots on globe surface (3D markers)
+      const goldColor = new THREE.Color(0xC5932A);
       MUSEUMS.forEach((museum) => {
         const [x, y, z] = latLngToVector3(museum.coordinates.lat, museum.coordinates.lng, 1.01);
-        const dotGeo = new THREE.SphereGeometry(0.012, 8, 8);
-        const dotMat = new THREE.MeshBasicMaterial({ color: 0xc4a265 });
+        const dotGeo = new THREE.SphereGeometry(0.01, 8, 8);
+        const dotMat = new THREE.MeshBasicMaterial({ color: goldColor });
         const dot = new THREE.Mesh(dotGeo, dotMat);
         dot.position.set(x, y, z);
         dot.userData = { museumId: museum.id };
-        globe.add(dot);
+        earthGroup.add(dot);
       });
-
-      // ── Stars background ──
-      const starVertices: number[] = [];
-      for (let i = 0; i < 3000; i++) {
-        const x = (Math.random() - 0.5) * 200;
-        const y = (Math.random() - 0.5) * 200;
-        const z = (Math.random() - 0.5) * 200;
-        starVertices.push(x, y, z);
-      }
-      const starGeometry = new THREE.BufferGeometry();
-      starGeometry.setAttribute(
-        'position',
-        new THREE.Float32BufferAttribute(starVertices, 3)
-      );
-      const starMaterial = new THREE.PointsMaterial({
-        color: 0xffffff,
-        size: 0.15,
-        transparent: true,
-        opacity: 0.6,
-      });
-      scene.add(new THREE.Points(starGeometry, starMaterial));
 
       sceneRef.current = {
-        scene,
-        camera,
-        renderer,
-        globe,
-        atmosphere,
+        scene, camera, renderer, earthGroup, clouds,
         rotation: { x: 0.3, y: -0.5 },
         targetRotation: { x: 0.3, y: -0.5 },
         isDragging: false,
@@ -464,7 +462,7 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
 
       setIsLoading(false);
 
-      // ── Animation loop ──
+      // Animation loop
       let time = 0;
       const animate = () => {
         animationRef.current = requestAnimationFrame(animate);
@@ -473,33 +471,26 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
         if (sceneRef.current) {
           const s = sceneRef.current;
 
-          // Smooth rotation interpolation
           s.rotation.x += (s.targetRotation.x - s.rotation.x) * 0.08;
           s.rotation.y += (s.targetRotation.y - s.rotation.y) * 0.08;
 
-          // Auto-rotate slowly when not dragging
           if (!s.isDragging) {
-            s.targetRotation.y += 0.001;
+            s.targetRotation.y += 0.0008;
           }
 
-          s.globe.rotation.x = s.rotation.x;
-          s.globe.rotation.y = s.rotation.y;
+          s.earthGroup.rotation.x = s.rotation.x;
+          s.earthGroup.rotation.y = s.rotation.y;
 
-          // Update shader time
-          (s.globe.material as any).uniforms.uTime.value = time;
+          // Clouds drift independently
+          s.clouds.rotation.y += 0.00015;
 
-          // Project museum positions to 2D for HTML overlay
+          // Project museum pins to 2D
           const newPositions: Record<string, { x: number; y: number; visible: boolean }> = {};
           MUSEUMS.forEach((museum) => {
-            const [mx, my, mz] = latLngToVector3(
-              museum.coordinates.lat,
-              museum.coordinates.lng,
-              1.02
-            );
+            const [mx, my, mz] = latLngToVector3(museum.coordinates.lat, museum.coordinates.lng, 1.02);
             const pos = new THREE.Vector3(mx, my, mz);
-            pos.applyMatrix4(s.globe.matrixWorld);
+            pos.applyMatrix4(s.earthGroup.matrixWorld);
 
-            // Check if point faces camera
             const cameraDir = new THREE.Vector3();
             cameraDir.subVectors(s.camera.position, pos).normalize();
             const normal = pos.clone().normalize();
@@ -521,7 +512,6 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
 
     initScene();
 
-    // Cleanup
     return () => {
       cancelAnimationFrame(animationRef.current);
       if (sceneRef.current) {
@@ -530,7 +520,7 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
     };
   }, []);
 
-  // ─── Mouse / Touch interaction ───
+  // Mouse / Touch interaction
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
     if (!sceneRef.current) return;
     sceneRef.current.isDragging = true;
@@ -543,11 +533,7 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
     const dy = e.clientY - sceneRef.current.lastMouse.y;
     sceneRef.current.targetRotation.y += dx * 0.005;
     sceneRef.current.targetRotation.x += dy * 0.005;
-    // Clamp vertical rotation
-    sceneRef.current.targetRotation.x = Math.max(
-      -Math.PI / 3,
-      Math.min(Math.PI / 3, sceneRef.current.targetRotation.x)
-    );
+    sceneRef.current.targetRotation.x = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, sceneRef.current.targetRotation.x));
     sceneRef.current.lastMouse = { x: e.clientX, y: e.clientY };
   }, []);
 
@@ -555,14 +541,12 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
     if (sceneRef.current) sceneRef.current.isDragging = false;
   }, []);
 
-  // ─── Zoom ───
   const handleWheel = useCallback((e: React.WheelEvent) => {
     if (!sceneRef.current) return;
     const cam = sceneRef.current.camera;
     cam.position.z = Math.max(2, Math.min(6, cam.position.z + e.deltaY * 0.003));
   }, []);
 
-  // ─── Resize ───
   useEffect(() => {
     const handleResize = () => {
       if (!containerRef.current || !sceneRef.current) return;
@@ -577,14 +561,14 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#0a0a0f] lg:flex-row">
-      {/* ── Globe Canvas Area ── */}
+    <div className="flex min-h-screen flex-col bg-[#060610] lg:flex-row">
+      {/* Globe Canvas */}
       <div
         className={cn(
           'relative flex items-center justify-center overflow-hidden',
-          /* Desktop: left 60% */ 'lg:flex-[3] lg:min-h-screen',
-          /* Landscape: top 55% */ 'sm:max-lg:h-[55vh]',
-          /* Portrait: top 45% */ 'max-sm:h-[45vh]'
+          'lg:flex-[3] lg:min-h-screen',
+          'sm:max-lg:h-[55vh]',
+          'max-sm:h-[45vh]'
         )}
       >
         <div
@@ -599,7 +583,6 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
         >
           <canvas ref={canvasRef} className="h-full w-full" />
 
-          {/* Museum pins overlay */}
           {!isLoading &&
             filteredMuseums.map((museum) => {
               const pos = pinPositions[museum.id];
@@ -618,13 +601,12 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
             })}
         </div>
 
-        {/* Loading overlay */}
         <AnimatePresence>
           {isLoading && (
             <motion.div
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 flex flex-col items-center justify-center bg-[#0a0a0f]"
+              className="absolute inset-0 flex flex-col items-center justify-center bg-[#060610]"
             >
               <Globe2 className="h-12 w-12 animate-pulse text-art-gold" />
               <p className="mt-4 font-[var(--font-cormorant)] text-lg text-white/60">
@@ -634,7 +616,6 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
           )}
         </AnimatePresence>
 
-        {/* Title overlay */}
         <div className="pointer-events-none absolute left-0 top-0 p-6 lg:p-10">
           <h1 className="font-[var(--font-cormorant)] text-[clamp(1.5rem,4vw,3rem)] font-bold leading-tight text-white">
             {t('gallery.title')}
@@ -644,23 +625,21 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
           </p>
         </div>
 
-        {/* Globe controls hint — desktop only */}
         <div className="pointer-events-none absolute bottom-4 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-xs text-white/30 backdrop-blur-sm lg:flex">
           <Globe2 className="h-3.5 w-3.5" />
           Arrastra para rotar · Scroll para zoom
         </div>
       </div>
 
-      {/* ── Museum List Panel ── */}
+      {/* Museum List Panel */}
       <div
         className={cn(
-          'relative flex flex-col border-white/5 bg-[#0d0d14]',
-          /* Desktop: right sidebar */ 'lg:flex-[2] lg:border-l lg:min-h-screen',
-          /* Landscape/Portrait: bottom */ 'max-lg:flex-1 max-lg:border-t'
+          'relative flex flex-col border-white/5 bg-[#0a0a14]',
+          'lg:flex-[2] lg:border-l lg:min-h-screen',
+          'max-lg:flex-1 max-lg:border-t'
         )}
       >
-        {/* Search bar */}
-        <div className="sticky top-0 z-10 border-b border-white/5 bg-[#0d0d14]/95 p-4 backdrop-blur-sm">
+        <div className="sticky top-0 z-10 border-b border-white/5 bg-[#0a0a14]/95 p-4 backdrop-blur-sm">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" />
             <input
@@ -678,7 +657,6 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
           </div>
         </div>
 
-        {/* Museum list */}
         <div className="flex-1 space-y-3 overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-white/10">
           {filteredMuseums.map((museum) => (
             <MuseumCard
@@ -686,9 +664,7 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
               museum={museum}
               artworks={museumArtworks[museum.id] || []}
               isSelected={selectedMuseum === museum.id}
-              onClick={() =>
-                setSelectedMuseum(museum.id === selectedMuseum ? null : museum.id)
-              }
+              onClick={() => setSelectedMuseum(museum.id === selectedMuseum ? null : museum.id)}
               onEnter={() => onEnterMuseum?.(museum.id)}
             />
           ))}
