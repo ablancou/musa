@@ -10,13 +10,14 @@
  */
 
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 
 const MuseumGlobe = dynamic(
   () => import('@/components/globe/MuseumGlobe').then((mod) => ({ default: mod.MuseumGlobe })),
   {
     ssr: false,
     loading: () => (
-      <div className="flex min-h-screen items-center justify-center bg-[#0a0a0f]">
+      <div className="flex min-h-screen items-center justify-center bg-[#060610]">
         <div className="flex flex-col items-center gap-4">
           <div className="h-12 w-12 animate-spin rounded-full border-2 border-art-gold/20 border-t-art-gold" />
           <p className="font-[var(--font-cormorant)] text-lg text-white/40">
@@ -29,5 +30,12 @@ const MuseumGlobe = dynamic(
 );
 
 export function ExploreClient() {
-  return <MuseumGlobe />;
+  const router = useRouter();
+
+  const handleEnterMuseum = (museumId: string) => {
+    // Navigate to gallery filtered by this museum
+    router.push(`/gallery?museum=${museumId}`);
+  };
+
+  return <MuseumGlobe onEnterMuseum={handleEnterMuseum} />;
 }

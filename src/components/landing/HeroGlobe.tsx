@@ -288,77 +288,45 @@ export function HeroGlobe() {
     });
     earthGroup.add(new THREE.Mesh(outerAtmosGeo, outerAtmosMat));
 
-    // ─── Museum Golden Beams ───
-    const goldColor = new THREE.Color(0xC5932A);
-    const beamGroup = new THREE.Group();
-    earthGroup.add(beamGroup);
+    // ─── Museum Glow Points (elegant dots, no beams) ───
+    // Create a procedural glow texture for sprites
+    const glowCanvas = document.createElement('canvas');
+    glowCanvas.width = 64;
+    glowCanvas.height = 64;
+    const glowCtx = glowCanvas.getContext('2d')!;
+    const gradient = glowCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+    gradient.addColorStop(0, 'rgba(255, 215, 100, 1.0)');
+    gradient.addColorStop(0.15, 'rgba(210, 170, 60, 0.8)');
+    gradient.addColorStop(0.4, 'rgba(197, 147, 42, 0.3)');
+    gradient.addColorStop(1, 'rgba(197, 147, 42, 0.0)');
+    glowCtx.fillStyle = gradient;
+    glowCtx.fillRect(0, 0, 64, 64);
+    const glowTexture = new THREE.CanvasTexture(glowCanvas);
 
-    const glowTips: { mesh: any; baseOpacity: number; phase: number }[] = [];
+    const museumSprites: { sprite: any; phase: number }[] = [];
 
     MUSEUMS.forEach((museum, index) => {
       const [x, y, z] = latLngToVector3(
         museum.coordinates.lat,
         museum.coordinates.lng,
-        1.0
+        1.015
       );
-      const normal = new THREE.Vector3(x, y, z).normalize();
 
-      // Museum surface dot
-      const dotGeo = new THREE.SphereGeometry(0.008, 8, 8);
-      const dotMat = new THREE.MeshBasicMaterial({ color: goldColor });
-      const dot = new THREE.Mesh(dotGeo, dotMat);
-      dot.position.set(x, y, z);
-      beamGroup.add(dot);
-
-      // Light beam
-      const beamHeight = 0.08 + Math.random() * 0.12;
-      const beamGeo = new THREE.CylinderGeometry(0.003, 0.0008, beamHeight, 6);
-      const beamMat = new THREE.ShaderMaterial({
-        vertexShader: `
-          varying float vHeight;
-          void main() {
-            vHeight = (position.y + ${(beamHeight / 2).toFixed(4)}) / ${beamHeight.toFixed(4)};
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          }
-        `,
-        fragmentShader: `
-          varying float vHeight;
-          void main() {
-            float alpha = (1.0 - vHeight * 0.7) * 0.8;
-            vec3 gold = vec3(0.773, 0.576, 0.165);
-            vec3 white = vec3(1.0, 0.95, 0.85);
-            vec3 color = mix(gold, white, vHeight * 0.5);
-            gl_FragColor = vec4(color, alpha);
-          }
-        `,
+      // Glowing sprite — always faces camera, soft halo
+      const spriteMat = new THREE.SpriteMaterial({
+        map: glowTexture,
+        color: 0xC5932A,
         transparent: true,
+        opacity: 0.85,
+        blending: THREE.AdditiveBlending,
         depthWrite: false,
-        side: THREE.DoubleSide,
-        blending: THREE.AdditiveBlending,
       });
+      const sprite = new THREE.Sprite(spriteMat);
+      sprite.position.set(x, y, z);
+      sprite.scale.setScalar(0.045);
+      earthGroup.add(sprite);
 
-      const beam = new THREE.Mesh(beamGeo, beamMat);
-      beam.position.copy(normal.clone().multiplyScalar(1.0 + beamHeight / 2));
-      beam.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), normal);
-      beamGroup.add(beam);
-
-      // Glow tip
-      const glowGeo = new THREE.SphereGeometry(0.006, 8, 8);
-      const glowMat = new THREE.MeshBasicMaterial({
-        color: new THREE.Color(0xFFD700),
-        transparent: true,
-        opacity: 0.7,
-        blending: THREE.AdditiveBlending,
-      });
-      const glow = new THREE.Mesh(glowGeo, glowMat);
-      glow.position.copy(normal.clone().multiplyScalar(1.0 + beamHeight));
-      beamGroup.add(glow);
-
-      glowTips.push({
-        mesh: glow,
-        baseOpacity: 0.5 + Math.random() * 0.3,
-        phase: index * 0.4,
-      });
+      museumSprites.push({ sprite, phase: index * 0.3 });
     });
 
     // ─── Animation Loop ───
@@ -376,11 +344,12 @@ export function HeroGlobe() {
       // Clouds rotate slightly faster than earth
       clouds.rotation.y = time * 0.06;
 
-      // Pulse beam tips
-      glowTips.forEach(({ mesh, baseOpacity, phase }) => {
-        mesh.material.opacity = baseOpacity + Math.sin(time * 3 + phase) * 0.25;
-        const scale = 1.0 + Math.sin(time * 3 + phase) * 0.3;
-        mesh.scale.setScalar(scale);
+      // Gentle pulse on museum sprites
+      museumSprites.forEach(({ sprite, phase }) => {
+        const pulse = 0.7 + Math.sin(time * 2.5 + phase) * 0.3;
+        sprite.material.opacity = pulse;
+        const s = 0.04 + Math.sin(time * 2.5 + phase) * 0.008;
+        sprite.scale.setScalar(s);
       });
 
       renderer.render(scene, camera);

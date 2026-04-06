@@ -440,16 +440,35 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
       });
       earthGroup.add(new THREE.Mesh(new THREE.SphereGeometry(1.15, 64, 64), outerAtmosMat));
 
-      // Museum dots on globe surface (3D markers)
-      const goldColor = new THREE.Color(0xC5932A);
+      // Museum glow sprites (elegant dots with soft halo)
+      const glowCanvas = document.createElement('canvas');
+      glowCanvas.width = 64;
+      glowCanvas.height = 64;
+      const glowCtx = glowCanvas.getContext('2d')!;
+      const gradient = glowCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+      gradient.addColorStop(0, 'rgba(255, 215, 100, 1.0)');
+      gradient.addColorStop(0.15, 'rgba(210, 170, 60, 0.8)');
+      gradient.addColorStop(0.4, 'rgba(197, 147, 42, 0.3)');
+      gradient.addColorStop(1, 'rgba(197, 147, 42, 0.0)');
+      glowCtx.fillStyle = gradient;
+      glowCtx.fillRect(0, 0, 64, 64);
+      const glowTexture = new THREE.CanvasTexture(glowCanvas);
+
       MUSEUMS.forEach((museum) => {
-        const [x, y, z] = latLngToVector3(museum.coordinates.lat, museum.coordinates.lng, 1.01);
-        const dotGeo = new THREE.SphereGeometry(0.01, 8, 8);
-        const dotMat = new THREE.MeshBasicMaterial({ color: goldColor });
-        const dot = new THREE.Mesh(dotGeo, dotMat);
-        dot.position.set(x, y, z);
-        dot.userData = { museumId: museum.id };
-        earthGroup.add(dot);
+        const [x, y, z] = latLngToVector3(museum.coordinates.lat, museum.coordinates.lng, 1.015);
+        const spriteMat = new THREE.SpriteMaterial({
+          map: glowTexture,
+          color: 0xC5932A,
+          transparent: true,
+          opacity: 0.85,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false,
+        });
+        const sprite = new THREE.Sprite(spriteMat);
+        sprite.position.set(x, y, z);
+        sprite.scale.setScalar(0.04);
+        sprite.userData = { museumId: museum.id };
+        earthGroup.add(sprite);
       });
 
       sceneRef.current = {
