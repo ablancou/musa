@@ -1,13 +1,8 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Metadata } from 'next';
-import dynamicImport from 'next/dynamic';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-
-const MuseumVirtualTours = dynamicImport(
-  () => import('@/components/explore/MuseumVirtualTours'),
-  { ssr: false }
-);
+import MuseumVirtualToursWrapper from '@/components/explore/MuseumVirtualToursWrapper';
 
 export const metadata: Metadata = {
   title: 'Museos del Mundo — Tours Virtuales | MŪSA',
@@ -37,19 +32,9 @@ export default function MuseumsPage() {
     <>
       <Header />
       <main>
-        <Suspense
-          fallback={
-            <div className="min-h-screen flex items-center justify-center">
-              <div className="w-8 h-8 border-2 border-art-gold border-t-transparent rounded-full animate-spin" />
-            </div>
-          }
-        >
-          <MuseumVirtualTours />
-        </Suspense>
+        <MuseumVirtualToursWrapper />
       </main>
       <Footer />
     </>
   );
 }
-
-export const dynamic = 'force-dynamic';
