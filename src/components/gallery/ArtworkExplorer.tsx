@@ -92,11 +92,22 @@ function ArtworkCard({ artwork, index }: { artwork: Artwork; index: number }) {
         className="group block overflow-hidden rounded-xl bg-white dark:bg-white/5 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
       >
         {/* Image */}
-        <div className="relative aspect-[3/4] overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-            style={{ backgroundImage: `url(${artwork.imageUrl})` }}
+        <div className="relative aspect-[3/4] overflow-hidden bg-art-charcoal/10 dark:bg-white/5">
+          <img
+            src={artwork.imageUrl}
+            alt={artwork.titleOriginal || artwork.artist}
+            referrerPolicy="no-referrer"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+            onError={(e) => {
+              const target = e.currentTarget;
+              target.style.display = 'none';
+              if (target.nextElementSibling) (target.nextElementSibling as HTMLElement).style.display = 'flex';
+            }}
           />
+          <div className="absolute inset-0 hidden items-center justify-center bg-gradient-to-br from-art-charcoal/20 to-art-charcoal/40">
+            <Palette className="h-8 w-8 text-white/30" />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
 
           {/* Movement badge */}

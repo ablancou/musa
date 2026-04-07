@@ -237,10 +237,14 @@ function LessonCardComponent({ lesson }: { lesson: LessonCard }) {
       )}
     >
       {/* Image */}
-      <div className="relative aspect-[3/4] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-          style={{ backgroundImage: `url(${lesson.imageUrl})` }}
+      <div className="relative aspect-[3/4] overflow-hidden bg-art-charcoal/10 dark:bg-white/5">
+        <img
+          src={lesson.imageUrl}
+          alt={lesson.slug}
+          referrerPolicy="no-referrer"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          onError={(e) => { e.currentTarget.style.display = 'none'; }}
         />
 
         {/* Gradient overlay */}

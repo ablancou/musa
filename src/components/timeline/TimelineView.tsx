@@ -52,12 +52,16 @@ function ArtworkCard({
         sizes[size]
       )}
     >
-      {/* Artwork image placeholder (gradient since we can't load external imgs in SSR) */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${artwork.imageUrl})` }}
+      {/* Artwork image */}
+      <img
+        src={artwork.imageUrl}
+        alt={artwork.title}
+        referrerPolicy="no-referrer"
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover"
+        onError={(e) => { e.currentTarget.style.display = 'none'; }}
       />
-      {/* Fallback gradient */}
+      {/* Fallback gradient (shows when image fails) */}
       <div className="absolute inset-0 bg-gradient-to-br from-art-charcoal/20 to-art-charcoal/60 dark:from-black/30 dark:to-black/70" />
 
       {/* Info overlay */}
@@ -86,7 +90,7 @@ function ArtworkModal({
   era: TimelineEra;
   onClose: () => void;
 }) {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common', 'timeline']);
 
   return (
     <motion.div
@@ -113,9 +117,12 @@ function ArtworkModal({
 
         {/* Image */}
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-art-charcoal">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${artwork.imageUrl})` }}
+          <img
+            src={artwork.imageUrl}
+            alt={artwork.title}
+            referrerPolicy="no-referrer"
+            className="absolute inset-0 h-full w-full object-cover"
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
         </div>
 
@@ -125,7 +132,7 @@ function ArtworkModal({
             className="inline-block rounded-full px-3 py-1 text-xs font-semibold text-white"
             style={{ backgroundColor: era.color }}
           >
-            {t(`${era.nameKey}`)}
+            {t(`timeline:${era.nameKey}`)}
           </div>
           <h3 className="mt-3 font-[var(--font-cormorant)] text-2xl font-bold text-art-charcoal dark:text-white sm:text-3xl">
             {artwork.title}
@@ -157,7 +164,7 @@ function TimelineDesktop({
   onSelectArtwork: (artwork: TimelineArtwork, era: TimelineEra) => void;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common', 'timeline']);
 
   // Horizontal scroll with mouse wheel
   useEffect(() => {
@@ -175,7 +182,7 @@ function TimelineDesktop({
   }, []);
 
   const totalYears = TIMELINE_RANGE.max - TIMELINE_RANGE.min;
-  const pxPerYear = 1.2; // Adjust for desired width
+  const pxPerYear = 2.5; // Wider spacing so eras don't overlap
   const totalWidth = totalYears * pxPerYear;
 
   return (
@@ -188,7 +195,7 @@ function TimelineDesktop({
         className="overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-track-transparent scrollbar-thumb-art-charcoal/20"
         style={{ scrollBehavior: 'smooth' }}
       >
-        <div className="relative" style={{ width: `${totalWidth}px`, minHeight: '520px' }}>
+        <div className="relative" style={{ width: `${totalWidth}px`, minHeight: '800px' }}>
           {/* Century markers */}
           {Array.from({ length: Math.ceil(totalYears / 100) + 1 }, (_, i) => {
             const year = TIMELINE_RANGE.min + i * 100;
@@ -210,7 +217,7 @@ function TimelineDesktop({
           {eras.map((era, idx) => {
             const left = (era.startYear - TIMELINE_RANGE.min) * pxPerYear;
             const width = (era.endYear - era.startYear) * pxPerYear;
-            const top = 40 + (idx % 3) * 160; // Stagger vertically
+            const top = 40 + (idx % 4) * 180; // Stagger across 4 rows
 
             return (
               <motion.div
@@ -236,7 +243,7 @@ function TimelineDesktop({
                       style={{ backgroundColor: era.color }}
                     />
                     <h3 className="text-sm font-semibold text-art-charcoal dark:text-white">
-                      {t(era.nameKey)}
+                      {t(`timeline:${era.nameKey}`)}
                     </h3>
                     <span className="text-xs text-art-charcoal/40 dark:text-white/40">
                       {formatYear(era.startYear)} – {formatYear(era.endYear)}
@@ -281,7 +288,7 @@ function TimelineMobile({
   onSelectArtwork: (artwork: TimelineArtwork, era: TimelineEra) => void;
 }) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common', 'timeline']);
 
   return (
     <div className="relative pl-6">
@@ -321,7 +328,7 @@ function TimelineMobile({
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="text-base font-semibold text-art-charcoal dark:text-white">
-                      {t(era.nameKey)}
+                      {t(`timeline:${era.nameKey}`)}
                     </h3>
                     <div className="mt-0.5 flex items-center gap-2 text-xs text-art-charcoal/40 dark:text-white/40">
                       <Calendar className="h-3 w-3" />
@@ -409,7 +416,7 @@ function TimelineMobile({
 // ─── MAIN TIMELINE VIEW ───────────────────
 // ═══════════════════════════════════════════
 export function TimelineView() {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common', 'timeline']);
   const [regionFilter, setRegionFilter] = useState<RegionFilter>('all');
   const [selectedArtwork, setSelectedArtwork] = useState<{
     artwork: TimelineArtwork;
@@ -429,10 +436,10 @@ export function TimelineView() {
   );
 
   const regions: { key: RegionFilter; label: string; icon: string }[] = [
-    { key: 'all', label: t('timeline.filters.all'), icon: '🌍' },
-    { key: 'europe', label: t('timeline.filters.europe'), icon: '🏛️' },
-    { key: 'asia', label: t('timeline.filters.asia'), icon: '🏯' },
-    { key: 'americas', label: t('timeline.filters.americas'), icon: '🗽' },
+    { key: 'all', label: t('timeline:timeline.filters.all'), icon: '🌍' },
+    { key: 'europe', label: t('timeline:timeline.filters.europe'), icon: '🏛️' },
+    { key: 'asia', label: t('timeline:timeline.filters.asia'), icon: '🏯' },
+    { key: 'americas', label: t('timeline:timeline.filters.americas'), icon: '🗽' },
   ];
 
   return (
@@ -445,7 +452,7 @@ export function TimelineView() {
             animate={{ opacity: 1, y: 0 }}
             className="font-[var(--font-cormorant)] text-[clamp(1.75rem,1.2rem+2vw,3.5rem)] font-bold text-art-charcoal dark:text-white"
           >
-            {t('timeline.title')}
+            {t('timeline:timeline.title')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -453,7 +460,7 @@ export function TimelineView() {
             transition={{ delay: 0.1 }}
             className="mt-2 text-art-charcoal/60 dark:text-white/60 text-sm sm:text-base"
           >
-            {t('timeline.subtitle')}
+            {t('timeline:timeline.subtitle')}
           </motion.p>
 
           {/* Region filters */}
@@ -497,11 +504,11 @@ export function TimelineView() {
 
         {/* Era count */}
         <div className="mt-6 text-center text-xs text-art-charcoal/30 dark:text-white/30">
-          {filteredEras.length} {t('timeline.erasCount')} ·{' '}
+          {filteredEras.length} {t('timeline:timeline.erasCount')} ·{' '}
           {filteredEras.reduce((sum, era) => sum + era.artists.length, 0)}{' '}
-          {t('timeline.artistsCount')} ·{' '}
+          {t('timeline:timeline.artistsCount')} ·{' '}
           {filteredEras.reduce((sum, era) => sum + era.keyArtworks.length, 0)}{' '}
-          {t('timeline.artworksCount')}
+          {t('timeline:timeline.artworksCount')}
         </div>
       </div>
 

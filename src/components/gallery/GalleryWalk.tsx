@@ -102,9 +102,12 @@ function ArtworkDetailModal({
 
         {/* Artwork image — large */}
         <div className="relative aspect-[4/3] w-full bg-art-charcoal sm:aspect-[16/10]">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${artwork.imageUrl})` }}
+          <img
+            src={artwork.imageUrl}
+            alt={artwork.title || artwork.artist}
+            referrerPolicy="no-referrer"
+            className="absolute inset-0 h-full w-full object-cover"
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
           {/* Vignette */}
           <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.3)]" />

@@ -176,15 +176,19 @@ export function HeroGlobe() {
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0x334466, 0.6);
+    // Lighting — brighter ambient so the dark side isn't pitch black
+    const ambientLight = new THREE.AmbientLight(0x667799, 1.2);
     scene.add(ambientLight);
-    const sunLight = new THREE.DirectionalLight(0xffeedd, 1.8);
+    const sunLight = new THREE.DirectionalLight(0xffeedd, 1.4);
     sunLight.position.set(5, 3, 5);
     scene.add(sunLight);
-    const fillLight = new THREE.DirectionalLight(0x4466aa, 0.2);
-    fillLight.position.set(-3, -1, -3);
+    const fillLight = new THREE.DirectionalLight(0x6688bb, 0.6);
+    fillLight.position.set(-5, -2, -4);
     scene.add(fillLight);
+    // Extra back fill to illuminate dark side
+    const backLight = new THREE.DirectionalLight(0x445577, 0.4);
+    backLight.position.set(0, 1, -5);
+    scene.add(backLight);
 
     // Stars (3 layers for depth)
     const addStars = (count: number, spread: number, size: number, opacity: number) => {

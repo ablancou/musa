@@ -299,9 +299,12 @@ export function ImmersiveExperience({
           animate={kenBurnsStyles[kenBurnsPhase]}
           transition={{ duration: 10, ease: 'easeInOut' }}
         >
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${artwork.imageUrl})` }}
+          <img
+            src={artwork.imageUrl}
+            alt={artwork.title || artwork.artist}
+            referrerPolicy="no-referrer"
+            className="absolute inset-0 h-full w-full object-cover"
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
         </motion.div>
 

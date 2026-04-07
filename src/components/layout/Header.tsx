@@ -1,12 +1,13 @@
 'use client';
 
 /**
+ * Header — Main navigation bar
+ *
  * Responsive Modes:
- * - Desktop (>=1024px): Full nav bar with logo, nav links, language selector, CTA button
+ * - Desktop (>=1024px): Full nav bar with logo, nav links, theme, language, CTA
  * - Landscape (568-1023px): Logo + hamburger menu, compact nav
- * - Portrait (320-567px): Logo centered + hamburger, nav in bottom sheet
+ * - Portrait (320-567px): Logo + hamburger, nav in dropdown
  */
-
 
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -39,7 +40,6 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu on resize to desktop
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth >= 1024) setMenuOpen(false);
@@ -48,32 +48,35 @@ export function Header() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Only show gamification badges when user is logged in
+  const showGamification = authenticated;
+
   return (
     <>
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-white/80 dark:bg-art-charcoal/80 backdrop-blur-xl shadow-sm'
+            ? 'bg-white/90 dark:bg-art-charcoal/90 backdrop-blur-xl shadow-sm'
             : 'bg-transparent'
         )}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-16 sm:px-6 lg:h-20 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 group">
-            <Sparkles className="h-6 w-6 text-art-gold transition-transform group-hover:rotate-12 lg:h-7 lg:w-7" />
-            <span className="font-[var(--font-cormorant)] text-xl font-semibold tracking-wide text-art-charcoal dark:text-white lg:text-2xl">
+          <a href="/" className="flex shrink-0 items-center gap-2 group">
+            <Sparkles className="h-5 w-5 text-art-gold transition-transform group-hover:rotate-12 lg:h-6 lg:w-6" />
+            <span className="font-[var(--font-cormorant)] text-lg font-semibold tracking-wide text-art-charcoal dark:text-white lg:text-xl">
               MŪSA
             </span>
           </a>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav — centered */}
           <nav className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.key}
                 href={link.href}
-                className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:bg-art-charcoal/5 dark:hover:bg-white/5 hover:text-art-charcoal dark:hover:text-white"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:bg-art-charcoal/5 dark:hover:bg-white/5 hover:text-art-charcoal dark:hover:text-white whitespace-nowrap"
               >
                 {t(`nav.${link.key}`)}
               </a>
@@ -81,64 +84,54 @@ export function Header() {
           </nav>
 
           {/* Desktop Right Side */}
-          <div className="hidden lg:flex items-center gap-3">
-            <StreakBadge />
+          <div className="hidden lg:flex items-center gap-2">
+            {/* Gamification — only for logged-in users */}
+            {showGamification && <StreakBadge />}
+
             <ThemeToggle />
             <LanguageSelector />
+
             {authenticated ? (
-              <>
+              <div className="flex items-center gap-1 ml-1">
                 <a
                   href="/profile"
-                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white whitespace-nowrap"
                 >
                   {t('nav.profile')}
                 </a>
                 <a
                   href="/logout"
-                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white whitespace-nowrap"
                 >
                   {t('nav.logout')}
                 </a>
-              </>
-            ) : isGuest ? (
-              <>
-                <span className="text-xs font-medium text-art-gold uppercase tracking-wide">
-                  {t('nav.guestMode')}
-                </span>
-                <a
-                  href="/register"
-                  className="rounded-full bg-art-gold px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-art-gold-light hover:shadow-lg active:scale-[0.98]"
-                >
-                  {t('nav.createAccount')}
-                </a>
-              </>
+              </div>
             ) : (
-              <>
+              <div className="flex items-center gap-1 ml-1">
                 <a
                   href="/login"
-                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white whitespace-nowrap"
                 >
                   {t('nav.login')}
                 </a>
                 <button
                   onClick={enterAsGuest}
-                  className="rounded-lg px-4 py-2 text-sm font-medium text-art-gold transition-colors hover:text-art-gold-light dark:text-art-gold dark:hover:text-art-gold-light"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-art-gold transition-colors hover:text-art-gold-light whitespace-nowrap"
                 >
                   {t('nav.guestExplore')}
                 </button>
                 <a
                   href="/register"
-                  className="rounded-full bg-art-gold px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-art-gold-light hover:shadow-lg active:scale-[0.98]"
+                  className="rounded-full bg-art-gold px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:bg-art-gold-light hover:shadow-lg active:scale-[0.98] whitespace-nowrap"
                 >
                   {t('nav.register')}
                 </a>
-              </>
+              </div>
             )}
           </div>
 
-          {/* Mobile: Language + Theme Toggle + Hamburger */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <StreakBadge />
+          {/* Mobile Right Side */}
+          <div className="flex items-center gap-1.5 lg:hidden">
             <ThemeToggle />
             <LanguageSelector />
             <button
@@ -181,54 +174,24 @@ export function Header() {
                     {t(`nav.${link.key}`)}
                   </a>
                 ))}
-                <hr className="my-2 border-art-charcoal/10" />
+                <hr className="my-2 border-art-charcoal/10 dark:border-white/10" />
                 {authenticated ? (
                   <>
-                    <a
-                      href="/profile"
-                      onClick={() => setMenuOpen(false)}
-                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70"
-                    >
+                    <a href="/profile" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70">
                       {t('nav.profile')}
                     </a>
-                    <a
-                      href="/logout"
-                      onClick={() => setMenuOpen(false)}
-                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70"
-                    >
+                    <a href="/logout" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70">
                       {t('nav.logout')}
-                    </a>
-                  </>
-                ) : isGuest ? (
-                  <>
-                    <div className="flex min-h-[48px] items-center rounded-xl px-4">
-                      <span className="text-xs font-medium text-art-gold uppercase tracking-wide">
-                        {t('nav.guestMode')}
-                      </span>
-                    </div>
-                    <a
-                      href="/register"
-                      onClick={() => setMenuOpen(false)}
-                      className="mt-1 flex min-h-[48px] items-center justify-center rounded-full bg-art-gold px-5 text-base font-semibold text-white"
-                    >
-                      {t('nav.createAccount')}
                     </a>
                   </>
                 ) : (
                   <>
-                    <a
-                      href="/login"
-                      onClick={() => setMenuOpen(false)}
-                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70"
-                    >
+                    <a href="/login" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70">
                       {t('nav.login')}
                     </a>
                     <button
-                      onClick={() => {
-                        enterAsGuest();
-                        setMenuOpen(false);
-                      }}
-                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-gold transition-colors hover:text-art-gold-light dark:text-art-gold dark:hover:text-art-gold-light"
+                      onClick={() => { enterAsGuest(); setMenuOpen(false); }}
+                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-gold"
                     >
                       {t('nav.guestExplore')}
                     </button>

@@ -124,12 +124,14 @@ function MuseumArtworkFrame({
           style={{ padding: '3px', background: `${palette.moldingColor}50` }}
         >
           <div className="relative w-28 h-36 sm:w-36 sm:h-48 lg:w-44 lg:h-56 overflow-hidden bg-art-charcoal">
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
-              style={{
-                backgroundImage: `url(${artwork.imageUrl})`,
-                transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-              }}
+            <img
+              src={artwork.imageUrl}
+              alt={artwork.titleOriginal || artwork.artist}
+              referrerPolicy="no-referrer"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700"
+              style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
+              onError={(e) => { e.currentTarget.style.display = 'none'; }}
             />
 
             {/* Hover overlay with metadata */}
