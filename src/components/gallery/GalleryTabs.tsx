@@ -10,7 +10,8 @@
  * - Portrait (320-567px): Pill toggle, tap-friendly 48px height
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Footprints, Grid3x3 } from 'lucide-react';
@@ -46,7 +47,11 @@ type GalleryView = 'walk' | 'explore';
 
 export function GalleryTabs() {
   const { t } = useTranslation('common');
-  const [view, setView] = useState<GalleryView>('walk');
+  const searchParams = useSearchParams();
+  const museumParam = searchParams.get('museum');
+
+  // If arriving from a museum link (?museum=X), go straight to explore mode
+  const [view, setView] = useState<GalleryView>(museumParam ? 'explore' : 'walk');
 
   return (
     <div className="min-h-screen">
@@ -123,7 +128,7 @@ export function GalleryTabs() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <ArtworkExplorer />
+            <ArtworkExplorer initialMuseum={museumParam} />
           </motion.div>
         )}
       </AnimatePresence>

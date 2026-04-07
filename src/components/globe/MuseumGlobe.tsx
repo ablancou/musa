@@ -130,50 +130,88 @@ interface MuseumPinProps {
   position: { x: number; y: number };
   isVisible: boolean;
   isSelected: boolean;
+  isHovered: boolean;
   artworkCount: number;
   onClick: () => void;
+  onHover: (hovering: boolean) => void;
+  onEnter?: () => void;
+  t: (key: string) => string;
 }
 
-function MuseumPin({ museum, position, isVisible, isSelected, artworkCount, onClick }: MuseumPinProps) {
+function MuseumPin({ museum, position, isVisible, isSelected, isHovered, artworkCount, onClick, onHover, onEnter, t }: MuseumPinProps) {
   if (!isVisible) return null;
 
   return (
-    <motion.button
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      exit={{ scale: 0, opacity: 0 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-      onClick={onClick}
-      className={cn(
-        'absolute z-20 -translate-x-1/2 -translate-y-1/2 group',
-        'transition-transform duration-200'
-      )}
+    <div
+      className="absolute z-20 -translate-x-1/2 -translate-y-1/2"
       style={{ left: position.x, top: position.y }}
-      aria-label={museum.city}
+      onMouseEnter={() => onHover(true)}
+      onMouseLeave={() => onHover(false)}
     >
-      {/* Pulse ring */}
-      <span
-        className={cn(
-          'absolute inset-0 -m-2 rounded-full animate-ping',
-          isSelected ? 'bg-art-gold/40' : 'bg-art-gold/20'
+      {/* Clickable dot */}
+      <button
+        onClick={onClick}
+        className="group relative flex items-center justify-center"
+        aria-label={museum.city}
+      >
+        {/* Pulse ring */}
+        <span
+          className={cn(
+            'absolute inset-0 -m-2 rounded-full animate-ping',
+            isSelected || isHovered ? 'bg-art-gold/40' : 'bg-art-gold/20'
+          )}
+          style={{ animationDuration: '2s' }}
+        />
+        {/* Pin dot */}
+        <span
+          className={cn(
+            'relative block rounded-full shadow-lg shadow-art-gold/30 transition-all',
+            isSelected || isHovered
+              ? 'h-5 w-5 bg-art-gold ring-2 ring-white/80'
+              : 'h-3 w-3 bg-art-gold/80'
+          )}
+        />
+      </button>
+
+      {/* Hover Card — appears on hover, desktop only */}
+      <AnimatePresence>
+        {isHovered && (
+          <motion.div
+            initial={{ opacity: 0, y: 8, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 8, scale: 0.95 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 hidden w-56 lg:block"
+          >
+            <div className="rounded-xl bg-[#12121f]/95 p-3 shadow-2xl ring-1 ring-white/10 backdrop-blur-xl">
+              <h4 className="truncate text-sm font-semibold text-white">
+                {t(`museums:${museum.nameKey}`)}
+              </h4>
+              <p className="mt-0.5 text-xs text-white/50">
+                {museum.city}, {museum.country}
+              </p>
+              <div className="mt-2 flex items-center justify-between">
+                <span className="flex items-center gap-1 text-xs text-art-gold/80">
+                  <Palette className="h-3 w-3" />
+                  {artworkCount} {artworkCount === 1 ? 'obra' : 'obras'}
+                </span>
+                {onEnter && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); onEnter(); }}
+                    className="flex items-center gap-1 rounded-lg bg-art-gold/20 px-2.5 py-1 text-xs font-medium text-art-gold transition-colors hover:bg-art-gold/30"
+                  >
+                    {t('gallery.enterRoom')}
+                    <ChevronRight className="h-3 w-3" />
+                  </button>
+                )}
+              </div>
+              {/* Arrow */}
+              <div className="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-[#12121f]/95 ring-1 ring-white/10" style={{ clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%)' }} />
+            </div>
+          </motion.div>
         )}
-        style={{ animationDuration: '2s' }}
-      />
-      {/* Pin dot */}
-      <span
-        className={cn(
-          'relative block rounded-full shadow-lg shadow-art-gold/30 transition-all',
-          isSelected
-            ? 'h-5 w-5 bg-art-gold ring-2 ring-white/80'
-            : 'h-3 w-3 bg-art-gold/80 group-hover:h-4 group-hover:w-4 group-hover:bg-art-gold'
-        )}
-      />
-      {/* Tooltip on hover — desktop only */}
-      <span className="hidden lg:block absolute bottom-full left-1/2 -translate-x-1/2 mb-3 whitespace-nowrap rounded-lg bg-art-charcoal/95 px-3 py-1.5 text-xs font-medium text-white opacity-0 shadow-xl backdrop-blur-sm transition-opacity group-hover:opacity-100">
-        {museum.city} · {artworkCount} obras
-        <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-art-charcoal/95" />
-      </span>
-    </motion.button>
+      </AnimatePresence>
+    </div>
   );
 }
 
@@ -216,7 +254,7 @@ function MuseumCard({
           <Building2 className="h-5 w-5" style={{ color: museum.accentColor }} />
         </div>
         <div className="min-w-0 flex-1">
-          <h3 className="truncate text-sm font-semibold text-white">{t(museum.nameKey)}</h3>
+          <h3 className="truncate text-sm font-semibold text-white">{t(`museums:${museum.nameKey}`)}</h3>
           <p className="text-xs text-white/50">
             {museum.city}, {museum.country}
           </p>
@@ -296,6 +334,7 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
   } | null>(null);
 
   const [selectedMuseum, setSelectedMuseum] = useState<string | null>(null);
+  const [hoveredMuseum, setHoveredMuseum] = useState<string | null>(null);
   const [pinPositions, setPinPositions] = useState<Record<string, { x: number; y: number; visible: boolean }>>({});
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -520,7 +559,8 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
           s.rotation.x += (s.targetRotation.x - s.rotation.x) * 0.08;
           s.rotation.y += (s.targetRotation.y - s.rotation.y) * 0.08;
 
-          if (!s.isDragging) {
+          // Pause auto-rotation when dragging or hovering a museum
+          if (!s.isDragging && !hoveredMuseum) {
             s.targetRotation.y += 0.0008;
           }
 
@@ -587,11 +627,8 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
     if (sceneRef.current) sceneRef.current.isDragging = false;
   }, []);
 
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    if (!sceneRef.current) return;
-    const cam = sceneRef.current.camera;
-    cam.position.z = Math.max(2, Math.min(6, cam.position.z + e.deltaY * 0.003));
-  }, []);
+  // Zoom disabled — page scroll should work normally.
+  // Pinch-to-zoom on touch is also disabled via touchAction: 'none' on the container.
 
   useEffect(() => {
     const handleResize = () => {
@@ -607,7 +644,7 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#060610] lg:flex-row">
+    <div className="flex min-h-screen flex-col bg-[#060610] pt-16 lg:flex-row lg:pt-20">
       {/* Globe Canvas */}
       <div
         className={cn(
@@ -624,8 +661,7 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onPointerLeave={handlePointerUp}
-          onWheel={handleWheel}
-          style={{ touchAction: 'none' }}
+          style={{ touchAction: 'pan-y' }}
         >
           <canvas ref={canvasRef} className="h-full w-full" />
 
@@ -640,8 +676,12 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
                   position={pos}
                   isVisible={pos.visible}
                   isSelected={selectedMuseum === museum.id}
+                  isHovered={hoveredMuseum === museum.id}
                   artworkCount={museumArtworks[museum.id]?.length || 0}
                   onClick={() => setSelectedMuseum(museum.id === selectedMuseum ? null : museum.id)}
+                  onHover={(h) => setHoveredMuseum(h ? museum.id : null)}
+                  onEnter={() => onEnterMuseum?.(museum.id)}
+                  t={t}
                 />
               );
             })}
@@ -662,17 +702,19 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
           )}
         </AnimatePresence>
 
-        <div className="pointer-events-none absolute left-0 top-0 p-6 lg:p-10">
-          <h1 className="font-[var(--font-cormorant)] text-[clamp(1.5rem,4vw,3rem)] font-bold leading-tight text-white">
+        {/* Title — pushed below the fixed header (h-16 mobile, h-20 desktop) */}
+        <div className="pointer-events-none absolute left-0 top-0 p-6 pt-20 lg:p-10 lg:pt-24">
+          <h1 className="font-[var(--font-cormorant)] text-[clamp(1.5rem,4vw,2.5rem)] font-bold leading-tight text-white drop-shadow-lg">
             {t('gallery.title')}
           </h1>
-          <p className="mt-1 max-w-md text-sm text-white/40 lg:text-base">
+          <p className="mt-1 max-w-sm text-xs text-white/40 lg:text-sm">
             {t('gallery.subtitle')}
           </p>
         </div>
 
-        <div className="pointer-events-none absolute bottom-4 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-xs text-white/30 backdrop-blur-sm lg:flex">
-          <Globe2 className="h-3.5 w-3.5" />
+        {/* Hint — subtle, bottom of globe area, desktop only */}
+        <div className="pointer-events-none absolute bottom-3 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full bg-black/30 px-3 py-1.5 text-[11px] text-white/25 backdrop-blur-sm lg:flex">
+          <Globe2 className="h-3 w-3" />
           Arrastra para rotar · Scroll para zoom
         </div>
       </div>

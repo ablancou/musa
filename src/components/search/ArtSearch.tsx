@@ -452,7 +452,7 @@ export function ArtSearch({
                   : 'text-white/60 hover:bg-white/5 hover:text-white/80'
               )}
             >
-              <span className="truncate">{museum.city} — {t(museum.nameKey)}</span>
+              <span className="truncate">{museum.city} — {t(`museums:${museum.nameKey}`)}</span>
               <span className="shrink-0 text-[10px] text-white/30">{museumCounts[museum.id]}</span>
             </button>
           ))}

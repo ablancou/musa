@@ -246,7 +246,7 @@ export function MuseumRoom({
           </button>
           <div className="min-w-0 flex-1">
             <h1 className="truncate font-[var(--font-cormorant)] text-xl font-bold text-white sm:text-2xl lg:text-3xl">
-              {t(museum.nameKey)}
+              {t(`museums:${museum.nameKey}`)}
             </h1>
             <div className="flex items-center gap-3 text-xs text-white/70 sm:text-sm">
               <span className="flex items-center gap-1">
@@ -298,7 +298,7 @@ export function MuseumRoom({
                 <div className="flex h-full items-center justify-center">
                   <Building2 className="h-6 w-6 text-white/80" />
                   <span className="ml-2 font-[var(--font-cormorant)] text-lg font-bold text-white/90">
-                    {t(museum.nameKey)}
+                    {t(`museums:${museum.nameKey}`)}
                   </span>
                 </div>
               </div>
@@ -398,7 +398,7 @@ export function MuseumRoom({
         {artworks.length > 5 && (
           <div className="mx-auto max-w-7xl px-8 pb-8">
             <h3 className="mb-4 font-[var(--font-cormorant)] text-xl font-bold text-white/80">
-              Más obras en {t(museum.nameKey)}
+              Más obras en {t(`museums:${museum.nameKey}`)}
             </h3>
             <div className="grid grid-cols-3 gap-4 xl:grid-cols-4">
               {artworks.slice(5).map((artwork, i) => (
@@ -506,7 +506,7 @@ export function MuseumRoom({
             <div className="flex items-center gap-2">
               <Building2 className="h-5 w-5 text-white/80" />
               <span className="font-[var(--font-cormorant)] text-lg font-bold text-white">
-                {t(museum.nameKey)}
+                {t(`museums:${museum.nameKey}`)}
               </span>
             </div>
             <p className="mt-1 text-xs text-white/60">

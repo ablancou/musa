@@ -122,7 +122,7 @@ function ArtworkCard({ artwork, index }: { artwork: Artwork; index: number }) {
               {museum && (
                 <div className="flex items-center gap-1 text-[10px] text-white/60">
                   <Building2 className="h-3 w-3" />
-                  <span>{t(museum.nameKey)}</span>
+                  <span>{t(`museums:${museum.nameKey}`)}</span>
                 </div>
               )}
             </div>
@@ -179,9 +179,12 @@ function FilterChip({
 // ═══════════════════════════════════════════
 // ─── MAIN COMPONENT ──────────────────────
 // ═══════════════════════════════════════════
-export function ArtworkExplorer() {
+export function ArtworkExplorer({ initialMuseum }: { initialMuseum?: string | null }) {
   const { t } = useTranslation(['museums', 'common', 'gallery']);
-  const [filters, setFilters] = useState<Filters>(EMPTY_FILTERS);
+  const [filters, setFilters] = useState<Filters>({
+    ...EMPTY_FILTERS,
+    museum: initialMuseum || null,
+  });
   const [showFilters, setShowFilters] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'compact'>('grid');
 

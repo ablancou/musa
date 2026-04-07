@@ -154,7 +154,7 @@ export function ArtworkOfTheDay() {
                     {museum.city}
                   </p>
                   <p className="text-xs text-art-charcoal/80 dark:text-white/80">
-                    {t(museum.nameKey)}
+                    {t(`museums:${museum.nameKey}`)}
                   </p>
                 </div>
               )}
