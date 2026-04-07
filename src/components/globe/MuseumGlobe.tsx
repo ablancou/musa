@@ -50,11 +50,79 @@ function latLngToVector3(lat: number, lng: number, radius: number): [number, num
   return [x, y, z];
 }
 
-// NASA / public domain texture URLs
-const EARTH_TEXTURE_URL = 'https://unpkg.com/three-globe@2.31.1/example/img/earth-blue-marble.jpg';
-const EARTH_NIGHT_URL = 'https://unpkg.com/three-globe@2.31.1/example/img/earth-night.jpg';
-const CLOUD_TEXTURE_URL = 'https://unpkg.com/three-globe@2.31.1/example/img/earth-clouds.png';
-const EARTH_BUMP_URL = 'https://unpkg.com/three-globe@2.31.1/example/img/earth-topology.png';
+// NASA texture URLs with fallback
+const EARTH_URLS = [
+  'https://unpkg.com/three-globe@2.31.1/example/img/earth-blue-marble.jpg',
+  'https://cdn.jsdelivr.net/npm/three-globe@2.31.1/example/img/earth-blue-marble.jpg',
+];
+
+/** Procedural Earth canvas fallback */
+function createEarthCanvas(size: number = 2048): HTMLCanvasElement {
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size / 2;
+  const ctx = canvas.getContext('2d')!;
+  const w = canvas.width, h = canvas.height;
+
+  // Ocean
+  const oceanGrad = ctx.createLinearGradient(0, 0, 0, h);
+  oceanGrad.addColorStop(0, '#0a1628');
+  oceanGrad.addColorStop(0.15, '#0d2040');
+  oceanGrad.addColorStop(0.5, '#0f2a4a');
+  oceanGrad.addColorStop(0.85, '#0d2040');
+  oceanGrad.addColorStop(1, '#0a1628');
+  ctx.fillStyle = oceanGrad;
+  ctx.fillRect(0, 0, w, h);
+
+  const drawLand = (cx: number, cy: number, rx: number, ry: number, color: string, rot: number = 0) => {
+    ctx.save(); ctx.translate(cx * w, cy * h); ctx.rotate(rot);
+    ctx.beginPath(); ctx.ellipse(0, 0, rx * w, ry * h, 0, 0, Math.PI * 2);
+    ctx.fillStyle = color; ctx.fill(); ctx.restore();
+  };
+
+  // Africa
+  drawLand(0.53, 0.42, 0.04, 0.08, '#1e4225');
+  drawLand(0.535, 0.52, 0.035, 0.1, '#2a4a20');
+  drawLand(0.55, 0.35, 0.03, 0.04, '#1e4225');
+  // Europe
+  drawLand(0.51, 0.28, 0.04, 0.04, '#1a3820');
+  drawLand(0.49, 0.3, 0.03, 0.03, '#1e4225');
+  drawLand(0.54, 0.25, 0.02, 0.03, '#1a3820');
+  // Asia
+  drawLand(0.62, 0.28, 0.08, 0.06, '#1a3a20');
+  drawLand(0.68, 0.35, 0.06, 0.05, '#1e4225');
+  drawLand(0.65, 0.22, 0.06, 0.03, '#1a3a20');
+  drawLand(0.63, 0.4, 0.03, 0.03, '#2a4a20');
+  // Americas
+  drawLand(0.18, 0.28, 0.06, 0.06, '#1e4225');
+  drawLand(0.22, 0.35, 0.04, 0.04, '#1a3820');
+  drawLand(0.15, 0.22, 0.04, 0.03, '#1a3a20');
+  drawLand(0.27, 0.52, 0.03, 0.06, '#1e4225');
+  drawLand(0.25, 0.6, 0.025, 0.08, '#2a4a20');
+  // Australia & ice
+  drawLand(0.78, 0.58, 0.03, 0.025, '#3a4a20');
+  drawLand(0.5, 0.95, 0.15, 0.04, '#b8c8d8');
+  drawLand(0.5, 0.04, 0.12, 0.025, '#a8b8c8');
+  drawLand(0.53, 0.38, 0.04, 0.02, '#3a3a1e', 0.1);
+
+  return canvas;
+}
+
+function createCloudCanvas(size: number = 1024): HTMLCanvasElement {
+  const canvas = document.createElement('canvas');
+  canvas.width = size; canvas.height = size / 2;
+  const ctx = canvas.getContext('2d')!;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i < 200; i++) {
+    const x = Math.random() * canvas.width, y = Math.random() * canvas.height;
+    const r = 10 + Math.random() * 60;
+    const grad = ctx.createRadialGradient(x, y, 0, x, y, r);
+    grad.addColorStop(0, `rgba(255,255,255,${0.05 + Math.random() * 0.12})`);
+    grad.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = grad; ctx.fillRect(x - r, y - r, r * 2, r * 2);
+  }
+  return canvas;
+}
 
 // ─── Museum Pin Component (HTML overlay) ───
 interface MuseumPinProps {
@@ -123,7 +191,7 @@ function MuseumCard({
   onClick: () => void;
   onEnter: () => void;
 }) {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common', 'museums']);
   const movements = [...new Set(artworks.map((a) => a.movement))];
 
   return (
@@ -211,7 +279,7 @@ function MuseumCard({
 // MAIN GLOBE COMPONENT
 // ═══════════════════════════════════════════
 export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: string) => void }) {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common', 'museums']);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>(0);
@@ -273,21 +341,19 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
       renderer.setSize(width, height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1.2;
 
       // Lighting
-      const ambientLight = new THREE.AmbientLight(0x333355, 0.4);
+      const ambientLight = new THREE.AmbientLight(0x334466, 0.6);
       scene.add(ambientLight);
-      const sunLight = new THREE.DirectionalLight(0xffeedd, 2.0);
+      const sunLight = new THREE.DirectionalLight(0xffeedd, 1.8);
       sunLight.position.set(5, 3, 5);
       scene.add(sunLight);
-      const fillLight = new THREE.DirectionalLight(0x4466aa, 0.3);
+      const fillLight = new THREE.DirectionalLight(0x4466aa, 0.2);
       fillLight.position.set(-3, -1, -3);
       scene.add(fillLight);
 
-      // Stars
-      const createStars = (count: number, spread: number, size: number, opacity: number) => {
+      // Stars (3 layers)
+      const addStars = (count: number, spread: number, size: number, opacity: number) => {
         const geo = new THREE.BufferGeometry();
         const pos = new Float32Array(count * 3);
         for (let i = 0; i < count; i++) {
@@ -299,101 +365,62 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
           pos[i * 3 + 2] = r * Math.cos(p);
         }
         geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-        return new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xffffff, size, transparent: true, opacity, sizeAttenuation: true }));
+        scene.add(new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xffffff, size, transparent: true, opacity, sizeAttenuation: true })));
       };
-      scene.add(createStars(4000, 80, 0.08, 0.4));
-      scene.add(createStars(1500, 40, 0.15, 0.6));
-      scene.add(createStars(300, 20, 0.35, 0.9));
+      addStars(4000, 80, 0.08, 0.35);
+      addStars(1500, 40, 0.15, 0.55);
+      addStars(300, 20, 0.35, 0.85);
 
       // Earth Group
       const earthGroup = new THREE.Group();
       scene.add(earthGroup);
 
-      // Load textures
-      const earthTexture = textureLoader.load(EARTH_TEXTURE_URL);
-      earthTexture.colorSpace = THREE.SRGBColorSpace;
-      const nightTexture = textureLoader.load(EARTH_NIGHT_URL);
-      nightTexture.colorSpace = THREE.SRGBColorSpace;
-      const bumpTexture = textureLoader.load(EARTH_BUMP_URL);
-
-      // Earth with day/night shader
-      const earthGeo = new THREE.SphereGeometry(1, 128, 128);
-      const earthMat = new THREE.ShaderMaterial({
-        uniforms: {
-          dayTexture: { value: earthTexture },
-          nightTexture: { value: nightTexture },
-          bumpMap: { value: bumpTexture },
-          sunDirection: { value: new THREE.Vector3(1, 0.5, 1).normalize() },
-        },
-        vertexShader: `
-          varying vec3 vNormal;
-          varying vec3 vPosition;
-          varying vec2 vUv;
-          varying vec3 vWorldNormal;
-          void main() {
-            vNormal = normalize(normalMatrix * normal);
-            vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
-            vUv = uv;
-            vWorldNormal = normalize((modelMatrix * vec4(normal, 0.0)).xyz);
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          }
-        `,
-        fragmentShader: `
-          uniform sampler2D dayTexture;
-          uniform sampler2D nightTexture;
-          uniform sampler2D bumpMap;
-          uniform vec3 sunDirection;
-          varying vec3 vNormal;
-          varying vec3 vPosition;
-          varying vec2 vUv;
-          varying vec3 vWorldNormal;
-
-          void main() {
-            vec3 normal = normalize(vNormal);
-            vec3 worldNormal = normalize(vWorldNormal);
-            float sunDot = dot(worldNormal, sunDirection);
-            float dayFactor = smoothstep(-0.15, 0.25, sunDot);
-
-            vec3 dayColor = texture2D(dayTexture, vUv).rgb;
-            vec3 nightColor = texture2D(nightTexture, vUv).rgb * 1.8;
-            nightColor = mix(nightColor, nightColor * vec3(1.2, 1.0, 0.7), 0.5);
-
-            vec3 baseColor = mix(nightColor, dayColor, dayFactor);
-            float diffuse = max(dot(normal, normalize(vec3(1.0, 0.5, 1.0))), 0.0);
-            baseColor *= (0.3 + diffuse * 0.7);
-
-            // Ocean specular
-            vec3 viewDir = normalize(-vPosition);
-            vec3 halfDir = normalize(normalize(vec3(1.0, 0.5, 1.0)) + viewDir);
-            float spec = pow(max(dot(normal, halfDir), 0.0), 120.0);
-            float bumpVal = texture2D(bumpMap, vUv).r;
-            float isOcean = 1.0 - smoothstep(0.0, 0.15, bumpVal);
-            baseColor += vec3(0.9, 0.95, 1.0) * spec * 0.4 * isOcean * dayFactor;
-
-            // Atmosphere rim
-            float rim = 1.0 - max(dot(normal, viewDir), 0.0);
-            rim = pow(rim, 3.5);
-            baseColor += vec3(0.25, 0.4, 0.8) * rim * 0.5 * dayFactor;
-
-            gl_FragColor = vec4(baseColor, 1.0);
-          }
-        `,
+      // Procedural canvas as immediate texture
+      const proceduralTexture = new THREE.CanvasTexture(createEarthCanvas());
+      const earthGeo = new THREE.SphereGeometry(1, 96, 96);
+      const earthMaterial = new THREE.MeshPhongMaterial({
+        map: proceduralTexture,
+        bumpScale: 0.02,
+        specular: new THREE.Color(0x333333),
+        shininess: 25,
       });
-      earthGroup.add(new THREE.Mesh(earthGeo, earthMat));
+      earthGroup.add(new THREE.Mesh(earthGeo, earthMaterial));
 
-      // Clouds
-      const cloudTexture = textureLoader.load(CLOUD_TEXTURE_URL);
-      const clouds = new THREE.Mesh(
-        new THREE.SphereGeometry(1.012, 96, 96),
-        new THREE.MeshPhongMaterial({
-          map: cloudTexture,
-          transparent: true,
-          opacity: 0.3,
-          depthWrite: false,
-          side: THREE.DoubleSide,
-        })
-      );
+      // Try loading NASA texture in background
+      const tryLoad = (url: string): Promise<any> =>
+        new Promise((resolve, reject) => { textureLoader.load(url, resolve, undefined, reject); });
+      (async () => {
+        for (const url of EARTH_URLS) {
+          try {
+            const tex = await tryLoad(url);
+            tex.colorSpace = THREE.SRGBColorSpace;
+            earthMaterial.map = tex;
+            earthMaterial.needsUpdate = true;
+            break;
+          } catch { /* next */ }
+        }
+      })();
+
+      // Clouds (procedural canvas + CDN fallback)
+      const cloudCanvas = createCloudCanvas();
+      const cloudMat = new THREE.MeshPhongMaterial({
+        map: new THREE.CanvasTexture(cloudCanvas),
+        transparent: true,
+        opacity: 0.25,
+        depthWrite: false,
+        side: THREE.DoubleSide,
+      });
+      const clouds = new THREE.Mesh(new THREE.SphereGeometry(1.01, 64, 64), cloudMat);
       earthGroup.add(clouds);
+      (async () => {
+        const urls = [
+          'https://unpkg.com/three-globe@2.31.1/example/img/earth-clouds.png',
+          'https://cdn.jsdelivr.net/npm/three-globe@2.31.1/example/img/earth-clouds.png',
+        ];
+        for (const url of urls) {
+          try { const t = await tryLoad(url); cloudMat.map = t; cloudMat.needsUpdate = true; break; } catch { /* next */ }
+        }
+      })();
 
       // Inner atmosphere
       const innerAtmosMat = new THREE.ShaderMaterial({

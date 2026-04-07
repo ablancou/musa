@@ -1007,9 +1007,55 @@ export const ARTWORKS: Artwork[] = [
 
 // ─── Helper functions ───
 
-/** Get all artworks in a specific museum */
+/**
+ * Museum ID alias map — normalizes variant IDs used across artwork batches
+ * to canonical museum IDs defined in museums.ts.
+ * Key = alias used in artwork data, Value = canonical museum ID.
+ */
+const MUSEUM_ID_ALIASES: Record<string, string> = {
+  'hermitage-st-petersburg': 'hermitage',
+  'metropolitan-museum': 'met',
+  'museum-of-modern-art': 'moma',
+  'museum-of-modern-art-moma': 'moma',
+  'museo-del-prado': 'prado',
+  'uffizi-gallery': 'uffizi',
+  'thyssen-bornemisza-museum': 'thyssen-bornemisza',
+  'philadelphia-museum-of-art': 'philadelphia-museum-art',
+  'philadelphia-museum': 'philadelphia-museum-art',
+  'gallerie-dell-accademia': 'galleria-accademia',
+  'accademia-venice': 'galleria-accademia',
+  'pinacoteca-di-brera': 'pinacoteca-brera',
+  'museo-archeologico-nazionale': 'archaeological-museum-naples',
+  'museo-archeologico-nazionale-firenze': 'archaeological-museum-naples',
+  'musee-versailles': 'versailles',
+  'guggenheim-new-york': 'guggenheim',
+  'galleria-nazionale-palazzo-barberini': 'galleria-borghese',
+  'kunsthalle-hamburg': 'hamburg-kunsthalle',
+  'national-gallery-scotland-edinburgh': 'national-gallery-london',
+  'leopold-museum-vienna': 'belvedere',
+  'pushkin-museum': 'hermitage',
+  'santa-maria-delle-grazie': 'pinacoteca-brera',
+  'musee-royal-belgique-brussels': 'louvre',
+  'musee-gustave-moreau': 'musee-d-orsay',
+  'palazzo-pitti': 'uffizi',
+  'musee-conde-chantilly': 'louvre',
+  'museum-of-fine-arts-boston': 'met',
+  'dresden-state-art-collections': 'alte-pinakothek',
+};
+
+/** Get all artworks in a specific museum (with alias normalization) */
 export function getArtworksByMuseum(museumId: string): Artwork[] {
-  return ARTWORKS.filter((a) => a.museumId === museumId);
+  // Collect all aliases that map TO this museumId
+  const aliasesForMuseum = new Set<string>([museumId]);
+  for (const [alias, canonical] of Object.entries(MUSEUM_ID_ALIASES)) {
+    if (canonical === museumId) {
+      aliasesForMuseum.add(alias);
+    }
+  }
+  return ARTWORKS.filter((a) => {
+    const normalized = MUSEUM_ID_ALIASES[a.museumId] || a.museumId;
+    return normalized === museumId || aliasesForMuseum.has(a.museumId);
+  });
 }
 
 /** Get all artworks by a specific artist */
