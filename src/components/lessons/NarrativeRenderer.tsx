@@ -75,6 +75,19 @@ export default function NarrativeRenderer({
 function IntroBlock({ block }: { block: NarrativeBlock }) {
   return (
     <section className="w-full bg-art-navy text-art-ivory relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24">
+      {/* Background artwork image with overlay */}
+      {block.imageUrl && (
+        <div className="absolute inset-0">
+          <img
+            src={block.imageUrl}
+            alt=""
+            referrerPolicy="no-referrer"
+            className="h-full w-full object-cover opacity-20"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-art-navy/80 via-art-navy/60 to-art-navy/90" />
+        </div>
+      )}
       {/* Subtle animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-art-wine/5 to-transparent opacity-30" />
 
@@ -109,7 +122,28 @@ function IntroBlock({ block }: { block: NarrativeBlock }) {
 function StoryBlock({ block }: { block: NarrativeBlock }) {
   return (
     <section className="w-full bg-art-cream py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 lg:px-12">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
+        {/* Desktop: image + text side by side / Mobile: image on top */}
+        <div className={block.imageUrl ? 'lg:grid lg:grid-cols-[280px_1fr] lg:gap-10 lg:items-start' : ''}>
+          {block.imageUrl && (
+            <motion.div
+              className="mb-6 lg:mb-0 lg:sticky lg:top-24"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="overflow-hidden rounded-xl shadow-xl mx-auto max-w-[280px]">
+                <img
+                  src={block.imageUrl}
+                  alt={block.title || ''}
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                  className="w-full object-cover"
+                />
+              </div>
+            </motion.div>
+          )}
+          <div>
         <motion.h2
           className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 text-art-charcoal"
           initial={{ opacity: 0 }}
@@ -147,6 +181,8 @@ function StoryBlock({ block }: { block: NarrativeBlock }) {
             );
           })}
         </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -77,6 +77,7 @@ export const VAN_GOGH_STARRY_NIGHT: Lesson = {
     {
       type: 'intro',
       title: 'Junio de 1889',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
       content: `Saint-Rémy-de-Provence. Un hombre delgado, de barba roja y ojos que arden con una intensidad casi insoportable, se asoma por la ventana de su habitación en el asilo. Su nombre es Vincent van Gogh. Hace tres meses que llegó a este lugar, pero para él, cada noche es una batalla.
 
 La noche lo hipnotiza. No es la oscuridad lo que busca, sino todo lo que la noche contiene: misterio, soledad, belleza infinita. Mientras otros duermen, Vincent se queda mirando el cielo. Y esa noche de junio, cuando la luna llena brilla sobre las colinas de Provenza, algo extraordinario ocurre en su mente.
@@ -86,6 +87,7 @@ Su pincel tiembla. Toma un lienzo. Y comienza a pintar.`,
     {
       type: 'story',
       title: 'La Llamada de la Noche',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project.jpg',
       content: `Durante años, Vincent van Gogh fue un hombre destruido. Fracaso tras fracaso: como misionero, como artista, como amigo. Su relación con su hermano Theo era su única ancla en la realidad. Pero en 1888 llegó a Arles, en el sur de Francia, y algo cambió. El color brillante del Mediterráneo lo despertó.
 
 Aquí, bajo el sol implacable de Provenza, Vincent descubrió que podía pintar. Que podía expresar lo que nadie más podía ver: el corazón latiendo dentro de cada árbol, cada casa, cada rayo de luz.
@@ -99,6 +101,7 @@ La tercera, la que el mundo conocerá, es la más poderosa. No es una simple rep
     {
       type: 'technique',
       title: 'El Movimiento en el Silencio',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/94/Starry_Night_Over_the_Rhone.jpg',
       content: `Cuando observas "La Noche Estrellada" por primera vez, lo primero que sientes es el movimiento. El cielo no está quieto — está vivo, está respirando. ¿Cómo lo logró Vincent?
 
 **El Pincel como Instrumento Musical:**
@@ -118,6 +121,7 @@ La técnica de Vincent es Post-Impresionista. Los Impresionistas buscaban captur
     {
       type: 'context',
       title: 'El Viaje hasta la Noche Estrellada',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Irises-Vincent_van_Gogh.jpg',
       content: `**1853:** Nace Vincent Willem van Gogh en Groot-Zundert, un pequeño pueblo en Brabante, Holanda.
 
 **1869-1876:** Vincent intenta varias profesiones — trabajador de tienda, maestro, predicador. Fracasa en todas ellas. Pero en cada fracaso, encuentra un poco más de él mismo.
@@ -139,6 +143,7 @@ La técnica de Vincent es Post-Impresionista. Los Impresionistas buscaban captur
     {
       type: 'music',
       title: 'La Sinfonía de las Estrellas',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg',
       content: `Si pudieras escuchar "La Noche Estrellada", ¿qué música sonaría?
 
 Muchos piensan en música clásica turbulenta, desgarrada. Pero la verdad es más sutil, más profunda.
@@ -163,6 +168,7 @@ La pintura y la música nacen de la misma fuente: el corazón humano gritando ha
     {
       type: 'reflection',
       title: 'Lo que La Noche Estrellada nos Dice',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/46/Vincent_Willem_van_Gogh_127.jpg',
       content: `Cuando Vincent van Gogh pintaba en su habitación del asilo, no sabía que pintaba el futuro del arte. No sabía que transformaría la pintura para siempre.
 
 La Noche Estrellada nos dice algo profundo: que la belleza puede nacer del sufrimiento. Que un hombre roto, rechazado por la sociedad, despreciado incluso por la mayoría de sus amigos, puede crear algo que tocará el corazón de millones.
@@ -249,6 +255,46 @@ Cuando mires esta pintura, no pienses en un cuadro colgado en una pared. Piensa 
       descriptionEs: 'Pintado poco después del incidente de diciembre de 1888, este autorretrato muestra a Vincent enfrentando su dolor con dignidad y compasión hacia sí mismo.',
       descriptionEn: 'Painted shortly after the December 1888 incident, this self-portrait shows Vincent facing his pain with dignity and compassion toward himself.',
     },
+    {
+      titleEs: 'Almendro en Flor',
+      titleEn: 'Almond Blossom',
+      year: 1890,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg',
+      descriptionEs: 'Pintado como regalo para su sobrino recién nacido (hijo de Theo), este cuadro es una de las obras más luminosas y esperanzadoras de Vincent. Las ramas de almendro contra el cielo azul simbolizan nueva vida y renacimiento.',
+      descriptionEn: 'Painted as a gift for his newborn nephew (Theo\'s son), this is one of Vincent\'s most luminous and hopeful works. Almond branches against blue sky symbolize new life and rebirth.',
+    },
+    {
+      titleEs: 'Lirios',
+      titleEn: 'Irises',
+      year: 1889,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Irises-Vincent_van_Gogh.jpg',
+      descriptionEs: 'Pintado una semana después de ingresar al asilo de Saint-Rémy, esta obra explota en color y vitalidad. Vincent llamó a los lirios "el pararrayos de mi enfermedad" — pintar flores lo mantenía cuerdo.',
+      descriptionEn: 'Painted one week after entering the Saint-Rémy asylum, this work explodes with color and vitality. Vincent called the irises "the lightning rod of my illness" — painting flowers kept him sane.',
+    },
+    {
+      titleEs: 'Los Girasoles',
+      titleEn: 'Sunflowers',
+      year: 1888,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/46/Vincent_Willem_van_Gogh_127.jpg',
+      descriptionEs: 'La serie de girasoles de Arles representa la felicidad efímera de Vincent en el sur de Francia. Cada pétalo arde con el mismo fuego interior que ilumina las estrellas de la Noche Estrellada.',
+      descriptionEn: 'The Arles sunflowers series represents Vincent\'s fleeting happiness in the south of France. Each petal burns with the same inner fire that illuminates the stars of The Starry Night.',
+    },
+    {
+      titleEs: 'Campo de Trigo con Cuervos',
+      titleEn: 'Wheatfield with Crows',
+      year: 1890,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Vincent_Van_Gogh_-_Wheatfield_with_Crows.jpg',
+      descriptionEs: 'Una de las últimas obras de Vincent, pintada semanas antes de su muerte. El cielo amenazador, los cuervos negros y el camino que no lleva a ningún lado crean una atmósfera de tensión y despedida que contrasta poderosamente con la turbulenta esperanza de la Noche Estrellada.',
+      descriptionEn: 'One of Vincent\'s last works, painted weeks before his death. The threatening sky, black crows, and path leading nowhere create an atmosphere of tension and farewell that powerfully contrasts with The Starry Night\'s turbulent hope.',
+    },
+    {
+      titleEs: 'El Dormitorio en Arlés',
+      titleEn: 'Bedroom in Arles',
+      year: 1888,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/76/Vincent_van_Gogh_-_De_slaapkamer_-_Google_Art_Project.jpg',
+      descriptionEs: 'Vincent pintó su habitación en la Casa Amarilla como un ejercicio de color puro y tranquilidad. Quería que transmitiera reposo absoluto. Sin embargo, las paredes se inclinan, la perspectiva se distorsiona — la calma que buscaba siempre le escapaba.',
+      descriptionEn: 'Vincent painted his room in the Yellow House as an exercise in pure color and tranquility. He wanted it to convey absolute rest. Yet the walls tilt, perspective distorts — the calm he sought always eluded him.',
+    },
   ],
 
   musicConnections: [
@@ -265,8 +311,24 @@ Cuando mires esta pintura, no pienses en un cuadro colgado en una pared. Piensa 
       piece: 'Gymnopédie No. 1',
       era: 'Impresionismo Musical',
       youtubeId: 'S-Xm7s9eGxU',
-      explanationEs: 'Las Gymnopédies de Satie son extraordinariamente solitarias y melancólicas, perfectamente alineadas con la soledad de Vincent en el asilo. Sin drama ni explosión, solo una tristeza profunda que se convierte en una terrible belleza. Escúchala imagining a Vincent en su ventana.',
+      explanationEs: 'Las Gymnopédies de Satie son extraordinariamente solitarias y melancólicas, perfectamente alineadas con la soledad de Vincent en el asilo. Sin drama ni explosión, solo una tristeza profunda que se convierte en una terrible belleza. Escúchala imaginando a Vincent en su ventana.',
       explanationEn: 'Satie\'s Gymnopédies are extraordinarily lonely and melancholic, perfectly aligned with Vincent\'s loneliness in the asylum. Without drama or explosion, just a deep sadness that becomes a terrible beauty. Listen to it while imagining Vincent at his window.',
+    },
+    {
+      composer: 'Frédéric Chopin',
+      piece: 'Ballade No. 1 in G minor, Op. 23',
+      era: 'Romanticismo',
+      youtubeId: 'nW5po_Z7YEs',
+      explanationEs: 'La Balada No. 1 de Chopin empieza con una calma engañosa y después estalla en una tormenta de emoción que va creciendo hasta un final devastador. Es exactamente lo que sientes al mirar la Noche Estrellada: la calma del pueblo dormido debajo, la tormenta del cielo arriba, y la tensión entre ambos mundos. Chopin murió en 1849, pero su espíritu romántico anticipa la pasión de Vincent.',
+      explanationEn: 'Chopin\'s Ballade No. 1 starts with a deceptive calm then erupts into a storm of emotion that builds to a devastating finale. It\'s exactly what you feel looking at The Starry Night: the calm sleeping village below, the storming sky above, and the tension between both worlds. Chopin died in 1849, but his romantic spirit anticipates Vincent\'s passion.',
+    },
+    {
+      composer: 'Gustav Mahler',
+      piece: 'Adagietto from Symphony No. 5',
+      era: 'Post-Romanticismo',
+      youtubeId: 'URKGhFoAlUk',
+      explanationEs: 'El Adagietto de Mahler es una carta de amor escrita en música — exactamente lo que la Noche Estrellada es: una carta de amor de Vincent al universo. Mahler (1860-1911) vivió la misma época que Van Gogh y compartió esa intensidad emocional que desborda los límites del arte convencional. Cuando suena el Adagietto, imagina a Vincent mirando las estrellas por última vez.',
+      explanationEn: 'Mahler\'s Adagietto is a love letter written in music — exactly what The Starry Night is: a love letter from Vincent to the universe. Mahler (1860-1911) lived in the same era as Van Gogh and shared that emotional intensity that overflows conventional art\'s boundaries. When the Adagietto plays, imagine Vincent gazing at the stars one last time.',
     },
   ],
 };
