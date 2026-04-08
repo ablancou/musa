@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, Clock, Gauge, BookOpen } from 'lucide-react';
 import NarrativeRenderer from '@/components/lessons/NarrativeRenderer';
@@ -74,12 +73,11 @@ export default function LessonContent({ lesson }: LessonContentProps) {
               : 0,
           }}
         >
-          <Image
+          <img
             src={lesson.imageUrl}
             alt={title}
-            fill
-            className="object-cover"
-            priority
+            referrerPolicy="no-referrer"
+            className="absolute inset-0 h-full w-full object-cover"
           />
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/30" />
@@ -265,12 +263,14 @@ export default function LessonContent({ lesson }: LessonContentProps) {
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ y: -4 }}
                 >
-                  <div className="relative w-full h-64 sm:h-72">
-                    <Image
+                  <div className="relative w-full h-64 sm:h-72 bg-art-charcoal/10">
+                    <img
                       src={artwork.imageUrl}
-                      alt={artwork.titleEs}
-                      fill
-                      className="object-cover"
+                      alt={isSpanish ? artwork.titleEs : artwork.titleEn}
+                      referrerPolicy="no-referrer"
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover"
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     />
                   </div>
 

@@ -281,6 +281,7 @@ function MuseumCard({
                     alt={artwork.titleOriginal}
                     className="h-full w-full object-cover"
                     loading="lazy"
+                    referrerPolicy="no-referrer"
                   />
                 </div>
               ))}

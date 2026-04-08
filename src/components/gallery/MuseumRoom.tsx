@@ -418,6 +418,7 @@ export function MuseumRoom({
                       alt={artwork.titleOriginal}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
+                      referrerPolicy="no-referrer"
                     />
                     {hasNarration(artwork) && (
                       <div className="absolute left-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-art-gold/90">
@@ -483,6 +484,7 @@ export function MuseumRoom({
                 alt={artwork.titleOriginal}
                 className="h-16 w-12 rounded-lg object-cover"
                 loading="lazy"
+                referrerPolicy="no-referrer"
               />
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-semibold text-white">{artwork.titleOriginal}</p>
@@ -537,6 +539,7 @@ export function MuseumRoom({
                     alt={artwork.titleOriginal}
                     className="h-full w-full object-cover"
                     loading="lazy"
+                    referrerPolicy="no-referrer"
                   />
                   {hasNarration(artwork) && (
                     <div className="absolute left-0.5 top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-art-gold">

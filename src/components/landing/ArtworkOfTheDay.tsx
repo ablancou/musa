@@ -53,6 +53,7 @@ export function ArtworkOfTheDay() {
         <img
           src={artwork.imageUrl}
           alt=""
+          referrerPolicy="no-referrer"
           className="h-full w-full object-cover opacity-40"
         />
       </motion.div>
@@ -144,6 +145,7 @@ export function ArtworkOfTheDay() {
               <img
                 src={artwork.imageUrl}
                 alt={artwork.titleOriginal}
+                referrerPolicy="no-referrer"
                 className="w-full object-contain bg-white dark:bg-[#1a1a1a]"
                 style={{ maxHeight: '500px' }}
               />

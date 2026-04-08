@@ -81,6 +81,7 @@ function ArtworkPicker({
               src={selected.imageUrl}
               alt={selected.titleOriginal}
               className="h-16 w-12 rounded-lg object-cover sm:h-20 sm:w-14"
+              referrerPolicy="no-referrer"
             />
             <div className="flex-1 text-left">
               <p className="text-sm font-semibold text-art-charcoal dark:text-white line-clamp-1">
@@ -160,6 +161,7 @@ function ArtworkPicker({
                       <img
                         src={artwork.imageUrl}
                         alt=""
+                        referrerPolicy="no-referrer"
                         className="h-12 w-9 rounded-lg object-cover"
                         loading="lazy"
                       />
@@ -343,6 +345,7 @@ export function ArtworkComparator() {
                 <img
                   src={artworkB.imageUrl}
                   alt={artworkB.titleOriginal}
+                  referrerPolicy="no-referrer"
                   className="absolute inset-0 h-full w-full object-contain bg-[#1a1a1a]"
                 />
 
@@ -354,6 +357,7 @@ export function ArtworkComparator() {
                   <img
                     src={artworkA.imageUrl}
                     alt={artworkA.titleOriginal}
+                    referrerPolicy="no-referrer"
                     className="h-full w-full object-contain bg-[#1a1a1a]"
                     style={{ width: `${(100 / sliderPos) * 100}%`, maxWidth: 'none' }}
                   />
@@ -450,10 +454,11 @@ export function ArtworkComparator() {
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {[
-                { a: 'starry-night', b: 'monet-impression-sunrise', label: 'Van Gogh vs Monet' },
+                { a: 'vangogh-starry-night', b: 'monet-impression-sunrise', label: 'Van Gogh vs Monet' },
                 { a: 'mona-lisa', b: 'girl-pearl-earring', label: 'Da Vinci vs Vermeer' },
                 { a: 'creation-of-adam', b: 'pieta', label: 'Miguel Ángel: Pintura vs Escultura' },
-                { a: 'the-scream', b: 'the-kiss', label: 'Munch vs Klimt' },
+                { a: 'the-scream', b: 'klimt-the-kiss', label: 'Munch vs Klimt' },
+                { a: 'vangogh-sunflowers', b: 'monet-water-lilies-orsay', label: 'Sunflowers vs Water Lilies' },
               ].map((suggestion) => {
                 const a = ARTWORKS.find((aw) => aw.id === suggestion.a);
                 const b = ARTWORKS.find((aw) => aw.id === suggestion.b);
