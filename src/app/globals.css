@@ -61,6 +61,8 @@
   --animate-slide-in-right: slide-in-right 0.5s ease-out;
   --animate-scale-in: scale-in 0.3s ease-out;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-scroll-left: scroll-left linear infinite;
+  --animate-scroll-right: scroll-right linear infinite;
 }
 
 /* Keyframes */
@@ -87,6 +89,16 @@
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
 /* Global Base Styles */

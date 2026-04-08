@@ -11,6 +11,8 @@ import { FeaturesSection } from '@/components/landing/FeaturesSection';
 import { LevelsSection } from '@/components/landing/LevelsSection';
 import { CTASection } from '@/components/landing/CTASection';
 import { ArtworkOfTheDay } from '@/components/landing/ArtworkOfTheDay';
+import { MasterpieceParade } from '@/components/landing/MasterpieceParade';
+import { ArtQuotesTicker } from '@/components/landing/ArtQuotesTicker';
 
 export const dynamic = 'force-dynamic';
 
@@ -32,7 +34,9 @@ export default function LandingPage() {
         <Header />
         <main>
           <HeroSection />
+          <ArtQuotesTicker />
           <ArtworkOfTheDay />
+          <MasterpieceParade />
           <FeaturesSection />
           <LevelsSection />
           <CTASection />
