@@ -21,6 +21,19 @@ import { ARTWORKS } from '@/data/museums/artworks';
 import { getMuseum } from '@/data/museums/museums';
 import { getMovement } from '@/data/museums/movements';
 
+// Curated subset of artworks with verified translations and reliable images
+// These are from the original ARTWORKS_BASE (camelCase titleKeys with translations)
+const FEATURED_IDS = [
+  'vangogh-starry-night', 'vangogh-sunflowers', 'vangogh-self-portrait',
+  'monet-water-lilies-orsay', 'monet-impression-sunrise', 'monet-rouen-cathedral',
+  'klimt-the-kiss', 'vermeer-girl-pearl-earring', 'hokusai-great-wave',
+  'munch-the-scream', 'botticelli-birth-of-venus', 'da-vinci-mona-lisa',
+  'rembrandt-night-watch', 'velazquez-las-meninas', 'turner-fighting-temeraire',
+  'renoir-moulin-galette', 'degas-dance-class', 'cezanne-mont-sainte-victoire',
+  'raphael-school-of-athens', 'michelangelo-creation-adam',
+  'caravaggio-calling-matthew', 'david-michelangelo',
+];
+
 function getDayOfYear(): number {
   const now = new Date();
   const start = new Date(now.getFullYear(), 0, 0);
@@ -34,8 +47,11 @@ export function ArtworkOfTheDay() {
   const { t: tl } = useTranslation('landing');
 
   const artwork = useMemo(() => {
+    // Only pick from curated artworks with verified translations
+    const featured = ARTWORKS.filter(a => FEATURED_IDS.includes(a.id));
+    const pool = featured.length > 0 ? featured : ARTWORKS.slice(0, 43);
     const day = getDayOfYear();
-    return ARTWORKS[day % ARTWORKS.length];
+    return pool[day % pool.length];
   }, []);
 
   const museum = getMuseum(artwork.museumId);
@@ -80,9 +96,13 @@ export function ArtworkOfTheDay() {
               </span>
             </div>
 
-            {/* Title */}
+            {/* Title — fallback to titleOriginal if translation missing */}
             <h2 className="font-[var(--font-cormorant)] text-[clamp(1.75rem,1.5rem+2vw,3.5rem)] font-bold leading-tight text-art-charcoal dark:text-white">
-              {t(artwork.titleKey)}
+              {(() => {
+                const translated = t(artwork.titleKey);
+                // If translation returns the key itself, use titleOriginal
+                return translated === artwork.titleKey ? artwork.titleOriginal : translated;
+              })()}
             </h2>
 
             {/* Artist */}

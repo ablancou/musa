@@ -31,7 +31,7 @@ export function HeroSection() {
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 sm:px-6 lg:flex-row lg:items-center lg:gap-8 lg:px-8">
         {/* ─── Text Content ─── */}
-        <div className="z-10 flex-1 pt-28 text-center sm:pt-24 lg:pt-0 lg:text-left">
+        <div className="z-10 flex-1 pt-20 text-center sm:pt-20 lg:pt-0 lg:text-left">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -103,24 +103,34 @@ export function HeroSection() {
             </a>
           </motion.div>
 
-          {/* Stats row */}
+          {/* Stats row — subtle on mobile, bolder on desktop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-6 sm:gap-8 lg:justify-start"
+            className={cn(
+              'mt-6 flex items-center justify-center gap-3 sm:mt-8 sm:gap-6 lg:mt-10 lg:justify-start lg:gap-8',
+            )}
           >
             {[
               { value: '500+', label: t('stats.artworks') },
               { value: '4,000', label: t('stats.years') },
-              { value: '20', label: t('stats.museums') },
+              { value: '42', label: t('stats.museums') },
               { value: '7', label: t('stats.languages') },
-            ].map((stat) => (
+            ].map((stat, i) => (
               <div key={stat.label} className="text-center lg:text-left">
-                <div className="text-2xl font-bold text-art-gold sm:text-3xl">
+                <div className={cn(
+                  'font-bold text-art-gold',
+                  'text-base sm:text-xl lg:text-3xl'
+                )}>
                   {stat.value}
                 </div>
-                <div className="text-xs text-art-charcoal/40 dark:text-white/40 sm:text-sm">{stat.label}</div>
+                <div className={cn(
+                  'text-art-charcoal/40 dark:text-white/40',
+                  'text-[10px] sm:text-xs lg:text-sm'
+                )}>
+                  {stat.label}
+                </div>
               </div>
             ))}
           </motion.div>
@@ -133,10 +143,10 @@ export function HeroSection() {
           transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
           className={cn(
             'relative flex-1',
-            // Portrait: compact globe
-            'mt-8 h-[320px]',
+            // Portrait: generous globe — the visual star
+            'mt-4 h-[380px]',
             // Landscape: medium
-            'sm:mt-6 sm:h-[400px]',
+            'sm:mt-4 sm:h-[420px]',
             // Desktop: large, vertically centered
             'lg:mt-0 lg:h-[560px]'
           )}
