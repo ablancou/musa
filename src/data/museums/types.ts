@@ -13,6 +13,8 @@ export type ArtMovement =
   | 'ancient-roman'
   | 'medieval'
   | 'gothic'
+  | 'roman'
+  | 'romanesque'
   | 'early-renaissance'
   | 'high-renaissance'
   | 'mannerism'
@@ -60,6 +62,7 @@ export type ArtTechnique =
   | 'engraving'
   | 'lithography'
   | 'ceramic'
+  | 'terracotta'
   | 'textile'
   | 'goldwork'
   | 'graphite';

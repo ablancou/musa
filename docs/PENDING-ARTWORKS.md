@@ -117,7 +117,24 @@ Buscar en: `commons.wikimedia.org/wiki/Category:Paul_Kane` y
 | lacma | 6 | ✅ |
 
 ## LOTE 3 — ASIA / OCEANÍA
-*(Pendiente de procesar)*
+
+✅ **COMPLETADO** — 108 artworks integrados de 14 museos asiáticos y oceánicos.
+
+| Museo | Artworks | Estado |
+|-------|----------|--------|
+| nmwa-tokyo | 10 | ✅ |
+| palace-museum | 10 | ✅ |
+| shanghai-museum | 10 | ✅ |
+| national-museum-korea | 10 | ✅ |
+| national-art-museum-china | 8 | ✅ |
+| ngma-delhi | 10 | ✅ |
+| ngv-melbourne | 10 | ✅ |
+| bangkok-national-museum | 8 | ✅ |
+| national-museum-indonesia | 8 | ✅ |
+| istanbul-modern | 8 | ✅ |
+| tmoca-tehran | 8 | ✅ |
+| vnfam-hanoi | 8 | ✅ |
+| mori-art-museum | - | ⚠️ (0 artworks) |
 
 ## LOTE 4 — ÁFRICA / GRECIA / COMPLEMENTOS
 *(Pendiente de procesar)*
@@ -130,9 +147,9 @@ Buscar en: `commons.wikimedia.org/wiki/Category:Paul_Kane` y
 |------|-----------------|------------------|-------------------|
 | 1 — Américas | 48 | ~25 | 4 |
 | 2 — Europa | 104 | 0 | 1 |
-| 3 — Asia/Oceanía | - | - | - |
+| 3 — Asia/Oceanía | 108 | 0 | 0 |
 | 4 — África/Grecia | - | - | - |
-| **TOTAL** | **152** | **~25** | **5** |
+| **TOTAL** | **260** | **~25** | **5** |
 
 ---
 
