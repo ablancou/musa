@@ -10,7 +10,9 @@
 export type ArtMovement =
   | 'ancient-egyptian'
   | 'ancient-greek'
+  | 'classical-greek'
   | 'ancient-roman'
+  | 'byzantine'
   | 'medieval'
   | 'gothic'
   | 'roman'
@@ -52,6 +54,7 @@ export type ArtTechnique =
   | 'marble-sculpture'
   | 'bronze-sculpture'
   | 'limestone-sculpture'
+  | 'ivory-carving'
   | 'woodblock-print'
   | 'ink-on-silk'
   | 'ink-on-paper'

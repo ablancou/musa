@@ -30,6 +30,7 @@ import { ARTWORKS_BATCH4C } from './artworks-batch4c';
 import { ARTWORKS_AMERICAS } from './artworks-americas';
 import { ARTWORKS_EUROPE } from './artworks-europe';
 import { ARTWORKS_ASIA } from './artworks-asia';
+import { ARTWORKS_AFRICA } from './artworks-africa';
 export type { Artwork } from './types';
 
 const ARTWORKS_BASE: Artwork[] = [
@@ -1009,6 +1010,7 @@ export const ARTWORKS: Artwork[] = [
   ...ARTWORKS_AMERICAS,
   ...ARTWORKS_EUROPE,
   ...ARTWORKS_ASIA,
+  ...ARTWORKS_AFRICA,
 ];
 
 // ─── Helper functions ───
