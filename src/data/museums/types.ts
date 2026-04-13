@@ -36,7 +36,9 @@ export type ArtMovement =
   | 'minimalism'
   | 'ukiyo-e'
   | 'chinese-classical'
-  | 'hellenistic';
+  | 'hellenistic'
+  | 'pre-columbian'
+  | 'mexican-muralism';
 
 // ─── Artwork Technique ───
 export type ArtTechnique =
@@ -58,7 +60,9 @@ export type ArtTechnique =
   | 'engraving'
   | 'lithography'
   | 'ceramic'
-  | 'textile';
+  | 'textile'
+  | 'goldwork'
+  | 'graphite';
 
 // ─── Museum ───
 export interface Museum {
