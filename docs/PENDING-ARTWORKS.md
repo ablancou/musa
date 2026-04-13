@@ -97,7 +97,24 @@ Buscar en: `commons.wikimedia.org/wiki/Category:Paul_Kane` y
 ---
 
 ## LOTE 2 — EUROPA
-*(Pendiente de procesar)*
+
+✅ **COMPLETADO** — 104 artworks integrados de 13 museos europeos.
+
+| Museo | Artworks | Estado |
+|-------|----------|--------|
+| van-gogh-museum | 15 | ✅ |
+| reina-sofia | 8 | ✅ |
+| guggenheim-bilbao | 3 | ✅ |
+| va-museum | 10 | ✅ |
+| munch-museum | 8 | ✅ |
+| mnw-warsaw | 8 | ✅ |
+| museum-fine-arts-budapest | 10 | ✅ |
+| centre-pompidou | 8 | ✅ |
+| musee-orangerie | 8 | ✅ |
+| musee-rodin | 6 | ✅ |
+| ng-prague | 8 | ✅ |
+| thyssen-bornemisza | 6 | ✅ |
+| lacma | 6 | ✅ |
 
 ## LOTE 3 — ASIA / OCEANÍA
 *(Pendiente de procesar)*
@@ -112,10 +129,10 @@ Buscar en: `commons.wikimedia.org/wiki/Category:Paul_Kane` y
 | Lote | Obras integradas | Obras pendientes | Museos bloqueados |
 |------|-----------------|------------------|-------------------|
 | 1 — Américas | 48 | ~25 | 4 |
-| 2 — Europa | - | - | - |
+| 2 — Europa | 104 | 0 | 1 |
 | 3 — Asia/Oceanía | - | - | - |
 | 4 — África/Grecia | - | - | - |
-| **TOTAL** | **48** | **~25** | **4** |
+| **TOTAL** | **152** | **~25** | **5** |
 
 ---
 

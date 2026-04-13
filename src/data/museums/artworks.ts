@@ -28,6 +28,7 @@ import { ARTWORKS_BATCH4A } from './artworks-batch4a';
 import { ARTWORKS_BATCH4B } from './artworks-batch4b';
 import { ARTWORKS_BATCH4C } from './artworks-batch4c';
 import { ARTWORKS_AMERICAS } from './artworks-americas';
+import { ARTWORKS_EUROPE } from './artworks-europe';
 export type { Artwork } from './types';
 
 const ARTWORKS_BASE: Artwork[] = [
@@ -1005,6 +1006,7 @@ export const ARTWORKS: Artwork[] = [
   ...ARTWORKS_BATCH4B,
   ...ARTWORKS_BATCH4C,
   ...ARTWORKS_AMERICAS,
+  ...ARTWORKS_EUROPE,
 ];
 
 // ─── Helper functions ───
