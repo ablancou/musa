@@ -1436,7 +1436,7 @@ export const ARTWORKS_ASIA: Artwork[] = [
     year: 1530,
     movement: 'baroque',
     technique: 'ink-on-paper',
-    medium: 'Ink and gold on paper, nasta'liq script',
+    medium: "Ink and gold on paper, nasta'liq script",
     museumId: 'tmoca-tehran',
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/60/Mir_Ali_calligraphy_nasta%27liq.jpg',
     hasNarration: false,

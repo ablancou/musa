@@ -1024,7 +1024,7 @@ export const ARTWORKS_EUROPE: Artwork[] = [
   {
     id: 'ngp-mucha-moravian-teachers-choir',
     titleKey: 'artworks.muchaMoravianTeachers',
-    titleOriginal: 'Moravian Teachers' Choir',
+    titleOriginal: "Moravian Teachers' Choir",
     artist: 'Alphonse Mucha',
     artistBirthYear: 1860,
     artistDeathYear: 1939,
