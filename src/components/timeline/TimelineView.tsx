@@ -1,20 +1,23 @@
 'use client';
 
 /**
+ * TimelineView — Vertical Card-Based Art History Timeline
+ *
  * Responsive Modes:
- * - Desktop (>=1024px): Horizontal scroll with full artwork cards, era bands,
- *   artist nodes, parallax depth. Mouse wheel scrolls horizontally. Hover for details.
- * - Landscape (568-1023px): Horizontal scroll compact, smaller cards, touch momentum.
- * - Portrait (320-567px): Vertical accordion — eras stack vertically, tap to expand.
- *   Each era shows its key artworks in a horizontal mini-carousel.
+ * - Desktop (>=1024px): Two-column alternating layout with center timeline spine
+ * - Landscape (568-1023px): Single column with left timeline spine
+ * - Portrait (320-567px): Full-width stacked cards, compact timeline spine
+ *
+ * Design: Dark theme matching the Explore page aesthetic.
+ * Each era is a card with artworks, music connection, and artists.
+ * NO horizontal scroll, NO overlap — clean vertical flow.
  */
 
-
-import { useState, useRef, useCallback, useEffect, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { Music, ChevronRight, ChevronDown, MapPin, Calendar, X } from 'lucide-react';
-import { TIMELINE_ERAS, TIMELINE_RANGE, type TimelineEra, type TimelineArtwork } from '@/data/timeline/eras';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Music, Calendar, MapPin, X, ChevronDown } from 'lucide-react';
+import { TIMELINE_ERAS, type TimelineEra, type TimelineArtwork } from '@/data/timeline/eras';
 import { cn } from '@/lib/utils/cn';
 
 // ─── Filters ───
@@ -26,33 +29,21 @@ function formatYear(year: number): string {
   return `${year} CE`;
 }
 
-// ─── Artwork Card (used in both desktop & mobile) ───
+// ─── Artwork Card ───
 function ArtworkCard({
   artwork,
-  size = 'md',
   onClick,
 }: {
   artwork: TimelineArtwork;
-  size?: 'sm' | 'md' | 'lg';
   onClick?: () => void;
 }) {
-  const sizes = {
-    sm: 'w-28 h-36 sm:w-32 sm:h-40',
-    md: 'w-40 h-52 sm:w-48 sm:h-60',
-    lg: 'w-56 h-72 sm:w-64 sm:h-80',
-  };
-
   return (
     <motion.button
       onClick={onClick}
-      whileHover={{ scale: 1.03, y: -4 }}
+      whileHover={{ scale: 1.03, y: -2 }}
       whileTap={{ scale: 0.98 }}
-      className={cn(
-        'group relative flex-shrink-0 overflow-hidden rounded-xl shadow-lg transition-shadow hover:shadow-2xl',
-        sizes[size]
-      )}
+      className="group relative flex-shrink-0 w-32 h-44 sm:w-36 sm:h-48 overflow-hidden rounded-xl shadow-lg transition-shadow hover:shadow-2xl"
     >
-      {/* Artwork image */}
       <img
         src={artwork.imageUrl}
         alt={artwork.title}
@@ -61,20 +52,15 @@ function ArtworkCard({
         className="absolute inset-0 h-full w-full object-cover"
         onError={(e) => { e.currentTarget.style.display = 'none'; }}
       />
-      {/* Fallback gradient (shows when image fails) */}
-      <div className="absolute inset-0 bg-gradient-to-br from-art-charcoal/20 to-art-charcoal/60 dark:from-black/30 dark:to-black/70" />
-
-      {/* Info overlay */}
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
-        <p className="text-xs font-semibold text-white leading-tight sm:text-sm">
+      <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/50" />
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2.5">
+        <p className="text-xs font-semibold text-white leading-tight line-clamp-2">
           {artwork.title}
         </p>
-        <p className="mt-0.5 text-[10px] text-white/70 sm:text-xs">
+        <p className="mt-0.5 text-[10px] text-white/70">
           {artwork.artist}, {formatYear(artwork.year)}
         </p>
       </div>
-
-      {/* Hover ring */}
       <div className="absolute inset-0 rounded-xl ring-2 ring-transparent transition-all group-hover:ring-art-gold/50" />
     </motion.button>
   );
@@ -105,9 +91,8 @@ function ArtworkModal({
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-2xl overflow-hidden rounded-2xl bg-white dark:bg-art-charcoal shadow-2xl"
+        className="relative w-full max-w-2xl overflow-hidden rounded-2xl bg-[#12121f] shadow-2xl"
       >
-        {/* Close button */}
         <button
           onClick={onClose}
           className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm transition-colors hover:bg-black/60"
@@ -115,8 +100,7 @@ function ArtworkModal({
           <X className="h-4 w-4" />
         </button>
 
-        {/* Image */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden bg-art-charcoal">
+        <div className="relative aspect-[4/3] w-full overflow-hidden bg-black">
           <img
             src={artwork.imageUrl}
             alt={artwork.title}
@@ -126,7 +110,6 @@ function ArtworkModal({
           />
         </div>
 
-        {/* Info */}
         <div className="p-5 sm:p-6">
           <div
             className="inline-block rounded-full px-3 py-1 text-xs font-semibold text-white"
@@ -134,18 +117,17 @@ function ArtworkModal({
           >
             {t(`timeline:${era.nameKey}`)}
           </div>
-          <h3 className="mt-3 font-[var(--font-cormorant)] text-2xl font-bold text-art-charcoal dark:text-white sm:text-3xl">
+          <h3 className="mt-3 font-[var(--font-cormorant)] text-2xl font-bold text-white sm:text-3xl">
             {artwork.title}
           </h3>
-          <p className="mt-1 text-art-charcoal/60 dark:text-white/60">
+          <p className="mt-1 text-white/60">
             {artwork.artist} · {formatYear(artwork.year)}
           </p>
-          <p className="mt-1 text-sm text-art-charcoal/40 dark:text-white/40">{artwork.medium}</p>
+          <p className="mt-1 text-sm text-white/40">{artwork.medium}</p>
 
-          {/* Music connection */}
-          <div className="mt-4 flex items-center gap-2 rounded-lg bg-art-cream dark:bg-white/5 p-3">
+          <div className="mt-4 flex items-center gap-2 rounded-lg bg-white/5 p-3">
             <Music className="h-4 w-4 text-art-gold" />
-            <span className="text-sm text-art-charcoal/70 dark:text-white/70">{era.musicGenre}</span>
+            <span className="text-sm text-white/70">{era.musicGenre}</span>
           </div>
         </div>
       </motion.div>
@@ -153,280 +135,158 @@ function ArtworkModal({
   );
 }
 
-// ═══════════════════════════════════════════
-// ─── DESKTOP TIMELINE (Horizontal Scroll) ─
-// ═══════════════════════════════════════════
-function TimelineDesktop({
-  eras,
+// ─── ERA CARD — used in both desktop and mobile ───
+function EraCard({
+  era,
+  index,
+  side,
   onSelectArtwork,
 }: {
-  eras: TimelineEra[];
+  era: TimelineEra;
+  index: number;
+  side: 'left' | 'right' | 'full';
   onSelectArtwork: (artwork: TimelineArtwork, era: TimelineEra) => void;
 }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation(['common', 'timeline']);
+  const [expanded, setExpanded] = useState(false);
 
-  // Horizontal scroll with mouse wheel
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    function handleWheel(e: WheelEvent) {
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        el!.scrollLeft += e.deltaY * 2;
-      }
-    }
-    el.addEventListener('wheel', handleWheel, { passive: false });
-    return () => el.removeEventListener('wheel', handleWheel);
-  }, []);
-
-  // Non-linear time scale: compress ancient history, expand modern eras
-  // Each era gets a fixed minimum + proportional width capped to prevent huge ancient eras
-  const minEraWidth = 280;
-  const maxEraWidth = 600; // Cap so ancient Egypt doesn't take 8000px
-
-  // Calculate positions: lay eras out sequentially with consistent spacing
-  const eraLayout = useMemo(() => {
-    const sortedEras = [...eras].sort((a, b) => a.startYear - b.startYear);
-    const gap = 40; // px between eras
-    const layouts: Record<string, { left: number; width: number; row: number }> = {};
-    const rows: { end: number }[] = [{ end: 0 }, { end: 0 }, { end: 0 }];
-
-    for (const era of sortedEras) {
-      // Width: proportional to duration but clamped
-      const duration = era.endYear - era.startYear;
-      const proportional = Math.sqrt(duration) * 18; // sqrt scaling compresses long eras
-      const width = Math.min(Math.max(proportional, minEraWidth), maxEraWidth);
-
-      // Find best row: the one whose end is furthest left
-      let bestRow = 0;
-      let minEnd = Infinity;
-      for (let r = 0; r < rows.length; r++) {
-        if (rows[r].end < minEnd) {
-          bestRow = r;
-          minEnd = rows[r].end;
-        }
-      }
-
-      // Position: at least after the row's last era ends
-      const left = rows[bestRow].end;
-      rows[bestRow].end = left + width + gap;
-
-      layouts[era.id] = { left, width, row: bestRow };
-    }
-    return { layouts, totalWidth: Math.max(...rows.map(r => r.end)) + 100 };
-  }, [eras]);
+  const allArtworks = [
+    ...era.keyArtworks,
+    ...era.artists.map((a) => a.representativeWork),
+  ];
 
   return (
-    <div className="relative">
-      {/* Scroll hint */}
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-24 bg-gradient-to-l from-art-cream dark:from-art-charcoal to-transparent" />
-
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.05 }}
+      viewport={{ once: true, margin: '-50px' }}
+      className="w-full"
+    >
       <div
-        ref={scrollRef}
-        className="overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-track-transparent scrollbar-thumb-art-charcoal/20"
-        style={{ scrollBehavior: 'smooth' }}
+        className="rounded-2xl overflow-hidden border transition-all duration-300"
+        style={{
+          background: `linear-gradient(135deg, ${era.gradientFrom}12, ${era.gradientTo}08)`,
+          borderColor: `${era.color}25`,
+        }}
       >
-        <div className="relative" style={{ width: `${eraLayout.totalWidth}px`, minHeight: '750px' }}>
-
-          {/* Era bands */}
-          {eras.map((era, idx) => {
-            const layout = eraLayout.layouts[era.id];
-            if (!layout) return null;
-            const { left, width, row } = layout;
-            const top = 30 + row * 230;
-
-            return (
-              <motion.div
-                key={era.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.05 }}
-                className="absolute"
-                style={{ left: `${left}px`, width: `${width}px`, top: `${top}px` }}
-              >
-                {/* Era background band */}
+        {/* Era Header */}
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="w-full p-4 sm:p-5 text-left"
+        >
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1">
                 <div
-                  className="rounded-2xl p-4 backdrop-blur-sm"
-                  style={{
-                    background: `linear-gradient(135deg, ${era.gradientFrom}15, ${era.gradientTo}10)`,
-                    border: `1px solid ${era.color}20`,
-                  }}
-                >
-                  {/* Era header */}
-                  <div className="flex items-center gap-2 mb-3">
-                    <div
-                      className="h-3 w-3 rounded-full"
-                      style={{ backgroundColor: era.color }}
-                    />
-                    <h3 className="text-sm font-semibold text-art-charcoal dark:text-white">
-                      {t(`timeline:${era.nameKey}`)}
-                    </h3>
-                    <span className="text-xs text-art-charcoal/40 dark:text-white/40">
-                      {formatYear(era.startYear)} – {formatYear(era.endYear)}
-                    </span>
-                  </div>
+                  className="h-3 w-3 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: era.color }}
+                />
+                <h3 className="font-[var(--font-cormorant)] text-xl sm:text-2xl font-bold text-white truncate">
+                  {t(`timeline:${era.nameKey}`)}
+                </h3>
+              </div>
 
-                  {/* Artworks row */}
-                  <div className="flex gap-3 overflow-x-auto pb-2">
-                    {era.keyArtworks.map((artwork) => (
-                      <ArtworkCard
-                        key={`${artwork.titleKey}-${artwork.year}`}
-                        artwork={artwork}
-                        size="sm"
-                        onClick={() => onSelectArtwork(artwork, era)}
-                      />
-                    ))}
-                  </div>
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-white/50 mt-1">
+                <Calendar className="h-3 w-3 flex-shrink-0" />
+                <span>{formatYear(era.startYear)} – {formatYear(era.endYear)}</span>
+              </div>
 
-                  {/* Music connection tag */}
-                  <div className="mt-2 flex items-center gap-1.5">
-                    <Music className="h-3 w-3" style={{ color: era.color }} />
-                    <span className="text-[11px] text-art-charcoal/50 dark:text-white/50">{era.musicGenre}</span>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
+              {/* Music tag */}
+              <div className="flex items-center gap-1.5 mt-2">
+                <Music className="h-3 w-3" style={{ color: era.color }} />
+                <span className="text-xs text-white/50">{era.musicGenre}</span>
+              </div>
+            </div>
 
-// ═══════════════════════════════════════════
-// ─── MOBILE TIMELINE (Vertical Accordion) ─
-// ═══════════════════════════════════════════
-function TimelineMobile({
-  eras,
-  onSelectArtwork,
-}: {
-  eras: TimelineEra[];
-  onSelectArtwork: (artwork: TimelineArtwork, era: TimelineEra) => void;
-}) {
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-  const { t } = useTranslation(['common', 'timeline']);
-
-  return (
-    <div className="relative pl-6">
-      {/* Vertical line */}
-      <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-art-gold/50 via-art-charcoal/10 dark:via-white/10 to-art-charcoal/5 dark:to-white/5" />
-
-      <div className="space-y-3">
-        {eras.map((era, idx) => {
-          const isExpanded = expandedId === era.id;
-
-          return (
             <motion.div
-              key={era.id}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: idx * 0.04 }}
+              animate={{ rotate: expanded ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+              className="flex-shrink-0 mt-1"
             >
-              {/* Era dot on the timeline line */}
-              <div
-                className="absolute left-1.5 h-3 w-3 rounded-full ring-2 ring-white"
-                style={{
-                  backgroundColor: era.color,
-                  marginTop: '18px',
-                }}
-              />
+              <ChevronDown className="h-5 w-5 text-white/30" />
+            </motion.div>
+          </div>
 
-              {/* Accordion header */}
-              <button
-                onClick={() => setExpandedId(isExpanded ? null : era.id)}
-                className={cn(
-                  'w-full rounded-xl p-4 text-left transition-all',
-                  isExpanded
-                    ? 'bg-white dark:bg-white/10 shadow-md'
-                    : 'bg-white/50 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10'
-                )}
+          {/* Preview artworks (always visible) — horizontal scroll */}
+          <div className="flex gap-2.5 mt-4 overflow-x-auto pb-1 -mx-1 px-1">
+            {era.keyArtworks.slice(0, 4).map((artwork) => (
+              <div
+                key={`${artwork.titleKey}-${artwork.year}`}
+                className="flex-shrink-0 w-20 h-24 sm:w-24 sm:h-28 rounded-lg overflow-hidden relative"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelectArtwork(artwork, era);
+                }}
               >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-base font-semibold text-art-charcoal dark:text-white">
-                      {t(`timeline:${era.nameKey}`)}
-                    </h3>
-                    <div className="mt-0.5 flex items-center gap-2 text-xs text-art-charcoal/40 dark:text-white/40">
-                      <Calendar className="h-3 w-3" />
-                      <span>
-                        {formatYear(era.startYear)} – {formatYear(era.endYear)}
+                <img
+                  src={artwork.imageUrl}
+                  alt={artwork.title}
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+            ))}
+            {era.keyArtworks.length > 4 && (
+              <div className="flex-shrink-0 w-20 h-24 sm:w-24 sm:h-28 rounded-lg overflow-hidden flex items-center justify-center bg-white/5 text-white/40 text-xs font-medium">
+                +{era.keyArtworks.length - 4}
+              </div>
+            )}
+          </div>
+        </button>
+
+        {/* Expanded content */}
+        <AnimatePresence>
+          {expanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <div className="px-4 sm:px-5 pb-5 border-t border-white/5 pt-4">
+                {/* Artists */}
+                <h4 className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3">
+                  {t('timeline:timeline.artistsCount', 'Artists')}
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5">
+                  {era.artists.map((artist) => (
+                    <div
+                      key={artist.name}
+                      className="flex items-center gap-2 rounded-lg bg-white/5 px-3 py-2 text-sm"
+                    >
+                      <MapPin className="h-3 w-3 flex-shrink-0" style={{ color: era.color }} />
+                      <span className="font-medium text-white/80">{artist.name}</span>
+                      <span className="text-xs text-white/30 ml-auto">
+                        {artist.birthYear}–{artist.deathYear}
                       </span>
                     </div>
-                  </div>
-                  <motion.div
-                    animate={{ rotate: isExpanded ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ChevronDown className="h-5 w-5 text-art-charcoal/30 dark:text-white/30" />
-                  </motion.div>
+                  ))}
                 </div>
 
-                {/* Music tag — always visible */}
-                <div className="mt-2 flex items-center gap-1.5">
-                  <Music className="h-3 w-3" style={{ color: era.color }} />
-                  <span className="text-[11px] text-art-charcoal/50 dark:text-white/50">{era.musicGenre}</span>
+                {/* All artworks */}
+                <h4 className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3">
+                  {t('timeline:timeline.artworksCount', 'Artworks')}
+                </h4>
+                <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1">
+                  {allArtworks.map((artwork) => (
+                    <ArtworkCard
+                      key={`${artwork.titleKey}-${artwork.year}`}
+                      artwork={artwork}
+                      onClick={() => onSelectArtwork(artwork, era)}
+                    />
+                  ))}
                 </div>
-              </button>
-
-              {/* Expanded content */}
-              <AnimatePresence>
-                {isExpanded && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-4 pb-4 pt-2">
-                      {/* Artists list */}
-                      <div className="mb-3 space-y-2">
-                        {era.artists.map((artist) => (
-                          <div
-                            key={artist.name}
-                            className="flex items-center gap-2 text-sm text-art-charcoal/70 dark:text-white/70"
-                          >
-                            <MapPin className="h-3 w-3 flex-shrink-0" style={{ color: era.color }} />
-                            <span className="font-medium">{artist.name}</span>
-                            <span className="text-xs text-art-charcoal/30 dark:text-white/30">
-                              {artist.birthYear}–{artist.deathYear}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Horizontal artwork carousel */}
-                      <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1">
-                        {era.keyArtworks.map((artwork) => (
-                          <ArtworkCard
-                            key={`${artwork.titleKey}-${artwork.year}`}
-                            artwork={artwork}
-                            size="md"
-                            onClick={() => onSelectArtwork(artwork, era)}
-                          />
-                        ))}
-                        {era.artists.map((artist) => (
-                          <ArtworkCard
-                            key={`${artist.representativeWork.titleKey}-rep`}
-                            artwork={artist.representativeWork}
-                            size="md"
-                            onClick={() =>
-                              onSelectArtwork(artist.representativeWork, era)
-                            }
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              </div>
             </motion.div>
-          );
-        })}
+          )}
+        </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -461,14 +321,14 @@ export function TimelineView() {
   ];
 
   return (
-    <div className="min-h-screen bg-art-cream dark:bg-art-charcoal transition-colors duration-300">
-      {/* Header */}
-      <div className="border-b border-art-charcoal/5 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-sm">
+    <div className="min-h-screen bg-[#060610] transition-colors duration-300">
+      {/* Header section */}
+      <div className="border-b border-white/5 bg-[#0a0a14]/80 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-[var(--font-cormorant)] text-[clamp(1.75rem,1.2rem+2vw,3.5rem)] font-bold text-art-charcoal dark:text-white"
+            className="font-[var(--font-cormorant)] text-[clamp(1.75rem,1.2rem+2vw,3.5rem)] font-bold text-white"
           >
             {t('timeline:timeline.title')}
           </motion.h1>
@@ -476,7 +336,7 @@ export function TimelineView() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mt-2 text-art-charcoal/60 dark:text-white/60 text-sm sm:text-base"
+            className="mt-2 text-white/50 text-sm sm:text-base"
           >
             {t('timeline:timeline.subtitle')}
           </motion.p>
@@ -494,10 +354,10 @@ export function TimelineView() {
                 onClick={() => setRegionFilter(region.key)}
                 className={cn(
                   'flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-all',
-                  'min-h-[44px] sm:min-h-0', // Touch target
+                  'min-h-[44px] sm:min-h-0',
                   regionFilter === region.key
-                    ? 'bg-art-charcoal dark:bg-white text-white dark:text-art-charcoal shadow-md'
-                    : 'bg-art-charcoal/5 dark:bg-white/5 text-art-charcoal/60 dark:text-white/60 hover:bg-art-charcoal/10 dark:hover:bg-white/10'
+                    ? 'bg-art-gold text-[#060610] shadow-md shadow-art-gold/20'
+                    : 'bg-white/5 text-white/60 hover:bg-white/10 hover:text-white'
                 )}
               >
                 <span>{region.icon}</span>
@@ -508,20 +368,61 @@ export function TimelineView() {
         </div>
       </div>
 
-      {/* Timeline content */}
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        {/* Desktop & Landscape: horizontal */}
-        <div className="hidden sm:block">
-          <TimelineDesktop eras={filteredEras} onSelectArtwork={handleSelectArtwork} />
-        </div>
+      {/* Timeline content — vertical card layout */}
+      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        {/* Desktop: alternating left/right with center spine */}
+        <div className="relative">
+          {/* Center spine line — desktop only */}
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-art-gold/40 via-white/10 to-white/5 -translate-x-0.5" />
 
-        {/* Portrait: vertical accordion */}
-        <div className="block sm:hidden">
-          <TimelineMobile eras={filteredEras} onSelectArtwork={handleSelectArtwork} />
+          {/* Mobile spine line */}
+          <div className="lg:hidden absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-art-gold/40 via-white/10 to-white/5" />
+
+          <div className="space-y-6 sm:space-y-8">
+            {filteredEras.map((era, idx) => {
+              const side = idx % 2 === 0 ? 'left' : 'right';
+
+              return (
+                <div key={era.id} className="relative">
+                  {/* Timeline dot — desktop center */}
+                  <div className="hidden lg:block absolute left-1/2 top-6 -translate-x-1/2 z-10">
+                    <div
+                      className="h-4 w-4 rounded-full ring-4 ring-[#060610]"
+                      style={{ backgroundColor: era.color }}
+                    />
+                  </div>
+
+                  {/* Timeline dot — mobile left */}
+                  <div className="lg:hidden absolute left-2.5 top-6 z-10">
+                    <div
+                      className="h-3 w-3 rounded-full ring-3 ring-[#060610]"
+                      style={{ backgroundColor: era.color }}
+                    />
+                  </div>
+
+                  {/* Card container */}
+                  <div
+                    className={cn(
+                      'pl-10 lg:pl-0',
+                      // Desktop: alternating sides
+                      side === 'left' ? 'lg:pr-[calc(50%+24px)]' : 'lg:pl-[calc(50%+24px)]'
+                    )}
+                  >
+                    <EraCard
+                      era={era}
+                      index={idx}
+                      side={side}
+                      onSelectArtwork={handleSelectArtwork}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Era count */}
-        <div className="mt-6 text-center text-xs text-art-charcoal/30 dark:text-white/30">
+        <div className="mt-10 text-center text-xs text-white/30">
           {filteredEras.length} {t('timeline:timeline.erasCount')} ·{' '}
           {filteredEras.reduce((sum, era) => sum + era.artists.length, 0)}{' '}
           {t('timeline:timeline.artistsCount')} ·{' '}

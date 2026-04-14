@@ -40,8 +40,8 @@ function TimelineLoading() {
 
 export default function TimelinePage() {
   return (
-    <div className="min-h-screen bg-art-cream dark:bg-art-charcoal transition-colors duration-300">
-      <Header />
+    <div className="min-h-screen bg-[#060610] transition-colors duration-300">
+      <Header variant="dark" />
       <main className="pt-16 lg:pt-20">
         <Suspense fallback={<TimelineLoading />}>
           <TimelineView />

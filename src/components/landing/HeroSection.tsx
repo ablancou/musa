@@ -126,20 +126,21 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* ─── 3D Globe ─── */}
-        <motion.div
+        {/* ─── 3D Globe — clickable, navigates to /explore ─── */}
+        <motion.a
+          href="/explore"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
           className={cn(
-            'relative flex-1',
+            'relative flex-1 cursor-pointer block',
             'mt-6 h-[340px]',
             'sm:mt-6 sm:h-[380px]',
             'lg:mt-0 lg:h-[520px]'
           )}
         >
           <HeroGlobeWrapper />
-        </motion.div>
+        </motion.a>
       </div>
 
       {/* "Click the globe" hint — below the main content, not overlapping anything */}

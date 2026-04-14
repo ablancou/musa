@@ -11,6 +11,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sparkles } from 'lucide-react';
 import { LanguageSelector } from '@/components/shared/LanguageSelector';
@@ -28,6 +29,7 @@ const NAV_LINKS = [
 
 export function Header({ variant = 'auto' }: { variant?: 'auto' | 'dark' | 'light' }) {
   const { t } = useTranslation('common');
+  const pathname = usePathname();
   const { authenticated, isGuest, enterAsGuest } = useUserStore();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -99,15 +101,23 @@ export function Header({ variant = 'auto' }: { variant?: 'auto' | 'dark' | 'ligh
 
           {/* Desktop Nav — centered */}
           <nav className="hidden lg:flex items-center gap-1">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.key}
-                href={link.href}
-                className={cn("rounded-lg px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap", textSecondary, hoverBg)}
-              >
-                {t(`nav.${link.key}`)}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+              return (
+                <a
+                  key={link.key}
+                  href={link.href}
+                  className={cn(
+                    "rounded-lg px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap",
+                    isActive
+                      ? "text-art-gold"
+                      : cn(textSecondary, hoverBg)
+                  )}
+                >
+                  {t(`nav.${link.key}`)}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Desktop Right Side */}
@@ -161,16 +171,24 @@ export function Header({ variant = 'auto' }: { variant?: 'auto' | 'dark' | 'ligh
               className="fixed left-4 right-4 top-20 z-50 rounded-2xl bg-[#12121f] p-4 shadow-xl ring-1 ring-white/10 sm:left-auto sm:right-6 sm:w-72 lg:hidden"
             >
               <div className="flex flex-col gap-1">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.key}
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-white/70 transition-colors hover:bg-white/5 hover:text-white"
-                  >
-                    {t(`nav.${link.key}`)}
-                  </a>
-                ))}
+                {NAV_LINKS.map((link) => {
+                  const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+                  return (
+                    <a
+                      key={link.key}
+                      href={link.href}
+                      onClick={() => setMenuOpen(false)}
+                      className={cn(
+                        "flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium transition-colors",
+                        isActive
+                          ? "text-art-gold bg-white/5"
+                          : "text-white/70 hover:bg-white/5 hover:text-white"
+                      )}
+                    >
+                      {t(`nav.${link.key}`)}
+                    </a>
+                  );
+                })}
                 <hr className="my-2 border-white/10" />
                 {/* Guest-only mode — auth coming soon */}
                 <button
