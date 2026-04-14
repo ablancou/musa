@@ -393,7 +393,8 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
       scene.background = new THREE.Color(0x060610);
 
       const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-      camera.position.z = 3.5;
+      // Zoom out so globe appears at a comfortable size, not filling the entire viewport
+      camera.position.z = width < 768 ? 4.2 : 3.8;
 
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
       renderer.setSize(width, height);
@@ -671,8 +672,8 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
         className={cn(
           'relative flex items-center justify-center overflow-hidden',
           'lg:flex-[3] lg:min-h-screen',
-          'sm:max-lg:h-[55vh]',
-          'max-sm:h-[45vh]'
+          'sm:max-lg:h-[50vh]',
+          'max-sm:h-[40vh]'
         )}
       >
         <div

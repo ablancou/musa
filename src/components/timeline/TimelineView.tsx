@@ -10,7 +10,7 @@
  */
 
 
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Music, ChevronRight, ChevronDown, MapPin, Calendar, X } from 'lucide-react';
@@ -181,10 +181,40 @@ function TimelineDesktop({
     return () => el.removeEventListener('wheel', handleWheel);
   }, []);
 
+  // Use a higher px/year ratio for modern eras (more content) and compress ancient ones
+  const pxPerYear = 4;
   const totalYears = TIMELINE_RANGE.max - TIMELINE_RANGE.min;
-  const pxPerYear = 3; // Spacing multiplier to ensure visible coverage
   const totalWidth = totalYears * pxPerYear;
-  const minEraWidth = 150; // Minimum visible width for any era band
+  const minEraWidth = 220; // Wider minimum for readable cards
+
+  // Smart row assignment: place eras in rows avoiding horizontal overlap
+  const rowAssignments = useMemo(() => {
+    const rows: { end: number }[] = [{ end: 0 }, { end: 0 }, { end: 0 }];
+    const assignments: Record<string, number> = {};
+    const sortedEras = [...eras].sort((a, b) => a.startYear - b.startYear);
+    for (const era of sortedEras) {
+      const eraLeft = (era.startYear - TIMELINE_RANGE.min) * pxPerYear;
+      // Find the row with the earliest end that doesn't overlap
+      let bestRow = 0;
+      let minEnd = Infinity;
+      for (let r = 0; r < rows.length; r++) {
+        if (rows[r].end <= eraLeft && rows[r].end < minEnd) {
+          bestRow = r;
+          minEnd = rows[r].end;
+        }
+      }
+      // If all rows overlap, pick the one that ends earliest
+      if (minEnd === Infinity) {
+        for (let r = 0; r < rows.length; r++) {
+          if (rows[r].end < minEnd) { bestRow = r; minEnd = rows[r].end; }
+        }
+      }
+      const eraWidth = Math.max((era.endYear - era.startYear) * pxPerYear, minEraWidth);
+      rows[bestRow].end = eraLeft + eraWidth + 20; // 20px gap
+      assignments[era.id] = bestRow;
+    }
+    return assignments;
+  }, [eras]);
 
   return (
     <div className="relative">
@@ -196,7 +226,7 @@ function TimelineDesktop({
         className="overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-track-transparent scrollbar-thumb-art-charcoal/20"
         style={{ scrollBehavior: 'smooth' }}
       >
-        <div className="relative" style={{ width: `${totalWidth}px`, minHeight: '800px' }}>
+        <div className="relative" style={{ width: `${totalWidth}px`, minHeight: '750px' }}>
           {/* Century markers */}
           {Array.from({ length: Math.ceil(totalYears / 100) + 1 }, (_, i) => {
             const year = TIMELINE_RANGE.min + i * 100;
@@ -218,8 +248,9 @@ function TimelineDesktop({
           {eras.map((era, idx) => {
             const left = (era.startYear - TIMELINE_RANGE.min) * pxPerYear;
             const calculatedWidth = (era.endYear - era.startYear) * pxPerYear;
-            const width = Math.max(calculatedWidth, minEraWidth); // Enforce minimum width
-            const top = 40 + (idx % 4) * 180; // Stagger across 4 rows
+            const width = Math.max(calculatedWidth, minEraWidth);
+            const row = rowAssignments[era.id] ?? (idx % 3);
+            const top = 40 + row * 230; // More vertical space between rows
 
             return (
               <motion.div

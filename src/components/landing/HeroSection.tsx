@@ -29,9 +29,9 @@ export function HeroSection() {
       {/* Subtle radial glow behind globe */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-art-gold/5 blur-[120px] lg:h-[800px] lg:w-[800px]" />
 
-      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 sm:px-6 lg:flex-row lg:items-center lg:gap-8 lg:px-8">
+      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center px-4 sm:px-6 lg:flex-row lg:items-center lg:gap-8 lg:px-8">
         {/* ─── Text Content ─── */}
-        <div className="z-10 flex-1 pt-20 text-center sm:pt-20 lg:pt-0 lg:text-left">
+        <div className="z-10 flex-1 pt-24 text-center sm:pt-28 lg:pt-0 lg:text-left">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -152,16 +152,19 @@ export function HeroSection() {
           )}
         >
           <HeroGlobeWrapper />
-
-          {/* "Click to explore" hint */}
-          <a
-            href="/explore"
-            className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full border border-art-charcoal/10 bg-art-charcoal/5 px-4 py-2 text-xs font-medium text-art-charcoal/50 backdrop-blur-sm transition-all hover:border-art-gold/30 hover:text-art-gold dark:border-white/10 dark:bg-white/5 dark:text-white/50 sm:bottom-6"
-          >
-            <Globe2 className="h-3.5 w-3.5" />
-            {t('hero.exploreGlobe')}
-          </a>
         </motion.div>
+
+        {/* "Click to explore" hint — positioned BELOW the globe, not overlapping */}
+        <motion.a
+          href="/explore"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="z-10 mb-8 flex items-center gap-2 rounded-full border border-art-charcoal/10 bg-art-charcoal/5 px-5 py-2.5 text-xs font-medium text-art-charcoal/50 backdrop-blur-sm transition-all hover:border-art-gold/30 hover:text-art-gold dark:border-white/10 dark:bg-white/5 dark:text-white/50 lg:hidden"
+        >
+          <Globe2 className="h-3.5 w-3.5" />
+          {t('hero.exploreGlobe')}
+        </motion.a>
       </div>
 
       {/* Bottom gradient fade */}

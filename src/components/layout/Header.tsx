@@ -52,16 +52,31 @@ export function Header({ variant = 'auto' }: { variant?: 'auto' | 'dark' | 'ligh
   const showGamification = authenticated;
 
   // Dark variant forces light text (for pages with dark backgrounds like Explore, Gallery)
+  // When variant is 'auto', the header adapts: transparent bg with dark text initially,
+  // then a semi-transparent dark bg with light text once scrolled (works on ALL page backgrounds)
   const isDark = variant === 'dark';
-  const textPrimary = isDark
-    ? 'text-white'
-    : 'text-art-charcoal dark:text-white';
-  const textSecondary = isDark
-    ? 'text-white/70 hover:text-white'
-    : 'text-art-charcoal/70 dark:text-white/70 hover:text-art-charcoal dark:hover:text-white';
-  const hoverBg = isDark
-    ? 'hover:bg-white/10'
-    : 'hover:bg-art-charcoal/5 dark:hover:bg-white/5';
+
+  // Scrolled header always uses a dark semi-transparent background with white text
+  // This ensures readability on ANY page regardless of light/dark mode
+  const scrolledTextPrimary = 'text-white';
+  const scrolledTextSecondary = 'text-white/70 hover:text-white';
+  const scrolledHoverBg = 'hover:bg-white/10';
+
+  const textPrimary = scrolled
+    ? scrolledTextPrimary
+    : isDark
+      ? 'text-white'
+      : 'text-art-charcoal dark:text-white';
+  const textSecondary = scrolled
+    ? scrolledTextSecondary
+    : isDark
+      ? 'text-white/70 hover:text-white'
+      : 'text-art-charcoal/70 dark:text-white/70 hover:text-art-charcoal dark:hover:text-white';
+  const hoverBg = scrolled
+    ? scrolledHoverBg
+    : isDark
+      ? 'hover:bg-white/10'
+      : 'hover:bg-art-charcoal/5 dark:hover:bg-white/5';
 
   return (
     <>
@@ -69,9 +84,7 @@ export function Header({ variant = 'auto' }: { variant?: 'auto' | 'dark' | 'ligh
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? isDark
-              ? 'bg-[#0a0a14]/95 backdrop-blur-xl shadow-sm shadow-black/20'
-              : 'bg-white/90 dark:bg-art-charcoal/90 backdrop-blur-xl shadow-sm'
+            ? 'bg-[#0a0a14]/90 backdrop-blur-xl shadow-lg shadow-black/10'
             : 'bg-transparent'
         )}
       >
@@ -175,7 +188,7 @@ export function Header({ variant = 'auto' }: { variant?: 'auto' | 'dark' | 'ligh
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="fixed left-4 right-4 top-20 z-50 rounded-2xl bg-white dark:bg-art-charcoal p-4 shadow-xl ring-1 ring-art-charcoal/5 dark:ring-white/10 sm:left-auto sm:right-6 sm:w-72 lg:hidden"
+              className="fixed left-4 right-4 top-20 z-50 rounded-2xl bg-[#12121f] p-4 shadow-xl ring-1 ring-white/10 sm:left-auto sm:right-6 sm:w-72 lg:hidden"
             >
               <div className="flex flex-col gap-1">
                 {NAV_LINKS.map((link) => (
@@ -183,24 +196,24 @@ export function Header({ variant = 'auto' }: { variant?: 'auto' | 'dark' | 'ligh
                     key={link.key}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:bg-art-charcoal/5 dark:hover:bg-white/5 hover:text-art-charcoal dark:hover:text-white"
+                    className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-white/70 transition-colors hover:bg-white/5 hover:text-white"
                   >
                     {t(`nav.${link.key}`)}
                   </a>
                 ))}
-                <hr className="my-2 border-art-charcoal/10 dark:border-white/10" />
+                <hr className="my-2 border-white/10" />
                 {authenticated ? (
                   <>
-                    <a href="/profile" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70">
+                    <a href="/profile" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-white/70 hover:text-white transition-colors">
                       {t('nav.profile')}
                     </a>
-                    <a href="/logout" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70">
+                    <a href="/logout" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-white/70 hover:text-white transition-colors">
                       {t('nav.logout')}
                     </a>
                   </>
                 ) : (
                   <>
-                    <a href="/login" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-charcoal/70 dark:text-white/70">
+                    <a href="/login" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-white/70 hover:text-white transition-colors">
                       {t('nav.login')}
                     </a>
                     <button
