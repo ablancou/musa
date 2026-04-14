@@ -3,9 +3,6 @@
 /**
  * HeroSection — The Cinematic Landing Experience
  *
- * A slowly rotating 3D Earth with golden light beams emanating from
- * world-class museums, paired with bold typography and clear CTAs.
- *
  * Responsive Modes:
  * - Desktop (>=1024px): Two-column — text left, globe right (large)
  * - Landscape (568-1023px): Stacked — globe behind text with overlay
@@ -29,14 +26,28 @@ export function HeroSection() {
       {/* Subtle radial glow behind globe */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-art-gold/5 blur-[120px] lg:h-[800px] lg:w-[800px]" />
 
-      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center px-4 sm:px-6 lg:flex-row lg:items-center lg:gap-8 lg:px-8">
+      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 sm:px-6 lg:flex-row lg:items-center lg:gap-8 lg:px-8">
         {/* ─── Text Content ─── */}
-        <div className="z-10 flex-1 pt-24 text-center sm:pt-28 lg:pt-0 lg:text-left">
-          {/* Badge */}
+        <div className="z-10 flex-1 pt-28 text-center sm:pt-32 lg:pt-0 lg:text-left">
+          {/* Title — NO badge/subtitle that could overlap with nav */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className={cn(
+              'font-[var(--font-cormorant)] font-bold leading-[1.05] tracking-tight text-art-charcoal dark:text-white',
+              'text-[clamp(2.2rem,1.5rem+3.5vw,5rem)]'
+            )}
+          >
+            {t('hero.title')}
+          </motion.h1>
+
+          {/* Badge — below the title, not near the header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-4"
           >
             <span className="inline-flex items-center gap-1.5 rounded-full border border-art-gold/20 bg-art-gold/10 px-4 py-1.5 text-xs font-semibold text-art-gold sm:text-sm dark:border-art-gold/20 dark:bg-art-gold/10">
               <Star className="h-3.5 w-3.5 fill-art-gold" />
@@ -44,24 +55,11 @@ export function HeroSection() {
             </span>
           </motion.div>
 
-          {/* Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className={cn(
-              'mt-6 font-[var(--font-cormorant)] font-bold leading-[1.05] tracking-tight text-art-charcoal dark:text-white',
-              'text-[clamp(2.2rem,1.5rem+3.5vw,5rem)]'
-            )}
-          >
-            {t('hero.title')}
-          </motion.h1>
-
           {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className={cn(
               'mt-5 max-w-xl leading-relaxed text-art-charcoal/60 dark:text-white/50',
               'text-base sm:text-lg lg:text-xl',
@@ -75,7 +73,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start"
           >
             <a
@@ -103,32 +101,24 @@ export function HeroSection() {
             </a>
           </motion.div>
 
-          {/* Stats row — subtle on mobile, bolder on desktop */}
+          {/* Stats row */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className={cn(
-              'mt-6 flex items-center justify-center gap-3 sm:mt-8 sm:gap-6 lg:mt-10 lg:justify-start lg:gap-8',
-            )}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-6 flex items-center justify-center gap-3 sm:mt-8 sm:gap-6 lg:mt-10 lg:justify-start lg:gap-8"
           >
             {[
               { value: '500+', label: t('stats.artworks') },
               { value: '4,000', label: t('stats.years') },
               { value: '42', label: t('stats.museums') },
               { value: '7', label: t('stats.languages') },
-            ].map((stat, i) => (
+            ].map((stat) => (
               <div key={stat.label} className="text-center lg:text-left">
-                <div className={cn(
-                  'font-bold text-art-gold',
-                  'text-base sm:text-xl lg:text-3xl'
-                )}>
+                <div className="font-bold text-art-gold text-base sm:text-xl lg:text-3xl">
                   {stat.value}
                 </div>
-                <div className={cn(
-                  'text-art-charcoal/40 dark:text-white/40',
-                  'text-[10px] sm:text-xs lg:text-sm'
-                )}>
+                <div className="text-art-charcoal/40 dark:text-white/40 text-[10px] sm:text-xs lg:text-sm">
                   {stat.label}
                 </div>
               </div>
@@ -143,26 +133,25 @@ export function HeroSection() {
           transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
           className={cn(
             'relative flex-1',
-            // Portrait: generous globe — the visual star
-            'mt-4 h-[380px]',
-            // Landscape: medium
-            'sm:mt-4 sm:h-[420px]',
-            // Desktop: large, vertically centered
-            'lg:mt-0 lg:h-[560px]'
+            'mt-6 h-[340px]',
+            'sm:mt-6 sm:h-[380px]',
+            'lg:mt-0 lg:h-[520px]'
           )}
         >
           <HeroGlobeWrapper />
         </motion.div>
+      </div>
 
-        {/* "Click to explore" hint — positioned BELOW the globe, not overlapping */}
+      {/* "Click the globe" hint — below the main content, not overlapping anything */}
+      <div className="relative z-10 flex justify-center pb-8 -mt-4">
         <motion.a
           href="/explore"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="z-10 mb-8 flex items-center gap-2 rounded-full border border-art-charcoal/10 bg-art-charcoal/5 px-5 py-2.5 text-xs font-medium text-art-charcoal/50 backdrop-blur-sm transition-all hover:border-art-gold/30 hover:text-art-gold dark:border-white/10 dark:bg-white/5 dark:text-white/50 lg:hidden"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="flex items-center gap-2 rounded-full border border-art-charcoal/10 bg-art-charcoal/5 px-5 py-2.5 text-sm font-medium text-art-charcoal/50 backdrop-blur-sm transition-all hover:border-art-gold/30 hover:text-art-gold dark:border-white/10 dark:bg-white/5 dark:text-white/50"
         >
-          <Globe2 className="h-3.5 w-3.5" />
+          <Globe2 className="h-4 w-4" />
           {t('hero.exploreGlobe')}
         </motion.a>
       </div>

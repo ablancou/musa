@@ -393,8 +393,8 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
       scene.background = new THREE.Color(0x060610);
 
       const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-      // Zoom out so globe appears at a comfortable size, not filling the entire viewport
-      camera.position.z = width < 768 ? 4.2 : 3.8;
+      // Zoom out significantly so globe is fully visible on load — not cut off
+      camera.position.z = width < 768 ? 5.5 : 4.5;
 
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
       renderer.setSize(width, height);
@@ -724,21 +724,14 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
           )}
         </AnimatePresence>
 
-        {/* Title — pushed below the fixed header (h-16 mobile, h-20 desktop) */}
-        <div className="pointer-events-none absolute left-0 top-0 p-6 pt-20 lg:p-10 lg:pt-24">
-          <h1 className="font-[var(--font-cormorant)] text-[clamp(1.5rem,4vw,2.5rem)] font-bold leading-tight text-white drop-shadow-lg">
-            {t('gallery.title')}
-          </h1>
-          <p className="mt-1 max-w-sm text-xs text-white/40 lg:text-sm">
-            {t('gallery.subtitle')}
-          </p>
-        </div>
-
-        {/* Hint — subtle, bottom of globe area, desktop only */}
-        <div className="pointer-events-none absolute bottom-3 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full bg-black/30 px-3 py-1.5 text-[11px] text-white/25 backdrop-blur-sm lg:flex">
-          <Globe2 className="h-3 w-3" />
-          Arrastra para rotar · Scroll para zoom
-        </div>
+        {/* Hint — bottom of globe area, clickable on all screens */}
+        <a
+          href="/explore"
+          className="pointer-events-auto absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full bg-black/40 px-4 py-2 text-xs text-white/50 backdrop-blur-sm transition-all hover:bg-art-gold/20 hover:text-art-gold sm:bottom-6"
+        >
+          <Globe2 className="h-3.5 w-3.5" />
+          {t('gallery.subtitle')}
+        </a>
       </div>
 
       {/* Museum List Panel */}
@@ -749,7 +742,11 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
           'max-lg:flex-1 max-lg:border-t'
         )}
       >
-        <div className="sticky top-0 z-10 border-b border-white/5 bg-[#0a0a14]/95 p-4 backdrop-blur-sm">
+        <div className="sticky top-0 z-10 border-b border-white/5 bg-[#0a0a14]/95 p-4 pt-5 backdrop-blur-sm lg:pt-6">
+          {/* Title in the panel, not overlapping the globe */}
+          <h1 className="mb-3 font-[var(--font-cormorant)] text-xl font-bold text-white lg:text-2xl">
+            {t('gallery.title')}
+          </h1>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" />
             <input

@@ -48,6 +48,10 @@ function ArtworkCard({ artwork, index }: ArtworkCardProps) {
           alt={artwork.titleOriginal}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
+          referrerPolicy="no-referrer"
+          onError={(e) => {
+            e.currentTarget.style.display = 'none';
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#060610]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
@@ -55,7 +59,7 @@ function ArtworkCard({ artwork, index }: ArtworkCardProps) {
       {/* Artwork Info */}
       <div className="p-4 sm:p-5">
         <h3 className="font-[var(--font-cormorant)] text-lg sm:text-xl text-art-cream font-semibold mb-2 line-clamp-2 group-hover:text-art-gold transition-colors">
-          {t(`artworks.${artwork.titleKey}`, artwork.titleOriginal)}
+          {String(t(`artworks.${artwork.titleKey}`, artwork.titleOriginal))}
         </h3>
 
         <div className="space-y-2 text-sm text-art-cream/70">
@@ -154,20 +158,17 @@ export default function MuseumPage() {
           transition={{ duration: 0.8 }}
           className="relative h-96 sm:h-[500px] md:h-[600px] overflow-hidden"
         >
-          {/* Background Image */}
           <img
             src={museum.imageUrl}
             alt={museumName}
             className="absolute inset-0 w-full h-full object-cover"
+            referrerPolicy="no-referrer"
           />
-
-          {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#060610]/40 via-[#060610]/60 to-[#060610] z-10" />
 
-          {/* Back Button (top-left) */}
           <button
             onClick={() => router.back()}
-            className="absolute top-6 left-4 sm:left-6 z-20 inline-flex items-center gap-2 px-4 py-2 bg-[#060610]/80 backdrop-blur hover:bg-[#060610] text-art-gold border border-art-gold/30 rounded-lg transition-all duration-300"
+            className="absolute top-20 left-4 sm:left-6 z-20 inline-flex items-center gap-2 px-4 py-2 bg-[#060610]/80 backdrop-blur hover:bg-[#060610] text-art-gold border border-art-gold/30 rounded-lg transition-all duration-300"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="hidden sm:inline font-[var(--font-cormorant)] font-semibold text-sm">
@@ -175,7 +176,6 @@ export default function MuseumPage() {
             </span>
           </button>
 
-          {/* Hero Content (bottom) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -185,14 +185,10 @@ export default function MuseumPage() {
             <h1 className="font-[var(--font-cormorant)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-art-cream mb-2 sm:mb-4 leading-tight">
               {museumName}
             </h1>
-
-            {/* Location & Date */}
             <div className="flex flex-wrap gap-4 sm:gap-6 text-art-cream/80 text-sm sm:text-base">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-art-gold" />
-                <span>
-                  {museum.city}, {museum.country}
-                </span>
+                <span>{museum.city}, {museum.country}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-art-gold" />
@@ -203,54 +199,7 @@ export default function MuseumPage() {
         </motion.section>
 
         {/* ════════════════════════════════════════════════════════════ */}
-        {/* EXTERNAL LINKS SECTION */}
-        {/* ════════════════════════════════════════════════════════════ */}
-
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16 border-b border-art-gold/10"
-        >
-          <div className="max-w-7xl mx-auto">
-            <h2 className="font-[var(--font-cormorant)] text-2xl sm:text-3xl md:text-4xl font-bold text-art-cream mb-6 sm:mb-8">
-              {t('museums.explore', 'Explore')}
-            </h2>
-
-            <div className="flex flex-wrap gap-3 sm:gap-4">
-              {/* Virtual Tour */}
-              {museum.virtualTourUrl && (
-                <ExternalLinkButton
-                  url={museum.virtualTourUrl}
-                  label={t('museums.virtualTour', 'Virtual Tour')}
-                  icon={Globe2}
-                />
-              )}
-
-              {/* Online Collection */}
-              {museum.onlineCollectionUrl && (
-                <ExternalLinkButton
-                  url={museum.onlineCollectionUrl}
-                  label={t('museums.onlineCollection', 'Online Collection')}
-                  icon={ImageIcon}
-                />
-              )}
-
-              {/* Official Website */}
-              {museum.websiteUrl && (
-                <ExternalLinkButton
-                  url={museum.websiteUrl}
-                  label={t('museums.officialWebsite', 'Official Website')}
-                  icon={ExternalLink}
-                />
-              )}
-            </div>
-          </div>
-        </motion.section>
-
-        {/* ════════════════════════════════════════════════════════════ */}
-        {/* ARTWORKS GALLERY */}
+        {/* ARTWORKS GALLERY — FIRST (the user wants to see art, not links) */}
         {/* ════════════════════════════════════════════════════════════ */}
 
         <section className="px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20">
@@ -272,7 +221,6 @@ export default function MuseumPage() {
                   </p>
                 </motion.div>
 
-                {/* Artworks Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                   {artworks.map((artwork, index) => (
                     <ArtworkCard key={artwork.id} artwork={artwork} index={index} />
@@ -300,7 +248,51 @@ export default function MuseumPage() {
         </section>
 
         {/* ════════════════════════════════════════════════════════════ */}
-        {/* CTA SECTION */}
+        {/* EXTERNAL LINKS — LAST (secondary action, not the main content) */}
+        {/* ════════════════════════════════════════════════════════════ */}
+
+        {(museum.virtualTourUrl || museum.onlineCollectionUrl || museum.websiteUrl) && (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16 border-t border-art-gold/10"
+          >
+            <div className="max-w-7xl mx-auto">
+              <h2 className="font-[var(--font-cormorant)] text-2xl sm:text-3xl md:text-4xl font-bold text-art-cream mb-6 sm:mb-8">
+                {t('museums.explore', 'Explore')}
+              </h2>
+
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {museum.virtualTourUrl && (
+                  <ExternalLinkButton
+                    url={museum.virtualTourUrl}
+                    label={t('museums.virtualTour', 'Virtual Tour')}
+                    icon={Globe2}
+                  />
+                )}
+                {museum.onlineCollectionUrl && (
+                  <ExternalLinkButton
+                    url={museum.onlineCollectionUrl}
+                    label={t('museums.onlineCollection', 'Online Collection')}
+                    icon={ImageIcon}
+                  />
+                )}
+                {museum.websiteUrl && (
+                  <ExternalLinkButton
+                    url={museum.websiteUrl}
+                    label={t('museums.officialWebsite', 'Official Website')}
+                    icon={ExternalLink}
+                  />
+                )}
+              </div>
+            </div>
+          </motion.section>
+        )}
+
+        {/* ════════════════════════════════════════════════════════════ */}
+        {/* CTA — EXPLORE MORE */}
         {/* ════════════════════════════════════════════════════════════ */}
 
         <motion.section
@@ -314,13 +306,12 @@ export default function MuseumPage() {
             <h2 className="font-[var(--font-cormorant)] text-3xl sm:text-4xl font-bold text-art-cream mb-6 sm:mb-8">
               {t('museums.explorMore', 'Explore More Museums')}
             </h2>
-
             <button
-              onClick={() => router.push('/museums')}
+              onClick={() => router.push('/explore')}
               className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-art-gold hover:bg-art-gold-light text-[#060610] font-[var(--font-cormorant)] font-bold text-base sm:text-lg rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               {t('museums.allMuseums', 'Browse All Museums')}
-              <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
+              <Globe2 className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </motion.section>

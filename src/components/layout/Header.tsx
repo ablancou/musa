@@ -118,43 +118,13 @@ export function Header({ variant = 'auto' }: { variant?: 'auto' | 'dark' | 'ligh
             <ThemeToggle />
             <LanguageSelector />
 
-            {authenticated ? (
-              <div className="flex items-center gap-1 ml-1">
-                <a
-                  href="/profile"
-                  className={cn("rounded-lg px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap", textSecondary)}
-                >
-                  {t('nav.profile')}
-                </a>
-                <a
-                  href="/logout"
-                  className={cn("rounded-lg px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap", textSecondary)}
-                >
-                  {t('nav.logout')}
-                </a>
-              </div>
-            ) : (
-              <div className="flex items-center gap-1 ml-1">
-                <a
-                  href="/login"
-                  className={cn("rounded-lg px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap", textSecondary)}
-                >
-                  {t('nav.login')}
-                </a>
-                <button
-                  onClick={enterAsGuest}
-                  className="rounded-lg px-3 py-2 text-sm font-medium text-art-gold transition-colors hover:text-art-gold-light whitespace-nowrap"
-                >
-                  {t('nav.guestExplore')}
-                </button>
-                <a
-                  href="/register"
-                  className="rounded-full bg-art-gold px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:bg-art-gold-light hover:shadow-lg active:scale-[0.98] whitespace-nowrap"
-                >
-                  {t('nav.register')}
-                </a>
-              </div>
-            )}
+            {/* Guest-only mode — auth coming soon */}
+            <button
+              onClick={enterAsGuest}
+              className="rounded-full bg-art-gold px-5 py-2 text-sm font-semibold text-white shadow-md transition-all hover:bg-art-gold-light hover:shadow-lg active:scale-[0.98] whitespace-nowrap ml-1"
+            >
+              {t('nav.guestExplore')}
+            </button>
           </div>
 
           {/* Mobile Right Side */}
@@ -202,35 +172,13 @@ export function Header({ variant = 'auto' }: { variant?: 'auto' | 'dark' | 'ligh
                   </a>
                 ))}
                 <hr className="my-2 border-white/10" />
-                {authenticated ? (
-                  <>
-                    <a href="/profile" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-white/70 hover:text-white transition-colors">
-                      {t('nav.profile')}
-                    </a>
-                    <a href="/logout" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-white/70 hover:text-white transition-colors">
-                      {t('nav.logout')}
-                    </a>
-                  </>
-                ) : (
-                  <>
-                    <a href="/login" onClick={() => setMenuOpen(false)} className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-white/70 hover:text-white transition-colors">
-                      {t('nav.login')}
-                    </a>
-                    <button
-                      onClick={() => { enterAsGuest(); setMenuOpen(false); }}
-                      className="flex min-h-[48px] items-center rounded-xl px-4 text-base font-medium text-art-gold"
-                    >
-                      {t('nav.guestExplore')}
-                    </button>
-                    <a
-                      href="/register"
-                      onClick={() => setMenuOpen(false)}
-                      className="mt-1 flex min-h-[48px] items-center justify-center rounded-full bg-art-gold px-5 text-base font-semibold text-white"
-                    >
-                      {t('nav.register')}
-                    </a>
-                  </>
-                )}
+                {/* Guest-only mode — auth coming soon */}
+                <button
+                  onClick={() => { enterAsGuest(); setMenuOpen(false); }}
+                  className="mt-1 flex min-h-[48px] items-center justify-center rounded-full bg-art-gold px-5 text-base font-semibold text-white"
+                >
+                  {t('nav.guestExplore')}
+                </button>
               </div>
             </motion.nav>
           </>

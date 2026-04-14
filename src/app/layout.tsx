@@ -97,6 +97,10 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} ${cormorant.variable} ${notoJP.variable} ${notoSC.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Global referrer policy — Wikimedia blocks images with referrer headers */}
+        <meta name="referrer" content="no-referrer" />
+      </head>
       <body className="bg-art-cream text-art-charcoal antialiased">
         <I18nProvider>
           <ThemeProvider>
