@@ -42,7 +42,7 @@ function GalleryLoading() {
 export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-art-charcoal">
-      <Header />
+      <Header variant="dark" />
       <main className="pt-16 lg:pt-20">
         <Suspense fallback={<GalleryLoading />}>
           <GalleryTabs />

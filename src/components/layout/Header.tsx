@@ -26,7 +26,7 @@ const NAV_LINKS = [
   { key: 'lessons', href: '/lessons' },
 ] as const;
 
-export function Header() {
+export function Header({ variant = 'auto' }: { variant?: 'auto' | 'dark' | 'light' }) {
   const { t } = useTranslation('common');
   const { authenticated, isGuest, enterAsGuest } = useUserStore();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -51,13 +51,27 @@ export function Header() {
   // Only show gamification badges when user is logged in
   const showGamification = authenticated;
 
+  // Dark variant forces light text (for pages with dark backgrounds like Explore, Gallery)
+  const isDark = variant === 'dark';
+  const textPrimary = isDark
+    ? 'text-white'
+    : 'text-art-charcoal dark:text-white';
+  const textSecondary = isDark
+    ? 'text-white/70 hover:text-white'
+    : 'text-art-charcoal/70 dark:text-white/70 hover:text-art-charcoal dark:hover:text-white';
+  const hoverBg = isDark
+    ? 'hover:bg-white/10'
+    : 'hover:bg-art-charcoal/5 dark:hover:bg-white/5';
+
   return (
     <>
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-white/90 dark:bg-art-charcoal/90 backdrop-blur-xl shadow-sm'
+            ? isDark
+              ? 'bg-[#0a0a14]/95 backdrop-blur-xl shadow-sm shadow-black/20'
+              : 'bg-white/90 dark:bg-art-charcoal/90 backdrop-blur-xl shadow-sm'
             : 'bg-transparent'
         )}
       >
@@ -65,7 +79,7 @@ export function Header() {
           {/* Logo */}
           <a href="/" className="flex shrink-0 items-center gap-2 group">
             <Sparkles className="h-5 w-5 text-art-gold transition-transform group-hover:rotate-12 lg:h-6 lg:w-6" />
-            <span className="font-[var(--font-cormorant)] text-lg font-semibold tracking-wide text-art-charcoal dark:text-white lg:text-xl">
+            <span className={cn("font-[var(--font-cormorant)] text-lg font-semibold tracking-wide lg:text-xl", textPrimary)}>
               MŪSA
             </span>
           </a>
@@ -76,7 +90,7 @@ export function Header() {
               <a
                 key={link.key}
                 href={link.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:bg-art-charcoal/5 dark:hover:bg-white/5 hover:text-art-charcoal dark:hover:text-white whitespace-nowrap"
+                className={cn("rounded-lg px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap", textSecondary, hoverBg)}
               >
                 {t(`nav.${link.key}`)}
               </a>
@@ -95,13 +109,13 @@ export function Header() {
               <div className="flex items-center gap-1 ml-1">
                 <a
                   href="/profile"
-                  className="rounded-lg px-3 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white whitespace-nowrap"
+                  className={cn("rounded-lg px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap", textSecondary)}
                 >
                   {t('nav.profile')}
                 </a>
                 <a
                   href="/logout"
-                  className="rounded-lg px-3 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white whitespace-nowrap"
+                  className={cn("rounded-lg px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap", textSecondary)}
                 >
                   {t('nav.logout')}
                 </a>
@@ -110,7 +124,7 @@ export function Header() {
               <div className="flex items-center gap-1 ml-1">
                 <a
                   href="/login"
-                  className="rounded-lg px-3 py-2 text-sm font-medium text-art-charcoal/70 dark:text-white/70 transition-colors hover:text-art-charcoal dark:hover:text-white whitespace-nowrap"
+                  className={cn("rounded-lg px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap", textSecondary)}
                 >
                   {t('nav.login')}
                 </a>
@@ -136,7 +150,7 @@ export function Header() {
             <LanguageSelector />
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl transition-colors hover:bg-art-charcoal/5 dark:hover:bg-white/5 text-art-charcoal dark:text-white"
+              className={cn("flex h-10 w-10 items-center justify-center rounded-xl transition-colors", hoverBg, textPrimary)}
               aria-label="Toggle menu"
             >
               {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

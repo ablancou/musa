@@ -44,7 +44,7 @@ export interface TimelineEra {
 }
 
 export const TIMELINE_ERAS: TimelineEra[] = [
-  // ──────────────── ANCIENT ────────────────
+  // ──────────────── ANCIENT EGYPT ────────────────
   {
     id: 'ancient-egypt',
     nameKey: 'timeline.eras.ancientEgypt',
@@ -127,6 +127,62 @@ export const TIMELINE_ERAS: TimelineEra[] = [
         artist: 'Alexandros of Antioch',
         year: -130,
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Front_views_of_the_Venus_de_Milo.jpg',
+        medium: 'Marble',
+      },
+    ],
+  },
+
+  // ──────────────── ROMAN EMPIRE ────────────────
+  {
+    id: 'roman-empire',
+    nameKey: 'timeline.eras.romanEmpire',
+    startYear: -31,
+    endYear: 400,
+    color: '#8B4513',
+    gradientFrom: '#8B4513',
+    gradientTo: '#CD853F',
+    musicGenre: 'Tibia, lyre, water organ',
+    musicComposerKey: 'timeline.music.romanEmpire',
+    region: 'global',
+    artists: [
+      {
+        name: 'Unknown Roman sculptor',
+        birthYear: -50,
+        deathYear: 50,
+        nationality: 'Roman',
+        representativeWork: {
+          title: 'Augustus of Prima Porta',
+          titleKey: 'timeline.artworks.augustusPrimaPorta',
+          artist: 'Unknown',
+          year: 20,
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Augusto_Prima_Porta%2C_musei_vaticani.jpg',
+          medium: 'Marble',
+        },
+      },
+    ],
+    keyArtworks: [
+      {
+        title: 'Augustus of Prima Porta',
+        titleKey: 'timeline.artworks.augustusPrimaPorta',
+        artist: 'Unknown',
+        year: 20,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Augusto_Prima_Porta%2C_musei_vaticani.jpg',
+        medium: 'Marble',
+      },
+      {
+        title: 'Pantheon Interior',
+        titleKey: 'timeline.artworks.pantheonInterior',
+        artist: 'Apollodorus of Damascus',
+        year: 126,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Pantheon_interior_rome.jpg',
+        medium: 'Marble, concrete, bronze',
+      },
+      {
+        title: 'Roman Portrait Bust',
+        titleKey: 'timeline.artworks.romanPortraitBust',
+        artist: 'Unknown',
+        year: 150,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/52/RomanPortrait100-200CE.jpg',
         medium: 'Marble',
       },
     ],
@@ -480,6 +536,68 @@ export const TIMELINE_ERAS: TimelineEra[] = [
     ],
   },
 
+  // ──────────────── ART NOUVEAU ────────────────
+  {
+    id: 'art-nouveau',
+    nameKey: 'timeline.eras.artNouveau',
+    startYear: 1880,
+    endYear: 1910,
+    color: '#6B4C3A',
+    gradientFrom: '#6B4C3A',
+    gradientTo: '#C8A882',
+    musicGenre: 'Debussy, Satie',
+    musicComposerKey: 'timeline.music.artNouveau',
+    region: 'europe',
+    artists: [
+      {
+        name: 'Alphonse Mucha',
+        birthYear: 1860,
+        deathYear: 1939,
+        nationality: 'Czech',
+        representativeWork: {
+          title: 'Gismonda Poster',
+          titleKey: 'timeline.artworks.gismondaPoster',
+          artist: 'Mucha',
+          year: 1894,
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Mucha-Gismonda.jpg',
+          medium: 'Lithograph',
+        },
+      },
+      {
+        name: 'Henry van de Velde',
+        birthYear: 1863,
+        deathYear: 1957,
+        nationality: 'Belgian',
+        representativeWork: {
+          title: 'Bloemenwerf House',
+          titleKey: 'timeline.artworks.bloemenwerhaus',
+          artist: 'Van de Velde',
+          year: 1896,
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Bloemenwerf_Uccle.jpg',
+          medium: 'Architecture',
+        },
+      },
+    ],
+    keyArtworks: [
+      {
+        title: 'Gismonda Poster',
+        titleKey: 'timeline.artworks.gismondaPoster',
+        artist: 'Mucha',
+        year: 1894,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Mucha-Gismonda.jpg',
+        medium: 'Lithograph',
+      },
+      {
+        title: 'Four Seasons - Spring',
+        titleKey: 'timeline.artworks.fourSeasonsSpring',
+        artist: 'Mucha',
+        year: 1900,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Mucha_Spring_1900.jpg',
+        medium: 'Lithograph',
+      },
+    ],
+  },
+
   // ──────────────── IMPRESSIONISM ────────────────
   {
     id: 'impressionism',
@@ -668,6 +786,130 @@ export const TIMELINE_ERAS: TimelineEra[] = [
         year: 1893,
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg',
         medium: 'Oil, tempera & pastel on cardboard',
+      },
+    ],
+  },
+
+  // ──────────────── CUBISM ────────────────
+  {
+    id: 'cubism',
+    nameKey: 'timeline.eras.cubism',
+    startYear: 1907,
+    endYear: 1920,
+    color: '#2F5496',
+    gradientFrom: '#2F5496',
+    gradientTo: '#4472C4',
+    musicGenre: 'Stravinsky, Debussy',
+    musicComposerKey: 'timeline.music.cubism',
+    region: 'europe',
+    artists: [
+      {
+        name: 'Georges Braque',
+        birthYear: 1882,
+        deathYear: 1963,
+        nationality: 'French',
+        representativeWork: {
+          title: 'Bottle and Fishes',
+          titleKey: 'timeline.artworks.bottleAndFishes',
+          artist: 'Braque',
+          year: 1910,
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/95/George_Braque_-_Bottles_and_Fishes.jpg',
+          medium: 'Oil on canvas',
+        },
+      },
+      {
+        name: 'Juan Gris',
+        birthYear: 1887,
+        deathYear: 1927,
+        nationality: 'Spanish',
+        representativeWork: {
+          title: 'Portrait of Pablo Picasso',
+          titleKey: 'timeline.artworks.portraitOfPicasso',
+          artist: 'Gris',
+          year: 1912,
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Juan_Gris_-_Portrait_of_Pablo_Picasso.jpg',
+          medium: 'Oil on canvas',
+        },
+      },
+    ],
+    keyArtworks: [
+      {
+        title: 'Bottle and Fishes',
+        titleKey: 'timeline.artworks.bottleAndFishes',
+        artist: 'Braque',
+        year: 1910,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/95/George_Braque_-_Bottles_and_Fishes.jpg',
+        medium: 'Oil on canvas',
+      },
+      {
+        title: 'The Breakfast',
+        titleKey: 'timeline.artworks.theBreakfast',
+        artist: 'Gris',
+        year: 1915,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Juan_Gris_-_Breakfast_-_Google_Art_Project.jpg',
+        medium: 'Oil on canvas',
+      },
+    ],
+  },
+
+  // ──────────────── DADA ────────────────
+  {
+    id: 'dada',
+    nameKey: 'timeline.eras.dada',
+    startYear: 1916,
+    endYear: 1924,
+    color: '#704214',
+    gradientFrom: '#704214',
+    gradientTo: '#A0522D',
+    musicGenre: 'Experimental, anti-art music',
+    musicComposerKey: 'timeline.music.dada',
+    region: 'europe',
+    artists: [
+      {
+        name: 'Hugo Ball',
+        birthYear: 1886,
+        deathYear: 1927,
+        nationality: 'Swiss',
+        representativeWork: {
+          title: 'Dada Cabaret Poster',
+          titleKey: 'timeline.artworks.dadaCabaretPoster',
+          artist: 'Ball',
+          year: 1916,
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Dada_dance_Hugo_Ball_%281916%29.jpg',
+          medium: 'Mixed media',
+        },
+      },
+      {
+        name: 'Marcel Duchamp',
+        birthYear: 1887,
+        deathYear: 1968,
+        nationality: 'French',
+        representativeWork: {
+          title: 'Fountain',
+          titleKey: 'timeline.artworks.fountain',
+          artist: 'Duchamp',
+          year: 1917,
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Duchamp_Fountaine.jpg',
+          medium: 'Readymade (ceramic)',
+        },
+      },
+    ],
+    keyArtworks: [
+      {
+        title: 'Fountain',
+        titleKey: 'timeline.artworks.fountain',
+        artist: 'Duchamp',
+        year: 1917,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Duchamp_Fountaine.jpg',
+        medium: 'Readymade (ceramic)',
+      },
+      {
+        title: 'The Elephant Celebs',
+        titleKey: 'timeline.artworks.elephantCelebs',
+        artist: 'Max Ernst',
+        year: 1921,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Max_Ernst_%281921%29_The_Eye_of_Silence.jpg',
+        medium: 'Oil on canvas',
       },
     ],
   },
@@ -1201,12 +1443,82 @@ export const TIMELINE_ERAS: TimelineEra[] = [
       },
     ],
   },
+
+  // ──────────────── CONTEMPORARY ART ────────────────
+  {
+    id: 'contemporary',
+    nameKey: 'timeline.eras.contemporary',
+    startYear: 1975,
+    endYear: 2026,
+    color: '#1F1F1F',
+    gradientFrom: '#1F1F1F',
+    gradientTo: '#FFD700',
+    musicGenre: 'Electronic, hip-hop, experimental',
+    musicComposerKey: 'timeline.music.contemporary',
+    region: 'global',
+    artists: [
+      {
+        name: 'Anselm Kiefer',
+        birthYear: 1945,
+        deathYear: 2100, // Living artist, placeholder
+        nationality: 'German',
+        representativeWork: {
+          title: 'Osiris and Isis',
+          titleKey: 'timeline.artworks.osirisAndIsis',
+          artist: 'Kiefer',
+          year: 1987,
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Anselm_Kiefer_Osiris_and_Isis.jpg',
+          medium: 'Mixed media, lead, straw on canvas',
+        },
+      },
+      {
+        name: 'Christo',
+        birthYear: 1935,
+        deathYear: 2020,
+        nationality: 'Bulgarian-American',
+        representativeWork: {
+          title: 'The Floating Piers',
+          titleKey: 'timeline.artworks.floatingPiers',
+          artist: 'Christo',
+          year: 2016,
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/82/The_Floating_Piers%2C_Lake_Iseo%2C_Italy_06.jpg',
+          medium: 'Environmental installation',
+        },
+      },
+    ],
+    keyArtworks: [
+      {
+        title: 'Osiris and Isis',
+        titleKey: 'timeline.artworks.osirisAndIsis',
+        artist: 'Kiefer',
+        year: 1987,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Anselm_Kiefer_Osiris_and_Isis.jpg',
+        medium: 'Mixed media, lead, straw on canvas',
+      },
+      {
+        title: 'The Floating Piers',
+        titleKey: 'timeline.artworks.floatingPiers',
+        artist: 'Christo',
+        year: 2016,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/82/The_Floating_Piers%2C_Lake_Iseo%2C_Italy_06.jpg',
+        medium: 'Environmental installation',
+      },
+      {
+        title: 'Monument Valley I',
+        titleKey: 'timeline.artworks.monumentValleyI',
+        artist: 'Anselm Kiefer',
+        year: 1997,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Anselm_Kiefer_Monument_Valley_I.jpg',
+        medium: 'Mixed media on canvas',
+      },
+    ],
+  },
 ];
 
 /** Helper: get all years range for the timeline axis */
 export const TIMELINE_RANGE = {
   min: -2000,
-  max: 1980,
+  max: 2026,
 } as const;
 
 /** Helper: total span in years */

@@ -33,8 +33,8 @@ export function ExploreClient() {
   const router = useRouter();
 
   const handleEnterMuseum = (museumId: string) => {
-    // Navigate to gallery filtered by this museum
-    router.push(`/gallery?museum=${museumId}`);
+    // Navigate to the individual museum page
+    router.push(`/museum/${museumId}`);
   };
 
   return <MuseumGlobe onEnterMuseum={handleEnterMuseum} />;

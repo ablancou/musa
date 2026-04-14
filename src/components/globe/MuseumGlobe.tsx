@@ -239,7 +239,7 @@ function MuseumCard({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       className={cn(
-        'rounded-2xl border transition-all cursor-pointer overflow-hidden',
+        'group rounded-2xl border transition-all cursor-pointer overflow-hidden',
         isSelected
           ? 'border-art-gold/40 bg-white/10 shadow-lg shadow-art-gold/10'
           : 'border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/8'
@@ -247,11 +247,22 @@ function MuseumCard({
       onClick={onClick}
     >
       <div className="flex items-start gap-3 p-4">
-        <div
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
-          style={{ backgroundColor: museum.accentColor + '30' }}
-        >
-          <Building2 className="h-5 w-5" style={{ color: museum.accentColor }} />
+        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl">
+          <img
+            src={museum.imageUrl}
+            alt={t(`museums:${museum.nameKey}`)}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+            loading="lazy"
+            referrerPolicy="no-referrer"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+              e.currentTarget.parentElement!.classList.add('bg-white/10', 'flex', 'items-center', 'justify-center');
+              const icon = document.createElement('span');
+              icon.innerHTML = '🏛️';
+              icon.className = 'text-xl';
+              e.currentTarget.parentElement!.appendChild(icon);
+            }}
+          />
         </div>
         <div className="min-w-0 flex-1">
           <h3 className="truncate text-sm font-semibold text-white">{t(`museums:${museum.nameKey}`)}</h3>
@@ -322,6 +333,7 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>(0);
+  const hoveredMuseumRef = useRef<string | null>(null);
   const sceneRef = useRef<{
     scene: any;
     camera: any;
@@ -356,6 +368,11 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
         t(m.nameKey).toLowerCase().includes(q)
     );
   }, [searchQuery, t]);
+
+  // Sync hoveredMuseum state with ref for use in animation loop
+  useEffect(() => {
+    hoveredMuseumRef.current = hoveredMuseum;
+  }, [hoveredMuseum]);
 
   // ─── Initialize Three.js Scene ───
   useEffect(() => {
@@ -564,8 +581,8 @@ export function MuseumGlobe({ onEnterMuseum }: { onEnterMuseum?: (museumId: stri
           s.rotation.y += (s.targetRotation.y - s.rotation.y) * 0.08;
 
           // Pause auto-rotation when dragging or hovering a museum
-          if (!s.isDragging && !hoveredMuseum) {
-            s.targetRotation.y += 0.0008;
+          if (!s.isDragging && !hoveredMuseumRef.current) {
+            s.targetRotation.y += 0.0003;
           }
 
           s.earthGroup.rotation.x = s.rotation.x;

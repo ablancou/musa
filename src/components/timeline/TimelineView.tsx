@@ -182,8 +182,9 @@ function TimelineDesktop({
   }, []);
 
   const totalYears = TIMELINE_RANGE.max - TIMELINE_RANGE.min;
-  const pxPerYear = 2.5; // Wider spacing so eras don't overlap
+  const pxPerYear = 3; // Spacing multiplier to ensure visible coverage
   const totalWidth = totalYears * pxPerYear;
+  const minEraWidth = 150; // Minimum visible width for any era band
 
   return (
     <div className="relative">
@@ -216,7 +217,8 @@ function TimelineDesktop({
           {/* Era bands */}
           {eras.map((era, idx) => {
             const left = (era.startYear - TIMELINE_RANGE.min) * pxPerYear;
-            const width = (era.endYear - era.startYear) * pxPerYear;
+            const calculatedWidth = (era.endYear - era.startYear) * pxPerYear;
+            const width = Math.max(calculatedWidth, minEraWidth); // Enforce minimum width
             const top = 40 + (idx % 4) * 180; // Stagger across 4 rows
 
             return (
