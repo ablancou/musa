@@ -439,7 +439,7 @@ export const ARTWORKS_EUROPE: Artwork[] = [
   {
     id: 'va-constable-salisbury-cathedral',
     titleKey: 'artworks.constableSalisbury',
-    titleOriginal: 'Salisbury Cathedral from the Bishop's Grounds',
+    titleOriginal: "Salisbury Cathedral from the Bishop's Grounds",
     artist: 'John Constable',
     artistBirthYear: 1776,
     artistDeathYear: 1837,

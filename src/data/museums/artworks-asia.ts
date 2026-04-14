@@ -784,7 +784,7 @@ export const ARTWORKS_ASIA: Artwork[] = [
   {
     id: 'amrita-sher-gil-bride-toilet',
     titleKey: 'artworks.amritaSherGilBrideToilet',
-    titleOriginal: 'Bride's Toilet',
+    titleOriginal: "Bride's Toilet",
     artist: 'Amrita Sher-Gil',
     artistBirthYear: 1913,
     artistDeathYear: 1941,
@@ -814,7 +814,7 @@ export const ARTWORKS_ASIA: Artwork[] = [
   {
     id: 'mughal-miniature-akbar',
     titleKey: 'artworks.mughalMiniatureAkbar',
-    titleOriginal: 'Akbar's Court Scene (مجلس اکبر)',
+    titleOriginal: "Akbar's Court Scene (مجلس اکبر)",
     artist: 'Anónimo (taller mogol)',
     artistBirthYear: 1550,
     artistDeathYear: 1650,
@@ -1504,7 +1504,7 @@ export const ARTWORKS_ASIA: Artwork[] = [
   {
     id: 'arthur-streeton-fire-on',
     titleKey: 'artworks.arthurStreetonFireOn',
-    titleOriginal: ''Fire's On', Lapstone Tunnel',
+    titleOriginal: `'Fire's On', Lapstone Tunnel`,
     artist: 'Arthur Streeton',
     artistBirthYear: 1867,
     artistDeathYear: 1943,
@@ -1594,7 +1594,7 @@ export const ARTWORKS_ASIA: Artwork[] = [
   {
     id: 'john-glover-moulting-lagoon',
     titleKey: 'artworks.johnGloverMoultingLagoon',
-    titleOriginal: 'Moulting Lagoon, Van Diemen's Land',
+    titleOriginal: "Moulting Lagoon, Van Diemen's Land",
     artist: 'John Glover',
     artistBirthYear: 1767,
     artistDeathYear: 1849,
