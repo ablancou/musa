@@ -16,7 +16,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '60 × 73 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Maurice_de_Vlaminck_-_Restaurant_de_la_Machine_%C3%A0_Bougival_-_Google_Art_Project.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/07/Maurice_de_Vlaminck_-_Restaurant_de_la_Machine_%C3%A0_Bougival_-_Google_Art_Project.jpg',
     musicConnection: {
       composerKey: 'debussy',
       pieceKey: 'debussy-la-mer',
@@ -44,7 +44,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '185 × 228 cm',
     museumId: 'foundation-barnes',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Andr%C3%A9_Derain_-_The_Dance.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Andr%C3%A9_Derain_-_The_Dance.jpg',
     musicConnection: {
       composerKey: 'stravinsky',
       pieceKey: 'stravinsky-rite-spring',
@@ -72,7 +72,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '65.4 × 99.1 cm',
     museumId: 'museum-of-modern-art',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Andr%C3%A9_Derain_006.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Andr%C3%A9_Derain_006.jpg',
     musicConnection: {
       composerKey: 'elgar',
       pieceKey: 'elgar-pomp-circumstance',
@@ -100,7 +100,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '64.5 × 81 cm',
     museumId: 'pushkin-museum',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Albert_Marquet_-_The_Pont_Neuf_in_the_Sun.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Albert_Marquet_-_The_Pont_Neuf_in_the_Sun.jpg',
     musicConnection: {
       composerKey: 'fauré',
       pieceKey: 'fauré-pavane',
@@ -128,7 +128,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '100 × 81 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kees_van_Dongen_-_Woman_on_Place_Blanche.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Kees_van_Dongen_-_Woman_on_Place_Blanche.jpg',
     musicConnection: {
       composerKey: 'satie',
       pieceKey: 'satie-gymnopédie',
@@ -156,7 +156,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '81 × 65 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Raoul_Dufy_-_Three_Umbrellas.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Raoul_Dufy_-_Three_Umbrellas.jpg',
     musicConnection: {
       composerKey: 'ravel',
       pieceKey: 'ravel-gaspard-night',
@@ -184,7 +184,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '73 × 92 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Othon_Friesz_-_La_Ciotat.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Othon_Friesz_-_La_Ciotat.jpg',
     musicConnection: {
       composerKey: 'debussy',
       pieceKey: 'debussy-nuages',
@@ -214,7 +214,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '93.3 × 74.4 cm',
     museumId: 'art-institute-chicago',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Juan_Gris_-_Portrait_of_Pablo_Picasso_-_1912.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Juan_Gris_-_Portrait_of_Pablo_Picasso_-_1912.jpg',
     musicConnection: {
       composerKey: 'satie',
       pieceKey: 'satie-trois-gymnopédies',
@@ -242,7 +242,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '92 × 73 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Juan_Gris_-_Still_Life_with_Checked_Tablecloth.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Juan_Gris_-_Still_Life_with_Checked_Tablecloth.jpg',
     musicConnection: {
       composerKey: 'webern',
       pieceKey: 'webern-concerto',
@@ -270,7 +270,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '183 × 252 cm',
     museumId: 'museum-of-modern-art',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fernand_L%C3%A9ger_-_Three_Women.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Fernand_L%C3%A9ger_-_Three_Women.jpg',
     musicConnection: {
       composerKey: 'varese',
       pieceKey: 'varese-ionisation',
@@ -298,7 +298,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '100 × 81 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Albert_Gleizes_-_Portrait_of_Igor_Stravinsky.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/37/Albert_Gleizes_-_Portrait_of_Igor_Stravinsky.jpg',
     musicConnection: {
       composerKey: 'stravinsky',
       pieceKey: 'stravinsky-rite-spring',
@@ -326,7 +326,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '81 × 65 cm',
     museumId: 'philadelphia-museum-art',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Jean_Metzinger_-_Le_Gouter.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Jean_Metzinger_-_Le_Gouter.jpg',
     musicConnection: {
       composerKey: 'debussy',
       pieceKey: 'debussy-afternoon-faun',
@@ -356,7 +356,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '217 × 435 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pierre_Puvis_de_Chavannes_-_The_Sacred_Grove.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Pierre_Puvis_de_Chavannes_-_The_Sacred_Grove.jpg',
     musicConnection: {
       composerKey: 'fauré',
       pieceKey: 'fauré-requiem',
@@ -384,7 +384,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on panel',
     dimensions: '111 × 155 cm',
     museumId: 'alte-pinakothek',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Arnold_B%C3%B6cklin_-_Isle_of_the_Dead.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Arnold_B%C3%B6cklin_-_Isle_of_the_Dead.jpg',
     musicConnection: {
       composerKey: 'rachmaninoff',
       pieceKey: 'rachmaninoff-isle-dead',
@@ -412,7 +412,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '175 × 97 cm',
     museumId: 'alte-pinakothek',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Franz_von_Stuck_-_The_Sin.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Franz_von_Stuck_-_The_Sin.jpg',
     musicConnection: {
       composerKey: 'wagner',
       pieceKey: 'wagner-tristan-isolde',
@@ -440,7 +440,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Mixed media on canvas',
     dimensions: '113 × 78 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Félicien_Rops_-_Pornokrat%C3%A8s.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/09/F%C3%A9licien_Rops_-_Pornokrat%C3%A8s.jpg',
     musicConnection: {
       composerKey: 'satie',
       pieceKey: 'satie-avant-dernieres-pensees',
@@ -468,7 +468,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Tempera on canvas',
     dimensions: '120 × 170 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Carlos_Schwabe_-_La_Mort_du_Fossoyeur.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Carlos_Schwabe_-_La_Mort_du_Fossoyeur.jpg',
     musicConnection: {
       composerKey: 'mahler',
       pieceKey: 'mahler-kindertotenlieder',
@@ -496,7 +496,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '72 × 140 cm',
     museumId: 'hamburg-kunsthalle',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fernand_Khnopff_-_I_Lock_My_Door_Upon_Myself.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Fernand_Khnopff_-_I_Lock_My_Door_Upon_Myself.jpg',
     musicConnection: {
       composerKey: 'satie',
       pieceKey: 'satie-gnossienne',
@@ -524,7 +524,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '205 × 118 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Gustave_Moreau_-_Jupiter_and_Semele.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Gustave_Moreau_-_Jupiter_and_Semele.jpg',
     musicConnection: {
       composerKey: 'lully',
       pieceKey: 'lully-semele-divertissement',
@@ -554,7 +554,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '144.4 × 207.6 cm',
     museumId: 'national-gallery-london',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Canaletto_-_The_Grand_Canal%2C_Venice.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Canaletto_-_The_Grand_Canal%2C_Venice.jpg',
     musicConnection: {
       composerKey: 'vivaldi',
       pieceKey: 'vivaldi-four-seasons-spring',
@@ -582,7 +582,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Fresco',
     dimensions: 'Variable (ceiling mural)',
     museumId: 'residenz-würzburg',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tiepolo_-_Allegory_of_the_Planets.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d6/Tiepolo_-_Allegory_of_the_Planets.jpg',
     musicConnection: {
       composerKey: 'mozart',
       pieceKey: 'mozart-magic-flute-celestial',
@@ -610,7 +610,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '114 × 146 cm',
     museumId: 'louvre',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Baptiste-Simeon_Chardin_007.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Jean-Baptiste-Simeon_Chardin_007.jpg',
     musicConnection: {
       composerKey: 'couperin',
       pieceKey: 'couperin-ordres-rococo',
@@ -639,7 +639,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '93 × 115 cm',
     museumId: 'metropolitan-museum',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chardin_-_Soap_Bubbles.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Chardin_-_Soap_Bubbles.jpg',
     musicConnection: {
       composerKey: 'rameau',
       pieceKey: 'rameau-gavotte',
@@ -667,7 +667,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '62 × 100 cm',
     museumId: 'museo-correr',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pietro_Longhi_-_The_Rhinoceros.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Pietro_Longhi_-_The_Rhinoceros.jpg',
     musicConnection: {
       composerKey: 'telemann',
       pieceKey: 'telemann-exotic-wonders',
@@ -695,7 +695,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '76 × 102 cm',
     museumId: 'accademia-venice',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Francesco_Guardi_-_Venice_Lagoon.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Francesco_Guardi_-_Venice_Lagoon.jpg',
     musicConnection: {
       composerKey: 'vivaldi',
       pieceKey: 'vivaldi-gloria',
@@ -723,7 +723,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '98 × 74 cm',
     museumId: 'versailles',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Elisabeth_Louise_Vig%C3%A9e_Le_Brun_-_Marie_Antoinette_with_a_Rose.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Elisabeth_Louise_Vig%C3%A9e_Le_Brun_-_Marie_Antoinette_with_a_Rose.jpg',
     musicConnection: {
       composerKey: 'mozart',
       pieceKey: 'mozart-eine-kleine-nachtmusik',
@@ -753,7 +753,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Stained glass',
     dimensions: 'Variable (window panel)',
     museumId: 'metropolitan-museum',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tiffany_-_Magnolia_and_Irises_window.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Tiffany_-_Magnolia_and_Irises_window.jpg',
     musicConnection: {
       composerKey: 'debussy',
       pieceKey: 'debussy-clair-de-lune',
@@ -781,7 +781,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Ceramic mosaic',
     dimensions: 'Variable (architectural installation)',
     museumId: 'park-guell-barcelona',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Park_Guell_Gaud%C3%AD_mosaics.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/39/Park_Guell_Gaud%C3%AD_mosaics.jpg',
     musicConnection: {
       composerKey: 'albeniz',
       pieceKey: 'albeniz-iberia-barcelona',
@@ -809,7 +809,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Gold, enamel, diamond, and glass',
     dimensions: '10 × 7 cm',
     museumId: 'louvre',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/René_Lalique_-_Dragonfly_brooch.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Ren%C3%A9_Lalique_-_Dragonfly_brooch.jpg',
     musicConnection: {
       composerKey: 'debussy',
       pieceKey: 'debussy-preludes-insects',
@@ -837,7 +837,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Glazed ceramic',
     dimensions: '25 × 15 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Emile_Galle_vase_orchids.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Emile_Galle_vase_orchids.jpg',
     musicConnection: {
       composerKey: 'chausson',
       pieceKey: 'chausson-poeme-orchestra',
@@ -865,7 +865,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Architectural elements: wrought iron, glass, wood',
     dimensions: 'Monumental (interior architecture)',
     museumId: 'horta-museum-brussels',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Victor_Horta_Tassel_staircase.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Victor_Horta_Tassel_staircase.jpg',
     musicConnection: {
       composerKey: 'ysaÿe',
       pieceKey: 'ysaÿe-sonata-architecture',
@@ -893,7 +893,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Lithographic print',
     dimensions: '216 × 73 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Alfons_Mucha_-_Gismonda_poster.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Alfons_Mucha_-_Gismonda_poster.jpg',
     musicConnection: {
       composerKey: 'gounod',
       pieceKey: 'gounod-gismonda-opera',
@@ -923,7 +923,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Tempera on panel',
     dimensions: '210 × 320 cm',
     museumId: 'uffizi-gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Simone_Martini_Annunciation.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/62/Simone_Martini_Annunciation.jpg',
     musicConnection: {
       composerKey: 'palestrina',
       pieceKey: 'palestrina-stabat-mater',
@@ -951,7 +951,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Tempera on panel',
     dimensions: '303 × 282 cm',
     museumId: 'uffizi-gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Gentile_da_Fabriano_-_Adoration_of_the_Magi.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/68/Gentile_da_Fabriano_-_Adoration_of_the_Magi.jpg',
     musicConnection: {
       composerKey: 'dunstable',
       pieceKey: 'dunstable-gloria-polyphony',
@@ -979,7 +979,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on panel',
     dimensions: '220 × 262 cm',
     museumId: 'prado',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Rogier_van_der_Weyden_-_Descent_from_the_Cross.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/28/Rogier_van_der_Weyden_-_Descent_from_the_Cross.jpg',
     musicConnection: {
       composerKey: 'ockeghem',
       pieceKey: 'ockeghem-ave-maria',
@@ -1007,7 +1007,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on panel',
     dimensions: '25 × 25 cm (center)',
     museumId: 'metropolitan-museum',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Robert_Campin_-_Annunciation_Triptych.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Robert_Campin_-_Annunciation_Triptych.jpg',
     musicConnection: {
       composerKey: 'dufay',
       pieceKey: 'dufay-se-la-face-pale',
@@ -1035,7 +1035,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on panel',
     dimensions: '51 × 40 cm',
     museumId: 'cologne-cathedral',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Stefan_Lochner_-_Madonna_of_the_Rose_Bower.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Stefan_Lochner_-_Madonna_of_the_Rose_Bower.jpg',
     musicConnection: {
       composerKey: 'dunstable',
       pieceKey: 'dunstable-quam-pulcra',
@@ -1063,7 +1063,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Tempera on panel',
     dimensions: '267 × 280 cm',
     museumId: 'santa-maria-novella',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Andrea_Orcagna_-_Christ_in_Majesty.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Andrea_Orcagna_-_Christ_in_Majesty.jpg',
     musicConnection: {
       composerKey: 'machaut',
       pieceKey: 'machaut-notre-dame-mass',
@@ -1093,7 +1093,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '100 × 81 cm',
     museumId: 'louvre',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Elisabeth_Vig%C3%A9e_Le_Brun_-_Self-portrait_with_daughter.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Elisabeth_Vig%C3%A9e_Le_Brun_-_Self-portrait_with_daughter.jpg',
     musicConnection: {
       composerKey: 'mozart',
       pieceKey: 'mozart-clarinet-concerto',
@@ -1121,7 +1121,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '152 × 213 cm',
     museumId: 'national-gallery-london',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Benjamin_West_-_Death_of_General_Wolfe.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Benjamin_West_-_Death_of_General_Wolfe.jpg',
     musicConnection: {
       composerKey: 'handel',
       pieceKey: 'handel-royal-fireworks',
@@ -1149,7 +1149,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '183 × 229 cm',
     museumId: 'national-gallery-washington',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/John_Singleton_Copley_-_Watson_and_the_Shark.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/John_Singleton_Copley_-_Watson_and_the_Shark.jpg',
     musicConnection: {
       composerKey: 'haydn',
       pieceKey: 'haydn-surprise-symphony',
@@ -1177,7 +1177,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '163 × 80 cm',
     museumId: 'musee-dorsay',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Auguste-Dominique_Ingres_-_La_Source.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Jean-Auguste-Dominique_Ingres_-_La_Source.jpg',
     musicConnection: {
       composerKey: 'liszt',
       pieceKey: 'liszt-am-quell-source',
@@ -1205,7 +1205,7 @@ export const ARTWORKS_BATCH4B: Artwork[] = [
     medium: 'Oil on canvas',
     dimensions: '106 × 88 cm',
     museumId: 'virginia-museum-fine-arts',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Angelica_Kauffman_-_Cornelia.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Angelica_Kauffman_-_Cornelia.jpg',
     musicConnection: {
       composerKey: 'mozart',
       pieceKey: 'mozart-requiem-kyrie',

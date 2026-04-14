@@ -17,7 +17,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '265 × 196 cm',
     museumId: 'gemaldegalerie-berlin',
     room: 'Italian Renaissance',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Raphael_-_Sistine_Madonna_-_Google_Art_Project_2015.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/37/Raphael_-_Sistine_Madonna_-_Google_Art_Project_2015.jpg',
     hasNarration: true,
     highlights: [
       'Cherubs gazing downward in iconic detail',
@@ -41,7 +41,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '170 × 118 cm',
     museumId: 'pinacoteca-brera',
     room: 'Renaissance Gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Raphael_-_Sposalizio_-_Web_Gallery_of_Art.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Raphael_-_Sposalizio_-_Web_Gallery_of_Art.jpg',
     hasNarration: true,
     highlights: [
       'Perfect central perspective in Renaissance tradition',
@@ -65,7 +65,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '82 × 67 cm',
     museumId: 'louvre',
     room: 'Renaissance Paintings',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Raffaello_-_Portrait_of_Baldassare_Castiglione.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Raffaello_-_Portrait_of_Baldassare_Castiglione.jpg',
     hasNarration: false,
     highlights: [
       'Psychological depth in Renaissance portraiture',
@@ -89,7 +89,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '85 × 60 cm',
     museumId: 'galleria-borghese',
     room: 'Titian and Raphael Collection',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Raphael_-_La_Fornarina.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Raphael_-_La_Fornarina.jpg',
     hasNarration: false,
     highlights: [
       'Sensuously rendered woman of beauty and mystery',
@@ -113,7 +113,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '184 × 176 cm',
     museumId: 'galleria-borghese',
     room: 'Raphael Room',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Raphael_-_Deposition_of_Christ.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Raphael_-_Deposition_of_Christ.jpg',
     hasNarration: true,
     highlights: [
       'Dramatic emotional intensity of entombment scene',
@@ -139,7 +139,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '141 × 196.2 cm',
     museumId: 'national-gallery-london',
     room: 'European Paintings',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/The_Supper_at_Emmaus_by_Caravaggio.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/26/The_Supper_at_Emmaus_by_Caravaggio.jpg',
     hasNarration: true,
     highlights: [
       'Dramatic moment of Christ\'s recognition',
@@ -163,7 +163,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '230 × 175 cm',
     museumId: 'santa-maria-del-popolo',
     room: 'Cerasi Chapel',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Caravaggio_Conversion_of_Saint_Paul.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Caravaggio_Conversion_of_Saint_Paul.jpg',
     hasNarration: true,
     highlights: [
       'Divine light overwhelming Paul on road to Damascus',
@@ -187,7 +187,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '125 × 100 cm',
     museumId: 'galleria-borghese',
     room: 'Baroque Collection',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/David_and_Goliath_Caravaggio.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/David_and_Goliath_Caravaggio.jpg',
     hasNarration: false,
     highlights: [
       'Disturbing psychological portrait of victory and mercy',
@@ -211,7 +211,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '300 × 203 cm',
     museumId: 'vatican-museums',
     room: 'Pinacoteca',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Caravaggio_Entombment_of_Christ.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/Caravaggio_Entombment_of_Christ.jpg',
     hasNarration: true,
     highlights: [
       'Overwhelming grief in stone tomb composition',
@@ -235,7 +235,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '70 × 67 cm',
     museumId: 'galleria-borghese',
     room: 'Baroque Gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Caravaggio_-_Boy_with_a_Basket_of_Fruit.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Caravaggio_-_Boy_with_a_Basket_of_Fruit.jpg',
     hasNarration: false,
     highlights: [
       'Allegorical still life study within portraiture',
@@ -261,7 +261,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '21.6 × 15.1 cm',
     museumId: 'prado',
     room: 'Print Room',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Goya_-_The_sleep_of_reason_produces_monsters.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Goya_-_The_sleep_of_reason_produces_monsters.jpg',
     hasNarration: true,
     highlights: [
       'Darkest meditation on human reason and imagination',
@@ -285,7 +285,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '116 × 105 cm',
     museumId: 'prado',
     room: 'Goya Black Paintings Series',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Goya_-_El_Coloso_-_Google_Art_Project.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Goya_-_El_Coloso_-_Google_Art_Project.jpg',
     hasNarration: true,
     highlights: [
       'Apocalyptic giant towering over fleeing crowds',
@@ -309,7 +309,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '146 × 167 cm',
     museumId: 'prado',
     room: 'Black Paintings Room',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Goya_Witches_Sabbath.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Goya_Witches_Sabbath.jpg',
     hasNarration: true,
     highlights: [
       'Demonic gathering under monstrous goat-demon',
@@ -333,7 +333,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '132 × 76 cm',
     museumId: 'prado',
     room: 'Black Paintings Room',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Goya_-_Perro_semihundido.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Goya_-_Perro_semihundido.jpg',
     hasNarration: true,
     highlights: [
       'Existential despair of half-submerged dog',
@@ -357,7 +357,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '104 × 152 cm',
     museumId: 'prado',
     room: 'Spanish Painting Gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Goya_-_The_Parasol_-_Google_Art_Project.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Goya_-_The_Parasol_-_Google_Art_Project.jpg',
     hasNarration: false,
     highlights: [
       'Charming rococo tapestry cartoon style',
@@ -383,7 +383,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '64 × 42 cm',
     museumId: 'egyptian-museum',
     room: 'Old Kingdom Gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Narmer_Palette_Front.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Narmer_Palette_Front.jpg',
     hasNarration: true,
     highlights: [
       'Oldest historical artwork recording political event',
@@ -407,7 +407,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '73.2 m long × 20.1 m high',
     museumId: 'egyptian-museum',
     room: 'Giza Plateau Exhibition',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Great_Sphinx_of_Giza.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Great_Sphinx_of_Giza.jpg',
     hasNarration: true,
     highlights: [
       'Colossal guardian of Giza plateau',
@@ -431,7 +431,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '73.5 cm height',
     museumId: 'louvre',
     room: 'Egyptian Antiquities',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Seated_Scribe_Louvre_7921.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Seated_Scribe_Louvre_7921.jpg',
     hasNarration: false,
     highlights: [
       'Portrait sculpture of exceptional naturalism',
@@ -455,7 +455,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '4.1 m height (fragmentary)',
     museumId: 'egyptian-museum',
     room: 'New Kingdom Gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Akhenaten_Colossal_Statue.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Akhenaten_Colossal_Statue.jpg',
     hasNarration: false,
     highlights: [
       'Revolutionary representation of heretic pharaoh',
@@ -479,7 +479,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '147 cm height',
     museumId: 'egyptian-museum',
     room: 'New Kingdom Treasures',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Senenmut_Neferure_Statue.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Senenmut_Neferure_Statue.jpg',
     hasNarration: false,
     highlights: [
       'Intimate group portrait of architect and princess',
@@ -503,7 +503,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: 'Temple: 6.4 m wide × 15.1 m long',
     museumId: 'met',
     room: 'Egyptian Temple Hall',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Temple_of_Dendur_Metropolitan_Museum.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Temple_of_Dendur_Metropolitan_Museum.jpg',
     hasNarration: true,
     highlights: [
       'Ptolemaic temple preserved in museum setting',
@@ -529,7 +529,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '305 cm height',
     museumId: 'acropolis-museum',
     room: 'Archaic Gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kouros_of_Sounion.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Kouros_of_Sounion.jpg',
     hasNarration: false,
     highlights: [
       'Earliest large-scale Greek marble sculpture',
@@ -553,7 +553,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '2.3 m height each',
     museumId: 'acropolis-museum',
     room: 'Classical Sculpture Hall',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Caryatids_Erechtheion_Acropolis.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Caryatids_Erechtheion_Acropolis.jpg',
     hasNarration: true,
     highlights: [
       'Female figures serving as architectural columns',
@@ -577,7 +577,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '194 cm height',
     museumId: 'acropolis-museum',
     room: 'Archaic Sculpture Collection',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kroisos_Kouros_Acropolis_Museum.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/da/Kroisos_Kouros_Acropolis_Museum.jpg',
     hasNarration: false,
     highlights: [
       'Archaic idealization of youthful male warrior',
@@ -601,7 +601,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '198 cm height',
     museumId: 'museo-regionale-calabria',
     room: 'Bronze Collection',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Riace_Warrior_A.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Riace_Warrior_A.jpg',
     hasNarration: true,
     highlights: [
       'Masterwork of Classical Greek bronze sculpture',
@@ -625,7 +625,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '66 cm height',
     museumId: 'museo-archeologico-nazionale-firenze',
     room: 'Greek Ceramics Gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Francois_Vase.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Francois_Vase.jpg',
     hasNarration: false,
     highlights: [
       'Masterpiece of red-figure ceramic technique',
@@ -649,7 +649,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '2.1 m height',
     museumId: 'archaeological-museum-olympia',
     room: 'Classical Sculpture',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nike_of_Paionios_Olympia.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Nike_of_Paionios_Olympia.jpg',
     hasNarration: true,
     highlights: [
       'Goddess of Victory descending in divine flight',
@@ -673,7 +673,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '180 cm height',
     museumId: 'archaeological-museum-delphi',
     room: 'Bronze Masterworks',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Charioteer_of_Delphi.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Charioteer_of_Delphi.jpg',
     hasNarration: true,
     highlights: [
       'Monument to athletic victory and divine favor',
@@ -699,7 +699,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: 'Dining room: 6.5 m wide × 2.8 m high',
     museumId: 'archaeological-museum-naples',
     room: 'Pompeian Treasures',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Villa_of_the_Mysteries_Pompeii.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Villa_of_the_Mysteries_Pompeii.jpg',
     hasNarration: true,
     highlights: [
       'Mysterious Dionysian initiation ceremony depicted',
@@ -723,7 +723,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '75 cm height',
     museumId: 'palazzo-dei-conservatori',
     room: 'Capitoline Museums',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Capitoline_Wolf.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Capitoline_Wolf.jpg',
     hasNarration: true,
     highlights: [
       'Symbol of Rome and lupine nurture of Romulus and Remus',
@@ -747,7 +747,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '3.5 m height',
     museumId: 'palazzo-dei-conservatori',
     room: 'Capitoline Museums',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Equestrian_Statue_Marcus_Aurelius_Rome.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Equestrian_Statue_Marcus_Aurelius_Rome.jpg',
     hasNarration: true,
     highlights: [
       'Only surviving Roman equestrian bronze statue',
@@ -771,7 +771,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '312 × 589 cm',
     museumId: 'archaeological-museum-naples',
     room: 'Mosaic Gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Alexander_Mosaic_Pompeii.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Alexander_Mosaic_Pompeii.jpg',
     hasNarration: true,
     highlights: [
       'Alexander the Great at Battle of Gaugamela',
@@ -795,7 +795,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '11.6 m × 10.6 m × 7.1 m',
     museumId: 'ara-pacis-museum',
     room: 'Ara Pacis Exhibition',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ara_Pacis_Augustae_Rome.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Ara_Pacis_Augustae_Rome.jpg',
     hasNarration: true,
     highlights: [
       'Monumental commemoration of Augustan peace',
@@ -821,7 +821,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '60 × 83 cm',
     museumId: 'musee-dorsay',
     room: 'Impressionist Gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Edgar_Degas_-_The_Tub.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Edgar_Degas_-_The_Tub.jpg',
     hasNarration: true,
     highlights: [
       'Revolutionary perspective from above intimate scene',
@@ -845,7 +845,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '85 × 75 cm',
     museumId: 'musee-dorsay',
     room: 'Degas Pastels Collection',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Degas_Dancers_in_Blue.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Degas_Dancers_in_Blue.jpg',
     hasNarration: false,
     highlights: [
       'Ballet dancers in rehearsal captured with immediacy',
@@ -869,7 +869,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '115.5 × 170.2 cm',
     museumId: 'philadelphia-museum-art',
     room: 'Impressionist Collection',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/The_Large_Bathers_Renoir.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ad/The_Large_Bathers_Renoir.jpg',
     hasNarration: false,
     highlights: [
       'Sensual composition of female nudes in nature',
@@ -893,7 +893,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '154.3 × 190.2 cm',
     museumId: 'met',
     room: 'European Paintings',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Madame_Charpentier_and_Her_Children_Renoir.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Madame_Charpentier_and_Her_Children_Renoir.jpg',
     hasNarration: false,
     highlights: [
       'Elegant portrait of bourgeois family in interior',
@@ -917,7 +917,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '102 × 146.5 cm',
     museumId: 'musee-dorsay',
     room: 'Impressionist Works',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Caillebotte_Floor_Scrapers.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Caillebotte_Floor_Scrapers.jpg',
     hasNarration: true,
     highlights: [
       'Urban labor captured with respectful dignity',
@@ -941,7 +941,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '152 × 230 cm',
     museumId: 'musee-dorsay',
     room: 'Impressionist Gallery',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Frederic_Bazille_Family_Reunion.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Frederic_Bazille_Family_Reunion.jpg',
     hasNarration: false,
     highlights: [
       'Outdoor gathering of family members in dappled light',
@@ -965,7 +965,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '52.1 × 40.6 cm',
     museumId: 'musee-dorsay',
     room: 'Female Impressionists',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Eva_Gonzales_Loge_Theatre.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Eva_Gonzales_Loge_Theatre.jpg',
     hasNarration: false,
     highlights: [
       'Woman in theater box studying her surroundings',
@@ -989,7 +989,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '65 × 81.3 cm',
     museumId: 'musee-dorsay',
     room: 'Impressionist Landscapes',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Guillaumin_Sunset_Ivry.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Guillaumin_Sunset_Ivry.jpg',
     hasNarration: false,
     highlights: [
       'Vivid sunset over industrial landscape',
@@ -1015,7 +1015,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '73 × 92 cm',
     museumId: 'musee-dorsay',
     room: 'Post-Impressionist Works',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Signac_Papal_Palace_Avignon.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Signac_Papal_Palace_Avignon.jpg',
     hasNarration: false,
     highlights: [
       'Medieval palace rendered in divisionist technique',
@@ -1039,7 +1039,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '73 × 60 cm',
     museumId: 'met',
     room: 'European Paintings',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Luce_Morning_Interior.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Luce_Morning_Interior.jpg',
     hasNarration: false,
     highlights: [
       'Morning light suffusing domestic interior space',
@@ -1063,7 +1063,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '72 × 89 cm',
     museumId: 'musee-dorsay',
     room: 'Symbolist and Post-Impressionist',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Emile_Bernard_Breton_Women_Pardon.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c6/Emile_Bernard_Breton_Women_Pardon.jpg',
     hasNarration: false,
     highlights: [
       'Regional pilgrimage captured with symbolic depth',
@@ -1087,7 +1087,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '68.5 × 53 cm',
     museumId: 'hartford-wadsworth-atheneum',
     room: 'Post-Impressionist Collection',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Anquetin_Avenue_Clichy.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Anquetin_Avenue_Clichy.jpg',
     hasNarration: false,
     highlights: [
       'Night street scene with electric light and color',
@@ -1111,7 +1111,7 @@ export const ARTWORKS_BATCH4C: Artwork[] = [
     dimensions: '73 × 53.5 cm',
     museumId: 'musee-dorsay',
     room: 'Pointillist Works',
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Angrand_Couple_in_Street.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Angrand_Couple_in_Street.jpg',
     hasNarration: false,
     highlights: [
       'Everyday urban scene elevated with technique',
